@@ -1,26 +1,41 @@
 @font-face {
-    font-family: Spider-Man;
+    font-family: 'Spider-Man';
     src: url(Fonts/Spider-Man.otf);
 }
 
 @font-face {
-    font-family: Monument;
+    font-family: 'Monument';
     src: url(Fonts/MonumentExtended-Regular.otf);
 }
 
 @font-face {
-    font-family: Monument-Bold;
+    font-family: 'Monument-Bold';
     src: url(Fonts/MonumentExtended-Ultrabold.otf);
 }
 
 @font-face {
-    font-family: Ignotum;
+    font-family: 'Ignotum';
     src: url(Fonts/IgnotumItalic-mLMMj.ttf);
+}
+
+@font-face {
+    font-family: 'High-Tech Thin';
+    src: url(Fonts/Demoarchimotov01Thin-K7DPy.otf);
+}
+
+@font-face {
+    font-family: 'High-Tech';
+    src: url(Fonts/Demoarchimotov01Medium-rg1Ky.otf);
+}
+
+@font-face {
+    font-family: 'High-Tech Italic';
+    src: url(Fonts/Demoarchimotov01Mediumitalic-MVqXJ.otf);
 }
 
 @import url('https://fonts.googleapis.com/css2?family="Poppins":wght@100;200;300;400;500;600;700;800;900&display=swap');
 
-*{
+*,body{
     margin: 0;
     padding: 0;
 }
@@ -37,7 +52,6 @@ body{
     padding-top: 18px;
     padding-bottom: 18px;
     border-bottom: solid #14181D 3px;
-    box-shadow: 0px 5px 15px black;
     position: fixed;
     width: 100%;
     z-index: 999;
@@ -51,7 +65,7 @@ body{
 .logo{
     position: absolute; 
     left: 20px;  
-    font-family: Spider-Man;
+    font-family: 'Spider-Man';
     font-size: 32px;
     letter-spacing: 2px;
 }
@@ -78,7 +92,7 @@ body{
     left: 50%;
     transform: translate(-50%, -50%);
     color: white;
-    font-family: Ignotum;
+    font-family: 'Ignotum';
     font-weight: 100;
     font-size: 130px;
     letter-spacing: 25px;
@@ -89,26 +103,129 @@ body{
 
 .trailer{
     position: relative;
-    width: 75%;
     display: block;
     margin: auto;
-    margin-top: 50px;
-    margin-bottom: 50px;
+    margin-top: 90px;
+    margin-bottom: 90px;
     text-align: center;
+    width: 75%;
+    border: solid #4DB3BD 1px;
+
+    span.border_btm {
+        &:after {
+          display: block;
+          content: "";
+          width: 15px;
+          height: 15px;
+          position: absolute;
+          bottom: -10px;
+          right: -10px;
+          border-bottom: 1.5px solid white;
+          border-right: 1.5px solid white;
+        }
+        &:before {
+          display: block;
+          content: "";
+          width: 15px;
+          height: 15px;
+          position: absolute;
+          bottom: -10px;
+          left: -10px;
+          border-bottom: 1.5px solid white;
+          border-left: 1.5px solid white;
+        }
+    }
+    
+    &:before {
+        display: block;
+        content: "";
+        width: 15px;
+        height: 15px;
+        position: absolute;
+        top: -10px;
+        left: -10px;
+        border-top: 1.5px solid white;
+        border-left: 1.5px solid white;
+    }
+    
+    &:after {
+        display: block;
+        content: "";
+        width: 15px;
+        height: 15px;
+        position: absolute;
+        top: -10px;
+        right: -10px;
+        border-top: 1.5px solid white;
+        border-right: 1.5px solid white;
+    }
+    
 }
 
 video{
     width: 100%;
     margin: auto;
+    filter: brightness(10%);
 }
 
 .hover_text{
+    display: flex;
     top: 0%;
     position: absolute;
     color: white;
-    font-family: Monument;
-    font-size: 50px;
+    font-family: 'Monument';
+    font-size: 30px;
     width: 100%;
     height: 100%;
-    transition: 2s;
+    align-items: center;
+    justify-content: center;
 }
+
+.overview{
+    background-image: url(Images/City.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.overview .text{
+    width: 100%;
+}
+
+.overview h1{
+    font-family: 'Monument-Bold';
+    font-size: 90px;
+    letter-spacing: 15px;
+    color: white;
+    text-shadow: 0px 1px 3px black;
+    width: 50%;
+    margin-left: 20px;
+    margin-bottom: 50px;
+}
+
+.overview hr{
+    width: 25%;  
+    opacity: 50%;
+    margin-left: 20px;
+}
+
+.overview .paragraphs{
+    font-family: "Poppins", sans-serif; 
+    font-size: 25px;
+    line-height: 38px;
+    color: white;
+    opacity: 65%;
+    width: 45%;
+    float: right;
+    margin-top: 50px;
+    margin-right: 20px;
+}
+
+.paragraphs p:last-child{
+    margin-top: 28px;
+}
+
