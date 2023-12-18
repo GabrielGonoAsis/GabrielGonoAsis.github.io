@@ -29,21 +29,41 @@
 }
 
 @font-face {
+    font-family: 'High-Tech Bold';
+    src: url(Fonts/Demoarchimotov01Black-8MD5g.otf);
+}
+
+@font-face {
     font-family: 'High-Tech Italic';
-    src: url(Fonts/Demoarchimotov01Mediumitalic-MVqXJ.otf);
+    src: url(Fonts/Demoarchimotov01Blackitalic-Yz9rO.otf);
+}
+
+@font-face {
+    font-family: 'High-Tech 2';
+    src: url(Fonts/PPNeueMachina-InktrapRegular.otf);
+}
+
+@font-face {
+    font-family: 'High-Tech 2 Bold';
+    src: url(Fonts/PPNeueMachina-InktrapUltrabold.otf);
 }
 
 @import url('https://fonts.googleapis.com/css2?family="Poppins":wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap');
+
 
 *,body{
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
 }
 
 body{
     background-color: #222831;
 }
 
+/*header*/
 #header {
     display:flex; 
     justify-content: center; 
@@ -55,11 +75,16 @@ body{
     position: fixed;
     width: 100%;
     z-index: 999;
+    transition: all 0.5s;
 }
 
 #header a{
     color: white;
     text-decoration: none;
+}
+
+.hidden-header {
+    top: -60px;
 }
 
 .logo{
@@ -79,6 +104,8 @@ body{
     font-size: 16px; 
 }
 
+
+/*poster*/
 .poster img{
     width: 100%;
     z-index: 1;
@@ -101,6 +128,8 @@ body{
     z-index: 2;
 }
 
+
+/*trailer*/
 .trailer{
     position: relative;
     display: block;
@@ -162,10 +191,11 @@ body{
     
 }
 
-video{
+.trailer video{
     width: 100%;
     margin: auto;
     filter: brightness(10%);
+    box-shadow: 0px 0px 20px black;
 }
 
 .hover_text{
@@ -181,6 +211,8 @@ video{
     justify-content: center;
 }
 
+
+/*overview*/
 .overview{
     background-image: url(Images/City.png);
     background-repeat: no-repeat;
@@ -227,5 +259,216 @@ video{
 
 .paragraphs p:last-child{
     margin-top: 28px;
+}
+
+.scroll_container {
+    height: 500vh;
+    background-color: #0A1020;
+    color: white;
+}
+  
+.horizontal_scroll {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 500vw;
+    will-change: transform;
+    display: flex;
+    justify-content: space-between;
+}
+  
+.scroll_contents {
+    height: 100%;
+    width: 100vw;
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+  
+.sticky_wrap {
+    overflow: hidden;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+}
+
+.title-features{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.title-features h1{
+    text-align: center;
+    font-family: 'Monument-Bold';
+    font-size: 10rem;
+    letter-spacing: 1.5rem;
+    white-space: nowrap;
+    margin: 0px 160px;
+}
+
+.horizontal_scroll hr{
+    position: relative;
+    top: 20%;
+    height: 60%;
+    width: 1px;
+    opacity: 10%;
+}
+
+.features-vid video{
+    width: 100%;
+    border: solid #4DB3BD 1px;
+    box-shadow: 0px 0px 50px black;
+}
+
+.features-vid{
+    width: 130vh;
+    position: relative;
+    span.border_btm {
+        &:after {
+          display: block;
+          content: "";
+          width: 12px;
+          height: 12px;
+          position: absolute;
+          bottom: -8px;
+          right: -12px;
+          border-bottom: 2px solid white;
+          border-right: 2px solid white;
+        }
+        &:before {
+          display: block;
+          content: "";
+          width: 12px;
+          height: 12px;
+          position: absolute;
+          bottom: -8px;
+          left: -12px;
+          border-bottom: 2px solid white;
+          border-left: 2px solid white;
+        }
+    }
+    
+    &:before {
+        display: block;
+        content: "";
+        width: 12px;
+        height: 12px;
+        position: absolute;
+        top: -10px;
+        left: -10px;
+        border-top: 2px solid white;
+        border-left: 2px solid white;
+    }
+    
+    &:after {
+        display: block;
+        content: "";
+        width: 12px;
+        height: 12px;
+        position: absolute;
+        top: -10px;
+        right: -10px;
+        border-top: 2px solid white;
+        border-right: 2px solid white;
+    }
+    
+}
+
+
+.top .container{
+    margin: 0px 160px;
+    position: relative;
+    top: 5px;
+}
+
+.top .container h1{
+    font-family: 'High-Tech 2 Bold';
+    letter-spacing: 4px;
+    word-spacing: 10px;
+    margin: 12.5px 0px;    
+}
+
+.top .container p{
+    font-family: 'High-Tech Thin';
+    font-size: 15px;
+    text-align: justify;
+    letter-spacing: 2px;
+    margin: 15px 0px 30px 0px;
+    width: 130vh;
+    opacity: 50%;
+}
+
+.top .container span{
+    font-family: 'High-Tech Italic';
+    color: #F05454;
+}
+
+.bottom .container{
+    margin: 0px 160px;
+    position: relative;
+    top: 60px;
+}
+
+.bottom .container h1{
+    font-family: 'High-Tech 2 Bold';
+    letter-spacing: 4px;
+    word-spacing: 10px;
+    margin: 30px 0px 15px 0px;    
+}
+
+.bottom .container p{
+    font-family: 'High-Tech Thin';
+    font-size: 15px;
+    text-align: justify;
+    letter-spacing: 2px;
+    margin: 12.5px 0px;
+    width: 130vh;
+    opacity: 50%;
+}
+
+.bottom .container p span{
+    font-family: 'High-Tech Italic';
+    color: #F05454;
+}
+
+
+.characters .title{
+    color: white;
+    text-align: center;
+    margin: 50px;
+}
+
+.title h1{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 50px;
+    font-weight: 800;
+    letter-spacing: 5px;
+    margin-bottom: 15px;
+}
+
+.title p{
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    letter-spacing: 2px;
+    width: 50%;
+    margin: auto;
+    opacity: 50%;
+}
+
+.friends h1, .foes h1{
+    font-family: 'Monument-Bold';
+    font-size: 45px;
+    text-align: center;
+    letter-spacing: 10px;
+}
+
+.friends{
+    background-color: rgb(255, 255, 255, 0.8)
+}
+
+.foes{
+    background-color: rgb(0, 0, 0, 0.8);
+    color: white;
 }
 

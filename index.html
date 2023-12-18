@@ -8,35 +8,48 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
     </head>
     <body>
+        <!--header-->
         <header id="header">
+            <!--spider-man logo-->
             <div class="logo">
                 <a href="">SPIDER-MAN 2</a>
             </div>
             
+            <!--navigation buttons-->
             <nav id="nav-bar">
                 <ul id="menu">
-                    <li><a class="nav-link" href="">OVERVIEW</a></li>
+                    <li><a class="nav-link" href="#overview">OVERVIEW</a></li>
                     <li><a class="nav-link" href="">GALLERY</a></li>
                     <li><a class="nav-link" href="">DEVELOPERS</a></li>   
                     <li><a class="nav-link" href="">BUY NOW</a></li>   
                 </ul>
             </nav>
         </header>
+
+        <!--main content-->
         <main>
+            <!--poster with slogan-->
             <div class="poster">
-                <img src="Images/peterandmiles.png" alt="">
+                <img src="Images/peterandmiles.png" alt=""> 
                 <span class="slogan">BE GREATER. TOGETHER.</span>
             </div>
 
+            <!--trailer video-->
             <div class='trailer'>
                 <video src= "Videos/Spider-Man 2 trailer.mp4"type="video/mp4" class="video" loop></video> 
                 <div class="hover_text"><p>HOVER TO PLAY</p></div>
                 <span  class="border_btm"></span>
             </div>
 
-            <div class="overview">
+            <!--overview section-->
+            <div class="overview" id="overview">
                 <div class="text">
                     <h1>OVERVIEW</h1>   
                     <hr color="white" size="2.5px">
@@ -47,7 +60,104 @@
                     </div>
                 </div>
             </div>
+            
+            <!--switching to horizontal scrolling-->
+            <!--key-features section-->
+            <div class="scroll_container" id="key-features">
+                <div class="sticky_wrap">
+                    <div class="horizontal_scroll">
+
+                        <div class="scroll_contents title-features">
+                            <h1>KEY<br>FEATURES</h1>
+                        </div>
+                        
+                        <hr color="white">
+
+                        <div class="scroll_contents top">
+                            <div class="container">
+                                <h1>WEB WINGS</h1>
+                                <p>Take Spidey to new heights with <span>Web Wings</span>! Glide through New York city using wind tunnels, mastering the skies with unrivaled speed and freedom.</p>
+
+                                <div class="features-vid">
+                                    <video autoplay muted playsinline loop>
+                                        <source src="Videos/webwings.mp4" type="video/mp4">
+                                    </video>
+                                    <span class="border_btm"></span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <hr color="white">
+
+                        <div class="scroll_contents bottom">
+                            <div class="container">
+                                <div class="features-vid">
+                                    <video autoplay muted playsinline loop>
+                                        <source src="Videos/character switching.mp4" type="video/mp4">
+                                    </video>
+                                    <span class="border_btm"></span>
+                                </div>
+
+                                <h1>CHARACTER SWITCHING</h1>
+                                <p>Dual the danger, double the heroism! Seamlessly <span>switch</span> between the iconic Peter Parker and the electrifying Miles Morales. Harness their unique powers, styles, and perspectives to face challenges head-on.</p>
+                            </div>
+                        </div>
+                        
+                        <hr color="white">
+
+                        <div class="scroll_contents top">
+                            <div class="container">
+                                <h1>SYMBIOTE SUIT</h1>
+                                <p>Unleash the darkness within with the <span>Symbiote Suit</span>! Embrace newfound powers as the suit enhances Spidey's abilities to an unprecedented level. Wield incredible strength, agility, and a touch of the sinister.</p>
+                                <div class="features-vid">               
+                                    <video autoplay muted playsinline loop>
+                                        <source src="Videos/symbiote.mp4" type="video/mp4">
+                                    </video>
+                                    <span class="border_btm"></span>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <hr color="white">
+
+                        <div class="scroll_contents bottom">
+                            <div class="container">
+                                <div class="features-vid">                      
+                                    <video autoplay muted playsinline loop>
+                                        <source src="Videos/villains.mp4" type="video/mp4">
+                                    </video>
+                                    <span class="border_btm"></span>
+                                </div>
+
+                                <h1>ICONIC VILLAINS</h1>
+                                <p>Duel legendary villains in heart-pounding combat against <span>iconic Spider-Man Villains</span> . The battle for the city's fate reaches new heights as you go head-to-head with your foes in an epic clash of heroism and villainy.</p>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+
+            <!--switching to vertical scrolling-->
+
+            <!--characters-->
+            <div class="characters">
+                <div class="title">
+                    <h1>MEET THE CAST</h1>
+                    <p>Dive into web of alliances and rivalries. Meet allies like Mary Jane Watson and Ganke Lee, and face the formidable foes Venom, the Lizard, and Kraven the Hunter.</p>
+                </div>
+
+                <div class="friends">
+                    <h1>FRIENDS</h1>
+                </div>
+                
+                <div class="foes">
+                    <h1>FOES</h1>
+                </div>
+            </div>
         </main>
         <script src="script.js"></script>
+
     </body>
 </html>
