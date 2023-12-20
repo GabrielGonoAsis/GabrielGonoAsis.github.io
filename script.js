@@ -53,20 +53,30 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function handleScroll() {
       if (isOverKeyFeatures()) {
-          document.getElementById("header").style.top = '-60px';
+          document.getElementById("header").style.opacity = '0';
       } else {
-          document.getElementById("header").style.top = '0';
+          document.getElementById("header").style.opacity = '100';
       }
   }
 
   window.addEventListener('scroll', handleScroll);
 
   handleScroll();
+
+  var prevScrollpos = window.scrollY;
+  window.onscroll = function() {
+  var currentScrollPos = window.scrollY;
+  if (prevScrollpos > currentScrollPos) {
+    document.getElementById('header').style.top = "0";
+  } else {
+    document.getElementById('header').style.top = "-60px";
+  }
+    prevScrollpos = currentScrollPos;
+  }
 });
 
 window.addEventListener('load', videoScroll);
 window.addEventListener('scroll', videoScroll);
-
 
 //autoplay on scroll for key-features videos
 function videoScroll() {
@@ -91,3 +101,69 @@ function videoScroll() {
   }
 
 }
+
+let swiperCards = new Swiper(".friends .card__content", {
+  loop: true,
+  spaceBetween: 5,
+  grabCursor: true,
+  centeredSlides: true,
+  effect: "coverflow",
+  coverflowEffect:{
+    rotate: 0,
+    depth: 100,
+  },
+
+  pagination: {
+    el: ".friends .swiper-pagination",
+    clickable: true,
+    dynamicBullets: true,
+  },
+
+  navigation: {
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev",
+  },
+
+  breakpoints:{
+    600: {
+      slidesPerView: 2,
+    },
+    968: {
+      slidesPerView: 3,
+    },
+  },
+});
+
+let swiperCards2 = new Swiper(".foes .card__content", {
+  loop: true,
+  spaceBetween: 20,
+  grabCursor: true,
+  centeredSlides: true,
+  effect: "coverflow",
+  coverflowEffect:{
+    rotate: 0,
+    depth: 200,
+  },
+
+  pagination: {
+    el: ".foes .swiper-pagination",
+    clickable: true,
+    dynamicBullets: true,
+  },
+
+  navigation: {
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev",
+  },
+
+
+
+  breakpoints:{
+    600: {
+      slidesPerView: 2,
+    },
+    968: {
+      slidesPerView: 2,
+    },
+  },
+});

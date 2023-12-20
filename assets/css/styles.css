@@ -1,0 +1,236 @@
+@font-face {
+  font-family: 'Spider-Man';
+  src: url(../../Fonts/Spider-Man.otf);
+}
+
+@font-face {
+  font-family: 'High tech black';
+  src: url(../../Fonts/Demoarchimotov01Black-8MD5g.otf);
+}
+
+@import url('https://fonts.googleapis.com/css2?family="Poppins":wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+.swiper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+}
+
+.card__image img {
+  display: block;
+  height: auto;
+}
+
+.slider-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card__container {
+  padding-block: 3rem;
+}
+
+.card__content {
+  overflow: hidden;
+}
+
+.card__article {
+  overflow: hidden;
+  border-radius: 5px;
+  width: 100%;
+}
+
+.foes .card__article{
+  border-radius: 7px;
+}
+
+.card__image {
+  position: relative;
+}
+
+.card__data {
+  display: flex;
+  background-color: rgba(0, 0, 0);
+  height: 176px;
+  padding: 0px 22px;
+  text-align: justify;
+  position: relative;
+  z-index: 10;
+  align-items: center;
+}
+
+.foes .card__data{
+  background-color: #111418;
+  padding: 0px 28px;
+}
+
+.card__img {
+  width: 100%;
+  position: relative;
+  z-index: 5;
+}
+
+.card__name {
+  position: absolute;
+  top: 0;
+  font-size: 1rem;
+  color: black;
+  margin-top: -13px;
+  left: 50%;
+  transform: translate(-50%);
+  text-align: center;
+  background-color: white;
+  border: solid #4DB3BD 2px;
+  padding: 0px 7px;
+  font-family:'Poppins', sans-serif;
+  font-weight: 800;
+  box-shadow: 0px 0px 20px black;
+  span.border_btm {
+    &:after {
+      display: block;
+        content: "";
+        width: 5px;
+        height: 5px;
+        position: absolute;
+        bottom: -6.5px;
+        right: -6px;
+        border-bottom: 1.5px solid white;
+        border-right: 1.5px solid white;
+    }
+    &:before {
+      display: block;
+      content: "";
+      width: 5px;
+      height: 5px;
+      position: absolute;
+      bottom: -6.5px;
+      left: -6px;
+      border-bottom: 1.5px solid white;
+      border-left: 1.5px solid white;
+    }
+  }
+    
+  &:before {
+    display: block;
+    content: "";
+    width: 5px;
+    height: 5px;
+    position: absolute;
+    top: -6.5px;
+    left: -6px;
+    border-top: 1.5px solid white;
+    border-left: 1.5px solid white;
+  }
+    
+  &:after {
+    display: block;
+    content: "";
+    width: 5px;
+    height: 5px;
+    position: absolute;
+    top: -6.5px;
+    right: -6px;
+    border-top: 1.5px solid white;
+    border-right: 1.5px solid white;
+  }
+}
+
+.foes .card__data .card__name {
+  background-color: rgb(31, 30, 30);
+  color: white;
+  top: -15px;
+  font-family: 'High tech black';  
+  font-size: 32px;
+  font-weight: 100;
+  letter-spacing: 3px;
+  padding: 3px 10px;
+  border: solid #F05454 0.1px;
+}
+
+.card__description {
+  color: rgba(255, 255, 255, 0.5);
+  position: relative;
+  font-family:'Poppins', sans-serif;
+  font-size: .9rem;
+  font-weight: 400;
+}
+
+.foes .card__data .card__description{
+  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 0.5)
+}
+
+.swiper-button-prev:after,
+.swiper-button-next:after {
+  content: "";
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+  width: initial;
+  height: initial;
+  font-size: 3rem;
+  display: none;
+}
+
+.swiper-button-prev {
+  color: rgba(255, 255, 255, 0.8);
+  left: 0;
+}
+
+.swiper-button-next {
+  right: 0;
+  color: rgba(255, 255, 255, 0.8);;
+}
+
+.swiper-button-next:hover, .swiper-button-prev:hover{
+  opacity: 80%;
+  transition: 0.3s ease;
+}
+
+.swiper-button-next:active, .swiper-button-prev:active{
+  opacity: 50%;
+  transition: 0.1s;
+}
+
+.swiper-pagination-bullet {
+  background-color: rgb(255, 255, 255);
+  opacity: 100%;
+}
+
+.swiper-pagination-bullet-active {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+@media screen and (max-width: 320px) {
+  .card__data {
+    padding: 1rem;
+  }
+}
+
+/* For medium devices */
+@media screen and (min-width: 768px) {
+  .card__content {
+    margin-inline: 3rem;
+  }
+
+  .swiper-button-next,
+  .swiper-button-prev {
+    display: block;
+  }
+}
+
+@media screen and (min-width: 1120px) {
+  .card__container {
+    max-width: 1120px;
+  }
+
+  .swiper-button-prev {
+    left: -1rem;
+  }
+  .swiper-button-next {
+    right: -1rem;
+  }
+}

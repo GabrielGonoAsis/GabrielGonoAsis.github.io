@@ -1,97 +1,116 @@
 <!DOCTYPE html>
-<html lang="en">
+   <html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fody Slider</title>
-    <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
-    <link rel="stylesheet" href="style.css">
+      <!--=============== REMIXICONS ===============-->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/3.5.0/remixicon.css" crossorigin="">
 
-  </head>
+      <!--=============== SWIPER CSS ===============-->
+      <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
 
-  <body>
-    <section id="tranding">
-      <div class="container">
-        <div class="swiper tranding-slider">
-          <div class="swiper-wrapper">
-            <!-- Slide-start -->
-            <div class="swiper-slide tranding-slide">
-              <div class="tranding-slide-img">
-                <img src="../Images/Ganke Lee.webp" alt="Tranding">
-              </div>
-              <div class="tranding-slide-content">
-                <div class="tranding-slide-content-bottom">
-                  <h2 class="name">
-                    Rio Morales
-                  </h2>
-                </div>
-              </div>
+      <!--=============== CSS ===============-->
+      <link rel="stylesheet" href="assets/css/styles.css">
+
+      <title>Responsive card slider - Bedimcode</title>
+   </head>
+   <body>
+      <section class="slider-container">
+         <div class="card__container swiper">
+            <div class="card__content">
+               <div class="swiper-wrapper">
+                  <article class="card__article swiper-slide">
+                     <div class="card__image">
+                        <img src="../Images/Ganke Lee.webp" alt="image" class="card__img">                   
+                     </div>
+                     <div class="card__data">
+                        <h3 class="card__name">Ganke Lee</h3>
+                        <p class="card__description">
+                           Passionate about development and design, 
+                           I carry out projects at the request of users.
+                        </p>
+                     </div>
+                  </article>
+      
+                  <article class="card__article swiper-slide">
+                     <div class="card__image">
+                        <img src="../Images/Hailey Cooper.webp" alt="image" class="card__img">                       
+                     </div>
+      
+                     <div class="card__data">
+                        <h3 class="card__name">Hailey Cooper</h3>
+                        <p class="card__description">
+                           Passionate about development and design, 
+                           I carry out projects at the request of users.
+                        </p>
+                     </div>
+                  </article>
+      
+                  <article class="card__article swiper-slide">
+                     <div class="card__image">
+                        <img src="../Images/Harry Osborn.webp" alt="image" class="card__img">                    
+                     </div>
+      
+                     <div class="card__data">
+                        <h3 class="card__name">Harry Osborn</h3>
+                        <p class="card__description">
+                           Passionate about development and design, 
+                           I carry out projects at the request of users.
+                        </p>                       
+                     </div>
+                  </article>
+      
+                  <article class="card__article swiper-slide">
+                     <div class="card__image">
+                        <img src="../Images/Norman Osborn.webp" alt="image" class="card__img">
+                        
+                     </div>
+      
+                     <div class="card__data">
+                        <h3 class="card__name">Norman Osborn</h3>
+                        <p class="card__description">
+                           Passionate about development and design, 
+                           I carry out projects at the request of users.
+                        </p>                       
+                     </div>
+                  </article>
+
+                  <article class="card__article swiper-slide">
+                     <div class="card__image">
+                        <img src="../Images/Rio Morales.webp" alt="image" class="card__img">
+                        
+                     </div>
+      
+                     <div class="card__data">
+                        <h3 class="card__name">Rio Morales</h3>
+                        <p class="card__description">
+                           Passionate about development and design, 
+                           I carry out projects at the request of users.
+                        </p>              
+                     </div>
+                  </article>
+               </div>
             </div>
-            <!-- Slide-end -->
-            <!-- Slide-start -->
-            <div class="swiper-slide tranding-slide">
-                <div class="tranding-slide-img">
-                  <img src="../Images/Rio Morales.webp" alt="Tranding">
-                </div>
-                <div class="tranding-slide-content">
-                  <div class="tranding-slide-content-bottom">
-                    <h2 class="name">
-                      Rio Morales
-                    </h2>
-                  </div>
-                </div>
-              </div>
-            <!-- Slide-end -->
-            <!-- Slide-start -->
-            <div class="swiper-slide tranding-slide">
-                <div class="tranding-slide-img">
-                  <img src="../Images/Rio Morales.webp" alt="Tranding">
-                </div>
-                <div class="tranding-slide-content">
-                  <div class="tranding-slide-content-bottom">
-                    <h2 class="name">
-                      Rio Morales
-                    </h2>
-                  </div>
-                </div>
-              </div>
-            <!-- Slide-end -->
-            <!-- Slide-start -->
-            <div class="swiper-slide tranding-slide">
-                <div class="tranding-slide-img">
-                  <img src="../Images/Rio Morales.webp" alt="Tranding">
-                </div>
-                <div class="tranding-slide-content">
-                  <div class="tranding-slide-content-bottom">
-                    <h2 class="name">
-                      Rio Morales
-                    </h2>
-                  </div>
-                </div>
-              </div>
-            <!-- Slide-end -->
-          </div>
 
-          <div class="tranding-slider-control">
-            <div class="swiper-button-prev slider-arrow">
-              <ion-icon name="arrow-back-outline"></ion-icon>
+            <!-- Navigation buttons -->
+            <div class="swiper-button-next">
+               <i class="ri-arrow-right-s-line"></i>
             </div>
-            <div class="swiper-button-next slider-arrow">
-              <ion-icon name="arrow-forward-outline"></ion-icon>
+            
+            <div class="swiper-button-prev">
+               <i class="ri-arrow-left-s-line"></i>
             </div>
+
+            <!-- Pagination -->
             <div class="swiper-pagination"></div>
-          </div>
+         </div>
+      </section>
+      
+      <!--=============== SWIPER JS ===============-->
+      <script src="assets/js/swiper-bundle.min.js"></script>
 
-        </div>
-      </div>
-    </section>
-
-    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
-    <script src="script.js"></script>
-  </body>
-
+      <!--=============== MAIN JS ===============-->
+      <script src="assets/js/main.js"></script>
+   </body>
 </html>
