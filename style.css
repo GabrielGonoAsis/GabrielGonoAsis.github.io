@@ -62,6 +62,10 @@
   text-decoration: none;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body{
     background-color: #222831;
 }
@@ -483,13 +487,15 @@ body{
     background-color: #08001A;
 }
 
-.map-img{
-    display: flex;
-    justify-content: center;
-    width: 55vw;
-    margin: auto;
+#map { 
+    height: 98vh;
+    width: 90vh;
+    background-color: #020208;
 }
 
-.map-img img{
-    width: 100%;
+.map-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-block: 2rem;
 }

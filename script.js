@@ -167,3 +167,27 @@ let swiperCards2 = new Swiper(".foes .card__content", {
     },
   },
 });
+
+var map = L.map('map', {
+  crs: L.CRS.Simple,
+  minZoom: -0.512
+});
+var bounds = [[-26.5,-25], [1320,1043]];
+var image = L.imageOverlay('Images/map.png', bounds).addTo(map);
+map.fitBounds(bounds);
+
+var locMarker = L.icon({
+  iconUrl: 'Images/Location Marker.png',
+  shadowUrl: 'Images/Location Marker Shadow.png',
+
+  iconSize:     [40, 54], // size of the icon
+  shadowSize:   [31, 72], // size of the shadow
+  iconAnchor:   [18, 0], // point of the icon which will correspond to marker's location
+  shadowAnchor: [0, 15],  // the same for the shadow
+  popupAnchor:  [0, 0] // point from which the popup should open relative to the iconAnchor
+});
+
+L.marker([1000, 310], {icon: locMarker}).addTo(map).bindPopup("Central Park");
+L.marker([800, 310], {icon: locMarker}).addTo(map).bindPopup("Central Park");
+
+

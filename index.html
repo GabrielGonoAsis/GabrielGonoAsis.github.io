@@ -1,27 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Marvel's Spider-Man 2</title>
+      <head>
+         <meta charset="UTF-8">
+         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+         <title>Marvel's Spider-Man 2</title>
 
-        <!--importing main css-->
-        <link rel="stylesheet" href="style.css">
+         <!--importing main css-->
+         <link rel="stylesheet" href="style.css">
 
-        <!--importing google fonts-->
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-        
-        <!--importing swiper js-->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/3.5.0/remixicon.css" crossorigin="">
-        <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
+         <!--importing google fonts-->
+         <link rel="preconnect" href="https://fonts.googleapis.com">
+         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+         <link rel="preconnect" href="https://fonts.googleapis.com">
+         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+         <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+         
+         <!--importing swiper js-->
+         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/3.5.0/remixicon.css" crossorigin="">
+         <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
 
-        <!--swiperjs css-->
-        <link rel="stylesheet" href="assets/css/styles.css">
+         <!--swiperjs css-->
+         <link rel="stylesheet" href="assets/css/styles.css">
+
+         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+         <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
     </head>
     <body>
       <!--header-->
@@ -332,13 +335,15 @@
             </div>
 
             <div class="map">
-                <div class="title">
-                    <h1>EXPLORE NEW SPOTS</h1>
-                    <p>Explore the expanded New York City, now featuring the  broughs of Manhattan, Brooklyn, and Queens. Swing through iconic cityscapes as Spider-Man's web-swinging adventures reach new places.</p>
-                </div>
-                <div class="map-img">
-                    <img src="Images/map.png" alt="">
-                </div>
+               <div class="title">
+                   <h1>EXPLORE NEW SPOTS</h1>
+                     <p>Explore the expanded New York City, now featuring the  broughs of Manhattan, Brooklyn, and Queens. Swing through iconic cityscapes as Spider-Man's web-swinging adventures reach new places.</p>
+               </div>
+               
+               <div class="map-container">
+                  <div id="map">
+                  </div>
+               </div>
             </div>
         </main>
         <!--importing swiper js script-->
