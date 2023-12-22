@@ -168,9 +168,51 @@ let swiperCards2 = new Swiper(".foes .card__content", {
   },
 });
 
-var map = L.map('map', {
-  crs: L.CRS.Simple,
-});
-var bounds = [[0,0], [937,937]];
-var image = L.imageOverlay('Images/map.png', bounds).addTo(map);
-map.fitBounds(bounds);
+function showPopup(title, content, imagePath) {
+  const popupTitle = document.getElementById('popup-title');
+  const contentContainer = document.getElementById('popup-content');
+  const imageElement = document.createElement('img');
+  const overlay = document.getElementById('overlay');
+  const popup = document.getElementById('popup');
+
+
+  popupTitle.textContent = title;
+
+  contentContainer.innerHTML = '';
+
+  imageElement.src = imagePath;
+
+  contentContainer.appendChild(imageElement);
+
+  const textElement = document.createElement('p');
+  textElement.textContent = content;
+  contentContainer.appendChild(textElement);
+
+  overlay.style.display = 'block';
+  popup.style.display = 'block';
+
+  gsap.fromTo(overlay, { opacity: 0 }, { opacity: 1, duration: 0.5 });
+
+  gsap.fromTo(popup, { opacity: 0, scale: 0.1 }, { opacity: 1, scale: 1, duration: 0.5, ease: 'bounce.out', delay: 0.1 });
+}
+
+function closePopup() {
+  const overlay = document.getElementById('overlay');
+  const popup = document.getElementById('popup');
+
+  gsap.to(popup, { opacity: 0, scale: 0, duration: 0.5, ease: 'bounce.in', onComplete: () => {
+      popup.style.display = 'none';
+  } });
+
+  gsap.to(overlay, { opacity: 0, duration: 0.5, delay: 0.1, onComplete: () => {
+      overlay.style.display = 'none';
+  } });
+}
+
+
+
+
+
+
+
+

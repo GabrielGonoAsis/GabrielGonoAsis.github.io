@@ -23,8 +23,7 @@
          <!--swiperjs css-->
          <link rel="stylesheet" href="assets/css/styles.css">
 
-         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
-         <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
     </head>
     <body>
       <!--header-->
@@ -336,16 +335,130 @@
 
             <div class="map">
                <div class="title">
-                   <h1>EXPLORE NEW SPOTS</h1>
-                     <p>Explore the expanded New York City, now featuring the  broughs of Manhattan, Brooklyn, and Queens. Swing through iconic cityscapes as Spider-Man's web-swinging adventures reach new places.</p>
+                  <h1>EXPLORE NEW SPOTS</h1>
+                  <p>Explore the expanded New York City, now featuring the  broughs of Manhattan, Brooklyn, and Queens. Swing through iconic cityscapes as Spider-Man's web-swinging adventures reach new places.</p>
                </div>
                
                <div class="map-container">
-                  <div id="map">
+                  <img src="Images/map.png" alt="">
+
+                  <div onclick="showPopup('Astoria', 'Astoria, Peter Parker\'s Marvel hometown, is where Aunt May\'s house stands. Juggling heroics and mortgage payments, Peter protects this haven of memories and family in the heart of the bustling city.', 'Images/aunt may house.jpg')" class="pin astoria">
+                     <span>Astoria</span>
+                  </div>
+
+                  <div onclick="showPopup('Downtown Queens', 'Downtown Queens, especially Long Island City, is a vibrant blend of culture, commerce, and modernity. From its dynamic skyline to diverse dining and arts, it captures the essence of Peter Parker\'s adventures.', 'Images/downtown queens.jpg')"  class="pin2 queens">
+                     <span>Downtown Queens</span>
+                  </div>
+
+                  <div onclick="showPopup('Little Odessa', 'Little Odessa, in Brighton Beach, Brooklyn, is a cultural hub with authentic cuisine, a charming boardwalk along the Atlantic, and a rich blend of traditions, often called \'Little Russia by the Sea.\'', 'Images/little odesa.jpg')" class="pin odessa">
+                     <span>Little Odessa</span>
+                  </div>
+
+                  <div onclick="showPopup('Williamsburg', 'Williamsburg, Brooklyn, blends artistic flair with trendy vibes. Known for street art, indie music, and chic cafes, it\'s a cultural haven along the waterfront with stunning Manhattan views.', 'Images/mural.webp')" class="pin2 william">
+                     <span>Williamsburg</span>
+                  </div>
+
+                  <div onclick="showPopup('Downtown Brooklyn', 'Downtown Brooklyn, anchored by the iconic Brooklyn Bridge, blends history with modern vitality, offering skyscrapers, cultural landmarks, and diverse dining. Connected to Lower Manhattan, it\'s a captivating destination. for all', 'Images/manhattan bridge.webp')" class="pin brooklyn">
+                     <span>Downtown Brooklyn</span>
+                  </div>
+
+                  <div onclick="showPopup('Coney Island', 'Coney Island, in Brooklyn, New York, is a lively seaside neighborhood known for its classic amusement park, iconic boardwalk, and sandy beaches. Home to the historic Cyclone roller coaster and Nathan\'s Famous hot dogs, it offers a nostalgic and entertaining escape by the sea.','Images/coney island.webp')" class="pin2 coney">
+                     <span>Coney Island</span>
+                  </div>
+                  
+                  <div onclick="showPopup('Emily May Foundation', 'The Emily-May Foundation is a startup founded by Harry Osborn named after his mother, Emily, and his best friend Peter Parker\'s aunt, May. Harry worked alongside Peter to achieve his mother Emily Osborn\'s dream of finding a way to &quot;heal the world&quot;.','Images/emily may foundation.webp')" class="pin2 foundation">
+                     <span>Emily May Foundation</span>
+                  </div>
+
+                  <div class="popup-container" id="popup-container">
+                     <div class="overlay" id="overlay" onclick="closePopup()"></div>
+                     <div class="popup" id="popup">
+                        <span class="close" onclick="closePopup()">&times;</span>
+                        <h2 id="popup-title"></h2>
+                        <hr>
+                        <p id="popup-content"></p>
+                        <span class="border_btm"></span>
+                     </div>
+                  </div>
+               </div>
+               <div class="instructions">Click on the markers to learn more.</div>
+            </div>
+
+            <div class="buy-now">
+               <div class="title">
+                  <h1>BUY NOW</h1>
+                  <p>Spider-Man 2 is now exclusively available on the PS5! So what are you waiting for? Come and experience New York City as the two Spider-Men.</p>
+               </div>
+
+               <div class="games">
+                  <div class="container">
+                     <div class="standard">    
+                        <img src="Images/standard edition.jpg" alt="">
+                        <h1 class="desc">STANDARD EDITION</h1>
+                        <ul class="desc">
+                           <li>Marvel's Spider-Man 2 (Full Game)</li>
+                        </ul>
+      
+                        <div class="price">69.99$</div>
+                        <div class="platform">PS5</div>
+                     </div>
+                     <div class="add-to-cart"><a href="https://store.playstation.com/en-ae/product/EP9000-PPSA18582_00-MARVELSPIDERMAN2" target="_blank">ADD TO CART</a></div>
+                  </div>
+
+                  <div class="container">
+                     <div class="deluxe">
+                        <img src="Images/deluxe.png" alt="">
+                        <h1 class="edition">DELUXE EDITION</h1>
+                        <ul class="desc">
+                           <li>Marvel's Spider-Man 2 (Full Game)</li>
+                           <li>Five Unique suits for Peter and Miles</li>
+                           <li>Additional Photo Mode items</li>
+                           <li>5 skill points</li>
+                           <li>Early unlock to Suits and Gadgets</li>
+                        </ul>
+   
+                        <div class="price">79.99$</div>
+                        <div class="platform">PS5</div>
+                     </div>
+                     <div class="add-to-cart"><a href="https://store.playstation.com/en-ae/product/EP9000-PPSA18582_00-MSM2DDE000000000" target="_blank">ADD TO CART</a></div>
+                  </div>
+               </div>
+            </div>
+
+            <div class="buy-now old">
+               <div class="title">
+                  <h1>PREVIOUS TITLES</h1>
+                  <p>Its time to catch up! Play some of our previous titles to have a greater understanding and experience in Spider-Man 2.</p>
+               </div>
+
+               <div class="games">
+                  <div class="container">
+                     <div class="first">    
+                        <div class="box-art">
+                           <img src="Images/2018.jpg" alt="">      
+                           <div class="platform">PS5/PS5/PC</div>
+                        </div>
+                        <div class="game-title">Marvel's Spider-Man</div>
+                        <div class="price">44.99$</div>
+                        <div class="add-to-cart"><a href="https://store.playstation.com/en-ae/product/EP9000-CUSA11995_00-000000000MSMGOTY" target="_blank">ADD TO CART</a></div>
+                     </div>
+                  </div>
+
+                  <div class="container">
+                     <div class="miles">
+                        <div class="box-art">
+                           <img src="Images/miles morales.jpg" alt="">
+                           <div class="platform">PS5/PS5/PC</div>
+                        </div>
+                        <div class="game-title">Marvel's Spider-Man : Miles Morales</div>
+                        <div class="price">54.99$</div>
+                        <div class="add-to-cart"><a href="https://store.playstation.com/en-ae/product/EP9000-PPSA01461_00-MARVELSSMMORALES" target="_blank">ADD TO CART</a></div>
+                     </div>
                   </div>
                </div>
             </div>
         </main>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/gsap.min.js"></script>
         <!--importing swiper js script-->
         <script src="assets/js/swiper-bundle.min.js"></script>
         <!--importing main js script-->
