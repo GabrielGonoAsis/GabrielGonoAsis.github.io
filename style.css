@@ -455,6 +455,7 @@ body{
 
 .title p{
     font-family: 'Poppins', sans-serif;
+    font-size: 18px;
     font-size: 14px;
     letter-spacing: 2px;
     width: 50%;
@@ -982,3 +983,26 @@ body{
     margin-top: 20px;
 }
 
+.gallery .title p{
+    width: 45%;
+}
+
+.gallery .container{
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 50px 8%;
+}
+
+.images{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(40%, 1fr));
+    grid-gap: 50px;
+}
+
+.images img{
+    width: 100%;
+    border:#4DB3BD 1px solid;
+}
