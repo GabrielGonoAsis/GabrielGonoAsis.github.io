@@ -268,6 +268,8 @@ body{
     margin-top: 28px;
 }
 
+
+/*horizontal scrolling section*/
 .scroll_container {
     height: 500vh;
     background-color: #0A1020;
@@ -299,6 +301,9 @@ body{
     height: 100vh;
 }
 
+
+/*contents of horizontal scrolling*/
+/*key features*/
 .title-features{
     display: flex;
     justify-content: center;
@@ -382,7 +387,6 @@ body{
     
 }
 
-
 .top .container{
     margin: 0px 160px;
     position: relative;
@@ -439,6 +443,7 @@ body{
     color: #F05454;
 }
 
+/*characters*/
 .characters .title{
     color: white;
     text-align: center;
@@ -484,6 +489,7 @@ body{
     color: white;
 }
 
+/*map*/
 .map{
     background-color: #08001A;
     padding-bottom: 80px;
@@ -510,6 +516,7 @@ body{
     width: 50vw;
 }
 
+/*map pins/markers*/
 .pin{
     position: absolute;
     background: rgb(255, 255, 255);
@@ -669,6 +676,8 @@ body{
     }
 }
 
+
+/*popup of location info*/
 .popup-container {
     position: relative;
 }
@@ -809,6 +818,8 @@ body{
     margin-top: -25px;
 }
 
+/*games*/
+/*spider-man 2 game*/
 .buy-now{
     background-color: #1C2128;
     height: auto;
@@ -908,8 +919,10 @@ body{
   
 .add-to-cart:hover{
     border: 2px solid rgba(255, 255, 255, 0.8);
+    transform: scale(1.05);
     cursor: pointer;
     opacity: 80%;
+    box-shadow: 0px 0px 20px black;
 }
 
 .add-to-cart:active{
@@ -927,6 +940,8 @@ body{
     color: white;
 }
 
+
+/*previous games*/
 .old{
     background-color: #0A1020;
 }
@@ -983,26 +998,248 @@ body{
     margin-top: 20px;
 }
 
+
+/*gallery*/
+.gallery{
+    padding-block: 20px 70px;
+}
+
 .gallery .title p{
     width: 45%;
 }
 
 .gallery .container{
     width: 100%;
-    min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 50px 8%;
+    padding: 20px 75px;
 }
 
 .images{
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(40%, 1fr));
-    grid-gap: 50px;
+    grid-template-columns: repeat(auto-fit, minmax(30%, 1fr));
+    grid-gap: 70px 60px;
 }
 
 .images img{
     width: 100%;
     border:#4DB3BD 1px solid;
+    position: relative;
+    transition: 0.3s all;
+}
+
+.images a:hover{
+    .gallery_img{
+        filter: brightness(20%);
+    }
+}
+
+.images a{
+    position: relative;
+    span.border_btm {
+        &:after {
+          display: block;
+          content: "";
+          width: 11px;
+          height: 11px;
+          position: absolute;
+          bottom: -6px;
+          right: -8px;
+          border-bottom: 1.5px solid white;
+          border-right: 1.5px solid white;
+        }
+        &:before {
+          display: block;
+          content: "";
+          width: 11px;
+          height: 11px;
+          position: absolute;
+          bottom: -6px;
+          left: -8px;
+          border-bottom: 1.5px solid white;
+          border-left: 1.5px solid white;
+        }
+    }
+    
+    &:before {
+        display: block;
+        content: "";
+        width: 11px;
+        height: 11px;
+        position: absolute;
+        top: -8px;
+        left: -8px;
+        border-top: 1.5px solid white;
+        border-left: 1.5px solid white;
+    }
+    
+    &:after {
+        display: block;
+        content: "";
+        width: 11px;
+        height: 11px;
+        position: absolute;
+        top: -8px;
+        right: -8px;
+        border-top: 1.5px solid white;
+        border-right: 1.5px solid white;
+    }
+}
+
+.click_text{
+    display: flex;
+    top: 0%;
+    position: absolute;
+    color: white;
+    font-family: 'Monument';
+    font-size: 30px;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: 0.3s all;
+}
+
+.click_text:hover{
+    opacity: 100;
+}
+
+.button-container{
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+
+.show-more, .show-less{
+    background-color: white;
+    padding: 6px 10px;
+    border-radius: 50px;
+    border: solid 0px white;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 15px;
+    transition: 0.3s;
+    position: relative;
+    
+}
+
+.show-more:hover, .show-less:hover{
+    cursor: pointer;
+    opacity: 80%;
+    box-shadow: 0px 0px 15px black;
+}
+
+.show-more:hover{
+    .arrow{
+        opacity: 100;
+        animation: 
+        floating-down 1.5s ease-in-out infinite, hang-down 0.5s ease-in-out; 
+    }
+}
+
+.show-less:hover{
+    .arrow{
+        opacity: 100;
+        animation: 
+        floating-up 1.5s ease-in-out infinite, hang-up 0.5s ease-in-out; 
+    }
+}
+
+.show-more:active, .show-less:active{
+    transition: none;
+    opacity: 50%;
+}
+
+.show-less{
+    display: none;
+}
+
+.hidden{
+    display: none;
+}
+
+.arrow {
+	width: 2vmin;
+	height: 2vmin;
+	box-sizing: border-box;
+	position: absolute;
+    top: 40%;
+    left: 45%;
+	transform: rotate(135deg);
+    justify-content: center;
+    transition: 0.3s all;
+    opacity: 0;
+	&::before {
+		content: '';
+		width: 100%;
+		height: 100%;
+		border-width: .4vmin .4vmin 0 0;
+		border-style: solid;
+		border-color: #fafafa;
+		transition: .2s ease;
+		display: block;
+		transform-origin: 100% 0;
+	}
+	
+}
+
+@keyframes hang-down {
+    0%{
+        transform: translateY(0px) rotate(135deg);
+    }
+
+    100%{
+        transform: translateY(20px) rotate(135deg);
+    }
+}
+
+
+@keyframes floating-down {
+    0%{
+        transform: translateY(20px) rotate(135deg);
+    }
+
+    50%{
+        transform: translateY(25px) rotate(135deg);
+    }
+
+    100%{
+        transform: translateY(20px) rotate(135deg);
+    }
+}
+
+@keyframes hang-up {
+    0%{
+        transform: translateY(0px) rotate(-45deg);
+    }
+
+    100%{
+        transform: translateY(-20px) rotate(-45deg);
+    }
+}
+
+
+@keyframes floating-up {
+    0%{
+        transform: translateY(-25px) rotate(-45deg);
+    }
+
+    50%{
+        transform: translateY(-30px) rotate(-45deg);
+    }
+
+    100%{
+        transform: translateY(-25px) rotate(-45deg);
+    }
+}
+
+.dev{
+    background-color: #151C1F;
+    padding-block: 20px 70px;
+}
+
+.title img{
+    padding: 20px 0px;
 }

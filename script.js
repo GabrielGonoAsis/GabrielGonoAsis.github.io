@@ -102,6 +102,9 @@ function videoScroll() {
 
 }
 
+//carousels for characters
+
+//friends carousels
 let swiperCards = new Swiper(".friends .card__content", {
   loop: true,
   spaceBetween: 5,
@@ -134,6 +137,7 @@ let swiperCards = new Swiper(".friends .card__content", {
   },
 });
 
+//foes carousels
 let swiperCards2 = new Swiper(".foes .card__content", {
   loop: true,
   spaceBetween: 20,
@@ -152,11 +156,9 @@ let swiperCards2 = new Swiper(".foes .card__content", {
   },
 
   navigation: {
-    nextEl: ".swiper-button-next",
-    prevEl: ".swiper-button-prev",
+    nextEl: ".swiper-button-next-foes",
+    prevEl: ".swiper-button-prev-foes",
   },
-
-
 
   breakpoints:{
     600: {
@@ -168,13 +170,16 @@ let swiperCards2 = new Swiper(".foes .card__content", {
   },
 });
 
-function showPopup(title, content, imagePath) {
-  const popupTitle = document.getElementById('popup-title');
-  const contentContainer = document.getElementById('popup-content');
-  const imageElement = document.createElement('img');
-  const overlay = document.getElementById('overlay');
-  const popup = document.getElementById('popup');
 
+//popup for markers in map using gsap animations
+
+//shows popup
+function showPopup(title, content, imagePath) {
+  var popupTitle = document.getElementById('popup-title');
+  var contentContainer = document.getElementById('popup-content');
+  var imageElement = document.createElement('img');
+  var overlay = document.getElementById('overlay');
+  var popup = document.getElementById('popup');
 
   popupTitle.textContent = title;
 
@@ -184,7 +189,7 @@ function showPopup(title, content, imagePath) {
 
   contentContainer.appendChild(imageElement);
 
-  const textElement = document.createElement('p');
+  var textElement = document.createElement('p');
   textElement.textContent = content;
   contentContainer.appendChild(textElement);
 
@@ -193,21 +198,55 @@ function showPopup(title, content, imagePath) {
 
   gsap.fromTo(overlay, { opacity: 0 }, { opacity: 1, duration: 0.5 });
 
-  gsap.fromTo(popup, { opacity: 0, scale: 0.1 }, { opacity: 1, scale: 1, duration: 0.5, ease: 'bounce.out', delay: 0.1 });
+  gsap.fromTo(popup, { opacity: 0, scale: 0.1 }, { opacity: 1, scale: 1, duration: 0.5, ease: 'fade.out', delay: 0.1 });
 }
 
+//hides popup
 function closePopup() {
   const overlay = document.getElementById('overlay');
   const popup = document.getElementById('popup');
 
-  gsap.to(popup, { opacity: 0, scale: 0, duration: 0.5, ease: 'bounce.in', onComplete: () => {
-      popup.style.display = 'none';
+  gsap.to([popup], { opacity: 0, scale: 0, duration: 0.5, ease: 'fade.in', onComplete: () => {
+    popup.style.display = 'none';
   } });
 
-  gsap.to(overlay, { opacity: 0, duration: 0.5, delay: 0.1, onComplete: () => {
-      overlay.style.display = 'none';
+  gsap.to([overlay], { opacity: 0, duration: 0.5, ease: 'fade.in', onComplete: () => {
+    overlay.style.display = 'none';
   } });
+
 }
+
+//shows images
+function showMoreImages() {
+  let hiddenImages = document.querySelectorAll('.img-container.hidden');
+  hiddenImages.forEach(function (image) {
+    image.style.display = "inline";
+  });
+  
+  document.getElementById("showMoreButton").style.display = "none";
+  document.getElementById("showLessButton").style.display = "inline";
+}
+
+//hides images
+function hideImages() {
+  let allImages = document.querySelectorAll('.img-container');
+  allImages.forEach(function (image) {
+      if (image.classList.contains('hidden')) {
+          image.style.display = "none";
+      }
+  });
+
+  document.getElementById("showMoreButton").style.display = "inline";
+  document.getElementById("showLessButton").style.display = "none";
+}
+
+
+
+
+
+
+
+
 
 
 
