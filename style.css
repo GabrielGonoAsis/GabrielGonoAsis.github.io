@@ -1235,11 +1235,152 @@ body{
     }
 }
 
-.dev{
+.developers{
     background-color: #151C1F;
     padding-block: 20px 70px;
 }
 
-.title img{
-    padding: 20px 0px;
+.dev{
+    color: white;
+    padding: 100px 50px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.dev h1{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 65px;
+    letter-spacing: 4px;
+    word-spacing: 5px;
+}
+
+.dev hr{
+    width: 30vh;
+    margin: 35px 0px;
+    border: solid 1px rgba(255, 255, 255, 0.5);
+}
+
+.dev p{
+    font-family: "Poppins", sans-serif; 
+    font-size: 20px;
+    font-weight: 400;
+    text-align: justify;
+    letter-spacing: 2px;
+    line-height: 32px;
+    width: 100%;
+    opacity: 50%;
+}
+
+.text p span{
+    color: #78B1BB;
+    font-weight: 700;
+}
+
+.about .text{
+    width: 100%;
+}
+
+.about .img{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.about .img img{
+    width: 48%;
+}
+
+.visions .text{
+    width: 50%;
+    align-self: center;
+}
+
+.visions .text p{
+    font-size: 24px;
+    line-height: 36px;
+}
+
+.visions .text p:last-child{
+    margin: 35px 0px;
+}
+
+.visions img{
+    width: 40%;
+}
+
+.missions .text{
+    align-self: center;
+}
+
+.missions .text p{
+    font-size: 24px;
+    line-height: 36px;
+}
+
+.top-txt-img{
+    display: flex;
+    position: relative;
+    justify-content: space-between;
+    align-items:last baseline;
+    margin-bottom: 50px;
+}
+
+.top-txt-img .txt span{
+    position: absolute;
+    width: 48%;
+    top: 0px;
+}
+
+.top-txt-img .txt p{
+    width: 100%;
+}
+
+.top-txt-img .txt{
+    width: 50%;
+}
+
+.top-txt-img .img{
+    width: 49%;
+}
+
+.top-txt-img img{
+    width: 100%;
+}
+
+.team{
+    display: block;
+}
+
+.team h1{
+    text-align: center;
+    margin-bottom: 100px;
+}
+
+.team h2{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 45px;
+    font-weight: 400;
+    letter-spacing: 2px;
+    margin: 50px 0px;
+}
+
+.team hr{
+    margin: 45px auto;
+    width: 26%;
+}
+
+.directors-img{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.directors-img img{
+    width: 38%;
+}
+
+.directors-img hr{
+    transform: rotate(90deg);
 }
