@@ -1,3 +1,4 @@
+/*importing fonts*/
 @font-face {
     font-family: 'Spider-Man';
     src: url(Fonts/Spider-Man.otf);
@@ -48,8 +49,10 @@
     src: url(Fonts/PPNeueMachina-InktrapUltrabold.otf);
 }
 
+/*google fonts*/
 @import url('https://fonts.googleapis.com/css2?family="Poppins":wght@100;200;300;400;500;600;700;800;900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,400;8..144,500;8..144,600&display=swap');
 
 
 *,
@@ -135,18 +138,29 @@ body{
     z-index: 2;
 }
 
+.first-word, .second-word{
+    display: inline-block;
+    text-shadow: 5px 5px 15px black;
+}
+
+.trailer-container{
+    padding: 150px 0px;
+    background: rgb(0,53,102);
+    background: radial-gradient(circle, rgba(0,53,102,1) 0%, rgba(0,29,61,1) 50%, rgba(0,8,20,1) 100%);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
 
 /*trailer*/
 .trailer{
     position: relative;
     display: block;
-    margin: auto;
-    margin-top: 90px;
-    margin-bottom: 90px;
+    margin: 0px auto;
     text-align: center;
     width: 75%;
     border: solid #4DB3BD 1px;
-
+    opacity: 0;
+    scale: 0.8;
     span.border_btm {
         &:after {
           display: block;
@@ -269,43 +283,53 @@ body{
 }
 
 
-/*horizontal scrolling section*/
+
+.scroll_wrapper {
+    overflow-x: hidden;
+    position: relative;
+}
+* {
+    box-sizing: border-box;
+}
+
 .scroll_container {
-    height: 500vh;
-    background-color: #0A1020;
+    display: flex;
+    width: 500vw;
+    overflow: hidden;
+    background: rgb(30,50,82);
+    background: linear-gradient(315deg, rgb(10, 11, 16) 20%, rgba(10,16,32,1) 100%);
     color: white;
 }
-  
-.horizontal_scroll {
-    position: absolute;
-    top: 0;
-    height: 100%;
-    width: 500vw;
-    will-change: transform;
-    display: flex;
-    justify-content: space-between;
-}
-  
-.scroll_contents {
-    height: 100%;
-    width: 100vw;
-    position: relative;
-    display: flex;
-    justify-content: center;
-}
-  
-.sticky_wrap {
-    overflow: hidden;
-    position: sticky;
-    top: 0;
+
+.section {
     height: 100vh;
 }
 
+.top::before{
+    content: '';
+    position: absolute;
+    background-color: white;
+    opacity: 15%;
+    width: 1px;
+    height: 50%;
+    top: 25%;
+    left: -200px;
+}
 
-/*contents of horizontal scrolling*/
-/*key features*/
+.top::after{
+    content: '';
+    position: absolute;
+    background-color: white;
+    opacity: 15%;
+    width: 1px;
+    height: 50%;
+    top: 25%;
+    right: -200px;
+}
+
 .title-features{
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
@@ -319,12 +343,62 @@ body{
     margin: 0px 160px;
 }
 
-.horizontal_scroll hr{
+.top{
+    margin: 0px 200px;
     position: relative;
-    top: 20%;
-    height: 60%;
-    width: 1px;
-    opacity: 10%;
+    top: 0px;
+}
+
+
+
+.top h1{
+    font-family: 'High-Tech 2 Bold';
+    letter-spacing: 4px;
+    word-spacing: 10px;
+    margin: 12.5px 0px;    
+}
+
+.top p{
+    font-family: 'High-Tech Thin';
+    font-size: 15px;
+    text-align: justify;
+    letter-spacing: 2px;
+    margin: 15px 0px 30px 0px;
+    width: 130vh;
+    opacity: 50%;
+}
+
+.top span{
+    font-family: 'High-Tech Italic';
+    color: #F05454;
+}
+
+.bottom {
+    margin: 0px 200px;
+    position: relative;
+    top: 60px;
+}
+
+.bottom h1{
+    font-family: 'High-Tech 2 Bold';
+    letter-spacing: 4px;
+    word-spacing: 10px;
+    margin: 30px 0px 15px 0px;    
+}
+
+.bottom p{
+    font-family: 'High-Tech Thin';
+    font-size: 15px;
+    text-align: justify;
+    letter-spacing: 2px;
+    margin: 12.5px 0px;
+    width: 130vh;
+    opacity: 50%;
+}
+
+.bottom p span{
+    font-family: 'High-Tech Italic';
+    color: #F05454;
 }
 
 .features-vid video{
@@ -385,62 +459,6 @@ body{
         border-right: 2px solid white;
     }
     
-}
-
-.top .container{
-    margin: 0px 160px;
-    position: relative;
-    top: 5px;
-}
-
-.top .container h1{
-    font-family: 'High-Tech 2 Bold';
-    letter-spacing: 4px;
-    word-spacing: 10px;
-    margin: 12.5px 0px;    
-}
-
-.top .container p{
-    font-family: 'High-Tech Thin';
-    font-size: 15px;
-    text-align: justify;
-    letter-spacing: 2px;
-    margin: 15px 0px 30px 0px;
-    width: 130vh;
-    opacity: 50%;
-}
-
-.top .container span{
-    font-family: 'High-Tech Italic';
-    color: #F05454;
-}
-
-.bottom .container{
-    margin: 0px 160px;
-    position: relative;
-    top: 60px;
-}
-
-.bottom .container h1{
-    font-family: 'High-Tech 2 Bold';
-    letter-spacing: 4px;
-    word-spacing: 10px;
-    margin: 30px 0px 15px 0px;    
-}
-
-.bottom .container p{
-    font-family: 'High-Tech Thin';
-    font-size: 15px;
-    text-align: justify;
-    letter-spacing: 2px;
-    margin: 12.5px 0px;
-    width: 130vh;
-    opacity: 50%;
-}
-
-.bottom .container p span{
-    font-family: 'High-Tech Italic';
-    color: #F05454;
 }
 
 /*characters*/
@@ -1242,7 +1260,7 @@ body{
 
 .dev{
     color: white;
-    padding: 100px 50px;
+    padding: 100px 100px;
     display: flex;
     justify-content: space-between;
 }
@@ -1314,7 +1332,7 @@ body{
 }
 
 .missions .text p{
-    font-size: 24px;
+    font-size: 22px;
     line-height: 36px;
 }
 
@@ -1372,15 +1390,148 @@ body{
 
 .directors-img{
     display: flex;
-    width: 100%;
+    width: 97%;
     justify-content: space-between;
     align-items: center;
 }
 
 .directors-img img{
-    width: 38%;
+    width: 100%;
 }
 
 .directors-img hr{
     transform: rotate(90deg);
 }
+
+.other-team{
+    display: grid;
+    grid-template-columns: auto auto;
+    justify-content: space-around;
+}
+
+.other-team  h2{
+    margin-bottom: 20px;
+}
+
+.team p, .team .list li{
+    font-size: 25px;
+}
+
+.list{
+    margin-top: 100px;
+}
+
+.list li{
+    list-style: none;
+    list-style-position: outside;
+    font-family: "Poppins", sans-serif; 
+    font-weight: 400;
+    letter-spacing: 2px;
+    line-height: 52px;
+    opacity: 50%;
+    margin: 0px;
+    padding: 0px;
+}
+
+.list li::before {
+    content: '';
+    display: inline-block;
+    height: 15px;
+    width: 15px;
+    background-size: cover;
+    background-image: url('Images/O\ insomniac.svg');
+    background-repeat: no-repeat;
+    margin-right: 14px;
+    background-position: center center;
+    vertical-align: middle;
+}
+
+.prev-work{
+    display: block;
+}
+
+.prev-work img{
+    width: 100%;
+}
+
+footer{
+    background-color: #2361B4;
+    color: black;
+    font-family: 'Roboto Flex', sans-serif;
+    font-weight: 600;
+}
+
+footer .logos{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+    padding-top: 50px;
+}
+
+.logos img{
+    width: 140px;
+}
+
+footer hr{
+    width: 88%;
+    color: black;
+    background-color: black;
+    border: 1px solid black;
+    margin: 65px auto;
+}
+
+.links-container{
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    margin: 0;
+    padding: 0;
+}
+
+.links-title{
+    font-size: 20px;
+}
+
+.links ul li{
+    font-size: 18px;
+    opacity: 60%;
+    line-height: 35px;
+    transition: 0.5s all;
+}
+
+.links ul li:hover{
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.socials{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 65px;
+}
+
+.socials img{
+    width: 60px;
+    margin: 0px 50px;
+    transition: 0.3s all ease-in-out;
+}
+
+.socials img:hover{
+    cursor: pointer;
+    transform: translateY(-12px);
+}
+
+.copyright{
+    background-color: #050505;
+
+}
+
+.copyright p{
+    text-align: center;
+    font-weight: 400;
+    color: white;
+    opacity: 75%;
+    padding: 40px;
+}  

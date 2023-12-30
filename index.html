@@ -12,9 +12,8 @@
          <link rel="preconnect" href="https://fonts.googleapis.com">
          <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
          <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-         <link rel="preconnect" href="https://fonts.googleapis.com">
-         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
          <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+         <link href="https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,400;8..144,500;8..144,600&display=swap" rel="stylesheet">
          
          <!--importing swiper js-->
          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/3.5.0/remixicon.css" crossorigin="">
@@ -50,105 +49,102 @@
         <!--poster with slogan-->
         <div class="poster">
             <img src="Images/peterandmiles.png" alt=""> 
-            <span class="slogan">BE GREATER. TOGETHER.</span>
+
+            <div class="slogan"><p><div class="first-word">BE GREATER.</div> <div class="second-word">TOGETHER.</div></p></div>
         </div>
 
         <!--trailer video-->
-        <div class='trailer'>
-          <video src= "Videos/Spider-Man 2 trailer.mp4"type="video/mp4" class="video" loop></video> 
-          <div class="hover_text"><p>HOVER TO PLAY</p></div>
-          <span  class="border_btm"></span>
+        <div class="trailer-container">
+           <div class='trailer'>
+             <video src= "Videos/Spider-Man 2 trailer.mp4"type="video/mp4" class="video" loop></video> 
+             <div class="hover_text"><p>HOVER TO PLAY</p></div>
+             <span  class="border_btm"></span>
+           </div>
         </div>
 
         <!--overview section-->
         <div class="overview" id="overview">
           <div class="text">
-              <h1>OVERVIEW</h1>   
-              <hr color="white" size="2.5px">
+              <h1 class="header-overview">OVERVIEW</h1>   
+              <hr color="white" size="2.5px" class="overview-hr">
         
               <div class="paragraphs">    
-                  <p>Spider-Men Peter Parker and Miles Morales swing back into action in the acclaimed Marvel’s Spider-Man franchise for PS5.</p>
-                  <p>Explore Marvel’s New York with new Web Wings, switching between Peter and Miles to navigate different stories and powers. Confront the menacing Villains as they threatens to destroy their lives and the city they love.</p>
+                  <p class="p-overview1">Spider-Men Peter Parker and Miles Morales swing back into action in the acclaimed Marvel’s Spider-Man franchise for PS5.</p>
+                  <p class="p-overview2">Explore Marvel’s New York with new Web Wings, switching between Peter and Miles to navigate different stories and powers. Confront the menacing Villains as they threatens to destroy their lives and the city they love.</p>
               </div>
           </div>
         </div>
             
         <!--switching to horizontal scrolling-->
         <!--key-features section-->
-        <div class="scroll_container" id="key-features">
-          <div class="sticky_wrap">
-            <div class="horizontal_scroll">
-
-              <div class="scroll_contents title-features">
-                  <h1>KEY<br>FEATURES</h1>
-              </div>
-                        
-              <hr color="white">
-
-              <div class="scroll_contents top">
-                  <div class="container">
-                      <h1>WEB WINGS</h1>
-                      <p>Take Spidey to new heights with <span>Web Wings</span>! Glide through New York city using wind tunnels, mastering the skies with unrivaled speed and freedom.</p>
-
-                      <div class="features-vid">
-                          <video autoplay muted playsinline loop>
-                              <source src="Videos/webwings.mp4" type="video/mp4">
-                          </video>
-                          <span class="border_btm"></span>
-                      </div>
-                  </div>
-              </div>
-                        
-              <hr color="white">
-
-              <div class="scroll_contents bottom">
-                  <div class="container">
-                      <div class="features-vid">
-                          <video autoplay muted playsinline loop>
-                              <source src="Videos/character switching.mp4" type="video/mp4">
-                          </video>
-                          <span class="border_btm"></span>
-                      </div>
-
-                      <h1>CHARACTER SWITCHING</h1>
-                      <p>Dual the danger, double the heroism! Seamlessly <span>switch</span> between the iconic Peter Parker and the electrifying Miles Morales. Harness their unique powers, styles, and perspectives to face challenges head-on.</p>
-                  </div>
-              </div>
-                        
-              <hr color="white">
-
-              <div class="scroll_contents top">
-                  <div class="container">
-                      <h1>SYMBIOTE SUIT</h1>
-                      <p>Unleash the darkness within with the <span>Symbiote Suit</span>! Embrace newfound powers as the suit enhances Spidey's abilities to an unprecedented level. Wield incredible strength, agility, and a touch of the sinister.</p>
-                      <div class="features-vid">               
-                          <video autoplay muted playsinline loop>
-                              <source src="Videos/symbiote.mp4" type="video/mp4">
-                          </video>
-                          <span class="border_btm"></span>
-                      </div>
-
-                  </div>
-              </div>
-
-              <hr color="white">
-
-              <div class="scroll_contents bottom">
-                <div class="container">
-                  <div class="features-vid">                      
-                      <video autoplay muted playsinline loop>
-                          <source src="Videos/villains.mp4" type="video/mp4">
-                      </video>
-                      <span class="border_btm"></span>
+        <div class="scroll_wrapper" id="key-features">
+         <div class="scroll_container scrollx">
+             
+             <section class="section title-features">
+                 <h1 class="anim3">KEY</h1>
+                 <h1 class="anim4">FEATURES</h1>
+             </section>
+             
+             <section class="section top">
+                 <div class="features-text anim">
+                     <h1>WEB WINGS</h1>
+                     <p>Take Spidey to new heights with <span>Web Wings</span>! Glide through New York city using wind tunnels, mastering the skies with unrivaled speed and freedom.</p>
                   </div>
 
-                  <h1>ICONIC VILLAINS</h1>
-                  <p>Duel legendary villains in heart-pounding combat against <span>iconic Spider-Man Villains</span> . The battle for the city's fate reaches new heights as you go head-to-head with your foes in an epic clash of heroism and villainy.</p>
-                </div>
-              </div>              
-            </div>
-          </div>
-        </div>
+                   <div class="features-vid anim">
+                       <video autoplay muted playsinline loop>
+                           <source src="Videos/webwings.mp4" type="video/mp4">
+                       </video>
+                       <span class="border_btm"></span>
+                   </div>
+             </section>
+
+             
+
+             <section class="section bottom">
+                 <div class="features-vid anim2">
+                     <video autoplay muted playsinline loop>
+                         <source src="Videos/character switching.mp4" type="video/mp4">
+                     </video>
+                     <span class="border_btm"></span>
+                 </div>
+                 <div class="features-text anim2">
+                     <h1>CHARACTER SWITCHING</h1>
+                     <p>Dual the danger, double the heroism! Seamlessly <span>switch</span> between the iconic Peter Parker and the electrifying Miles Morales. Harness their unique powers, styles, and perspectives to face challenges head-on.</p>
+                 </div>
+             </section>
+
+             
+
+             <section class="section top">
+                 <div class="features-text anim">
+                     <h1>SYMBIOTE SUIT</h1>
+                     <p>Unleash the darkness within with the <span>Symbiote Suit</span>! Embrace newfound powers as the suit enhances Spidey's abilities to an unprecedented level. Wield incredible strength, agility, and a touch of the sinister.</p>
+                 </div>
+                 <div class="features-vid anim">               
+                     <video autoplay muted playsinline loop>
+                         <source src="Videos/symbiote.mp4" type="video/mp4">
+                     </video>
+                     <span class="border_btm"></span>
+                 </div>
+             </section>
+
+             
+
+             <section class="section bottom">
+                 <div class="features-vid anim2">                      
+                     <video autoplay muted playsinline loop>
+                         <source src="Videos/villains.mp4" type="video/mp4">
+                     </video>
+                     <span class="border_btm"></span>
+                 </div>
+                 <div class="features-text anim2">
+                     <h1>ICONIC VILLAINS</h1>
+                     <p>Duel legendary villains in heart-pounding combat against <span>iconic Spider-Man Villains</span> . The battle for the city's fate reaches new heights as you go head-to-head with your foes in an epic clash of heroism and villainy.</p>
+                 </div>          
+             </section>
+         </div>
+     </div>
 
         <!--switching to vertical scrolling-->
 
@@ -636,16 +632,127 @@
                   <h1>MEET OUR TEAM</h1>
                   <h2>Game & Creative Directors</h2>
                   <div class="directors-img">
-                     <img src="Images/Bryan Intihar.png" alt="">
+                     <div class="">
+                        <img src="Images/Bryan Intihar.png" alt="">
+                        <p>Bryan Intihar</p>
+                     </div>
+
                      <hr>
-                     <img src="Images/Ryan Smith.png" alt="">
+
+                     <div>
+                        <img src="Images/Ryan Smith.png" alt="">
+                        <p>Ryan Smith</p>
+                     </div>
+                  </div>
+
+                  <div class="other-team">
+                     <div class="list">
+                        <ul>
+                           <h2>Designers</h2>
+                           <li>Alex Vaughn</li>
+                           <li>Joel Usher</li>
+                           <li>Sam Jordan</li>
+                        </ul>
+                     </div>
+
+                     <div class="list">
+                        <ul>
+                           <h2>Programmers</h2>
+                           <li>Joel Bartley</li>
+                           <li>Jon Lew</li>
+                           <li>Wes Waligora</li>
+                        </ul>
+                     </div>
+
+                     <div class="list">
+                        <ul>
+                           <h2>Artist</h2>
+                           <li>Jacinda Chew</li>
+                           <li>Davison Carvalho</li>
+                           <li>Grant Hollis</li>
+                           <li>Marco Villalpando</li>
+                        </ul>
+                     </div>
+
+                     <div class="list">
+                        <ul>
+                           <h2>Writers</h2>
+                           <li>Jon Paquette</li>
+                           <li>Mary Kenney</li>
+                           <li>Lauren Mee</li>
+                           <li>Jamie Meyer</li>
+                        </ul>
+                     </div>
                   </div>
                </div>
 
+               <div class="dev prev-work">
+                  <div class="text">
+                     <h1>PREVIOUS WORK</h1>
+                     <hr>
+                  </div>
+                  <img src="Images/previous work.webp" alt="">
+               </div>
             </div>
         </main>
+        <footer>
+            <div class="logos">
+               <img src="Images/playstation logo.png" alt="">
+               <img src="Images/marvel logo.png" alt="">
+               <img src="Images/Insomniac O logo.webp" alt="">
+            </div>
+            <hr>
+
+            <div class="links-container">
+               <div class="links">
+                  <ul>
+                     <p class="links-title">About</p>
+                     <li>Playstation Studios</li>
+                     <li>Insomniac Games</li>
+                     <li>Sony Interactive Entertainment</li>
+                     <li>Career</li>
+                  </ul>
+               </div>
+   
+               <div class="links">
+                  <ul>
+                     <p class="links-title">Products</p>
+                     <li>PlayStation 5</li>
+                     <li>PlayStation 4</li>
+                     <li>Accessories</li>
+                     <li>Games</li>
+                  </ul>
+               </div>
+               
+               <div class="links">
+                  <ul>
+                     <p class="links-title">Contact Us</p>
+                     <li>insomniac@sony.email.com</li>
+                     <li>SIE@sony.email.com</li>
+                     <li>PSstudios@sony.email.com</li>
+                     <li>+654 0987 345</li>
+                     <li>+623 7890 654</li>
+                  </ul>
+               </div>
+            </div>
+
+            <hr>
+
+            <div class="socials">
+               <img src="Images/twitter.svg" alt="">
+               <img src="Images/youtube.svg" alt="">
+               <img src="Images/facebook.svg" alt="">
+               <img src="Images/instagram.svg" alt="">
+            </div>
+
+            <div class="copyright">
+               <p>©2023 MARVEL.<br><br>©2023 Sony Interactive Entertainment LLC. Developed by Insomniac Games, Inc.</p>
+            </div>
+        </footer>
         <!--importing GSAP-->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/gsap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js" integrity="sha512-DkPsH9LzNzZaZjCszwKrooKwgjArJDiEjA5tTgr3YX4E6TYv93ICS8T41yFHJnnSmGpnf0Mvb5NhScYbwvhn2w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/ScrollTrigger.min.js"></script>
 
         <!--importing swiper js script-->
         <script src="assets/js/swiper-bundle.min.js"></script>
