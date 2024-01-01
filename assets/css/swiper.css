@@ -5,7 +5,7 @@
 
 @font-face {
   font-family: 'High tech black';
-  src: url(../../Fonts/Demoarchimotov01Black-8MD5g.otf);
+  src: url(../../Fonts/PPNeueMachina-PlainUltrabold.otf);
 }
 
 @import url('https://fonts.googleapis.com/css2?family="Poppins":wght@100;200;300;400;500;600;700;800;900&display=swap');
@@ -62,7 +62,7 @@
 }
 
 .foes .card__data{
-  background-color: #111418;
+  background-color: #000000;
   padding: 0px 28px;
 }
 
@@ -138,14 +138,12 @@
 }
 
 .foes .card__data .card__name {
-  background-color: rgb(31, 30, 30);
-  color: white;
   top: -15px;
   font-family: 'High tech black';  
   font-size: 32px;
   font-weight: 100;
   letter-spacing: 3px;
-  padding: 3px 10px;
+  padding: 8px 9px 3px 9px;
   border: solid #F05454 0.1px;
 }
 

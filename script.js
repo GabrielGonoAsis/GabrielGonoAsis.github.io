@@ -281,7 +281,7 @@ gsap.fromTo(".p-overview2", //paragraph
   delay: 0.3}
 );
 
-//key features section
+//key features section animation
 const container = document.querySelector(".scroll_container");
 const sections = gsap.utils.toArray(".section");
 
@@ -388,3 +388,153 @@ document.addEventListener("DOMContentLoaded", function () {
 
 window.addEventListener('load', videoScroll);
 window.addEventListener('scroll', videoScroll);
+
+//characters section animation
+gsap.from(".characters .title-anim", //title and description
+{opacity: 0, 
+  y: -50,
+  scale: 0.9,
+  duration: 1,
+  ease: "power1.inOut", 
+  stagger: 0.4,
+  scrollTrigger: {
+    trigger: ".characters .title",
+    start: "30% 80%",
+    end: "90% center",
+    markers: false,
+    toggleActions: "play none none none",
+  },
+});
+
+//friends slider animation
+gsap.from(".friends-title", //slider title
+{opacity: 0, 
+  duration: 1,
+  ease: "power4.inOut", 
+  scrollTrigger: {
+    trigger: ".friends-title",
+    start: "100% 100%",
+    end: "90% center",
+    markers: false,
+    toggleActions: "play none none none",
+  },
+});
+
+let friends_anim = gsap.timeline({
+  scrollTrigger: {
+    trigger: "#friend-swiper-wrapper",
+    start: "top center",
+    end: "15% center",
+    markers: true,
+    toggleActions: "play none none none",
+  },
+});
+
+//slider animation
+friends_anim.to("#friend-card-article", 
+{opacity: 0, 
+  x: -200,
+});
+
+friends_anim.to("#friend-card-article",
+{opacity: 100, 
+  x: 0,
+  ease: "power2.inOut", 
+  duration: 1,
+  stagger: 0.1,
+});
+
+gsap.to("#friend-nav", //navigation animation
+{opacity: 100, 
+  ease: "power2.inOut",
+  duration: 1,
+  delay: 1,
+  scrollTrigger: {
+    trigger: "#friend-swiper-wrapper",
+    start: "top center",
+    end: "15% center",
+    markers: true,
+    toggleActions: "play none none none",
+  },
+});
+
+gsap.to("#friend-pag", //pagination animation
+{opacity: 100, 
+  ease: "power2.inOut",
+  duration: 1,
+  delay: 1,
+  scrollTrigger: {
+    trigger: "#friend-swiper-wrapper",
+    start: "top center",
+    end: "15% center",
+    markers: true,
+    toggleActions: "play none none none",
+  },
+});
+
+
+//foes slider animation
+gsap.from(".foes-title", //slider title
+{opacity: 0, 
+  duration: 1,
+  ease: "power4.inOut", 
+  scrollTrigger: {
+    trigger: ".foes-title",
+    start: "100% 100%",
+    end: "90% center",
+    markers: false,
+    toggleActions: "play none none none",
+  },
+});
+
+let foes_anim = gsap.timeline({
+  scrollTrigger: {
+    trigger: "#foes-swiper-wrapper",
+    start: "top center",
+    end: "15% center",
+    markers: true,
+    toggleActions: "play none none none",
+  },
+});
+
+//slider animation
+foes_anim.to("#foes-card-article",
+{opacity: 0, 
+  x: 200,
+});
+
+foes_anim.to("#foes-card-article",
+{opacity: 100, 
+  x: 0,
+  ease: "power2.inOut", 
+  duration: 1,
+  stagger: 0.05,
+});
+
+gsap.to("#foes-nav", //navigation animation
+{opacity: 100, 
+  ease: "power2.inOut",
+  duration: 1,
+  delay: 1,
+  scrollTrigger: {
+    trigger: "#foes-swiper-wrapper",
+    start: "top center",
+    end: "15% center",
+    markers: true,
+    toggleActions: "play none none none",
+  },
+});
+
+gsap.to("#foes-pag", //pagination animation
+{opacity: 100, 
+  ease: "power2.inOut",
+  duration: 1,
+  delay:1,
+  scrollTrigger: {
+    trigger: "#foes-swiper-wrapper",
+    start: "top center",
+    end: "15% center",
+    markers: true,
+    toggleActions: "play none none none",
+  },
+});
