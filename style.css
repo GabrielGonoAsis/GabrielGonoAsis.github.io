@@ -474,6 +474,7 @@ body{
     font-weight: 800;
     letter-spacing: 5px;
     margin-bottom: 10px;
+    text-shadow: 0px 10px 20px black;
 }
 
 .title p{
@@ -557,11 +558,12 @@ body{
 .side-title{
     position: absolute;
     transform: rotate(90deg);
-    right: 105px;
+    right: 126px;
     top: 45%;
+    opacity: 0;
 }
 
-.map-container p{
+.map-container .desc{
     width: 50vw;
     text-align: center;
     font-family: 'Poppins', sans-serif;
@@ -569,7 +571,7 @@ body{
     letter-spacing: 2px;
     margin: auto;
     margin-bottom: -30px;
-    opacity: 40%;
+    opacity: 0;
     color: white;
 }
 
@@ -581,8 +583,9 @@ body{
     flex-direction: column;
 }
 
-.map-container img{
-    width: 50vw;
+.map-img{
+    width: 45vw;
+    opacity: 0;
 }
 
 /*map pins/markers*/
@@ -592,6 +595,7 @@ body{
     width: 0.7em;
     height: 0.7em;
     border-radius: 50%;
+    opacity: 0%;
 }
 
 .pin::before{
@@ -629,24 +633,30 @@ body{
 
 .astoria{
     top: 28%;
-    left: 61%;    
+    left: 60%;    
 }
 
 
 .odessa{
-    right: 37%;
+    right: 38%;
     bottom: 46%;
 }
 
 .brooklyn{
     bottom: 16%;
-    right: 38%;
+    right: 39%;
 }
+
 .pin2{
     position: absolute;    
     width: 0.7em;
     height: 0.7em;
     border-radius: 50%;
+    opacity: 0;
+}
+
+#pin-left{
+    opacity: 0;
 }
 
 .pin2::before{
@@ -700,7 +710,7 @@ body{
 
 .coney{
     bottom: 8%;
-    right: 44.5%;
+    right: 46%;
 }
 
 .coney::before{
@@ -744,7 +754,6 @@ body{
         scale(2.5);
     }
 }
-
 
 /*popup of location info*/
 .popup-container {
@@ -831,8 +840,6 @@ body{
 }
 
 .popup h2 {
-    padding-top: 0px;
-    padding-bottom: 20px;
     font-family: 'Montserrat', sans-serif;
     font-weight: 800;
     font-size: 38px;
@@ -841,18 +848,21 @@ body{
 
 .popup p {
     padding-top: 20px;
-    padding-bottom: 0px;
+    margin-bottom: auto;
     font-family: 'Montserrat', sans-serif;
     font-weight: 300;
     font-size: 15px;
     line-height: 2rem;
     text-align: justify;
+    width: 100%;
+    opacity: 100%;
 }
 
 .popup img{
     padding-top: 20px;
     padding-bottom: 0px;
     width: 100%;
+    opacity: 100%;
 }
 
 .popup hr{
@@ -901,18 +911,18 @@ body{
     align-content: space-between;
     color: white;
     font-family: 'Poppins', sans-serif;
-
 }
 
 .games .container{
-    width: 35%;
+    width: 30%;
     margin: auto;
     padding-block: 20px 70px;
+    opacity: 0;
 }
 
 .games .standard, .deluxe{
     background-color: #1E1E1E;
-    height: 112vh;
+    height: 104vh;
     margin: auto;
     border-radius: 5px;
     position: relative;
@@ -1017,7 +1027,7 @@ body{
 }
 
 .old .container{
-    width: 40%;
+    width: 35%;
 }
 
 .games .first, .miles{
@@ -1050,7 +1060,7 @@ body{
 
 .game-title{
     font-family: 'Poppins' sans-serif;
-    font-size: 30px;
+    font-size: 26px;
     padding-left: 6px;
     margin-bottom: 15px;
 }
@@ -1092,6 +1102,10 @@ body{
     grid-gap: 70px 60px;
 }
 
+.img-container{
+    opacity: 0;
+}
+
 .images img{
     width: 100%;
     border:#4DB3BD 1px solid;
@@ -1102,12 +1116,35 @@ body{
 .images a:hover{
     .gallery_img{
         filter: brightness(20%);
+        transform: scale(1.02);
+    }
+
+    span.border_btm {
+        &:after {
+            transform: scale(1.3);
+            transition: 0.3s all ease-in-out;
+        }
+        &:before {
+            transform: scale(1.3);
+            transition: 0.3s all ease-in-out;
+        }
+    }
+    
+    &:before {
+        transform: scale(1.3);
+        transition: 0.3s all ease-in-out;
+    }
+    
+    &:after {
+        transform: scale(1.3);
+        transition: 0.3s all ease-in-out;
     }
 }
 
 .images a{
     position: relative;
     span.border_btm {
+        transition: 0.3s all;
         &:after {
           display: block;
           content: "";
@@ -1310,9 +1347,13 @@ body{
     padding-block: 20px 70px;
 }
 
+.developers .title{
+    padding: 100px 0px;
+}
+
 .dev{
     color: white;
-    padding: 100px 100px;
+    padding: 100px 150px;
     display: flex;
     justify-content: space-between;
 }
@@ -1322,6 +1363,7 @@ body{
     font-size: 65px;
     letter-spacing: 4px;
     word-spacing: 5px;
+    text-shadow: 0px 0px 20px black;
 }
 
 .dev hr{
@@ -1339,6 +1381,7 @@ body{
     line-height: 32px;
     width: 100%;
     opacity: 50%;
+    text-shadow: 5px 5px 10px black;
 }
 
 .text p span{
@@ -1346,8 +1389,27 @@ body{
     font-weight: 700;
 }
 
+.inso-logo{
+    margin: 0px auto;
+    margin-bottom: 20px;
+    width: 32%;
+}
+
+.inso-logo img{
+    width: 100%;
+    
+}
+
+.about{
+    padding-top: 50px;
+}
+
 .about .text{
     width: 100%;
+}
+
+.about .text p{
+    font-size: 16px;
 }
 
 .about .img{
@@ -1358,16 +1420,18 @@ body{
 }
 
 .about .img img{
-    width: 48%;
+    width: 47%;
+    box-shadow: 0px 0px 30px black;
+    border-radius: 4px;
 }
 
 .visions .text{
-    width: 50%;
+    width: 49%;
     align-self: center;
 }
 
 .visions .text p{
-    font-size: 24px;
+    font-size: 22px;
     line-height: 36px;
 }
 
@@ -1375,9 +1439,18 @@ body{
     margin: 35px 0px;
 }
 
-.visions img{
-    width: 40%;
+.vision-img{
+    width: 48%;
 }
+
+.visions img{
+    width: 45%;
+    margin: 5px;
+    box-shadow: 0px 0px 50px black;
+    border-radius: 3px;
+    opacity: 0;
+}
+
 
 .missions .text{
     align-self: center;
@@ -1404,6 +1477,7 @@ body{
 
 .top-txt-img .txt p{
     width: 100%;
+    font-size: 20px;
 }
 
 .top-txt-img .txt{
@@ -1411,11 +1485,13 @@ body{
 }
 
 .top-txt-img .img{
-    width: 49%;
+    width: 47%;
 }
 
 .top-txt-img img{
     width: 100%;
+    box-shadow: 0px 0px 50px black;
+    border-radius: 4px;
 }
 
 .team{
@@ -1425,6 +1501,7 @@ body{
 .team h1{
     text-align: center;
     margin-bottom: 100px;
+    text-shadow: 0px 0px 20px black;
 }
 
 .team h2{
@@ -1433,6 +1510,7 @@ body{
     font-weight: 400;
     letter-spacing: 2px;
     margin: 50px 0px;
+    text-shadow: 0px 0px 20px black;
 }
 
 .team hr{
@@ -1459,18 +1537,26 @@ body{
     display: grid;
     grid-template-columns: auto auto;
     justify-content: space-around;
+    margin-top: 100px;
 }
 
 .other-team  h2{
     margin-bottom: 20px;
+    text-shadow: 0px 0px 0px rgba(0, 0, 0, 0.5);
 }
 
 .team p, .team .list li{
     font-size: 25px;
+    text-shadow: 0px 0px 0px rgba(0, 0, 0, 0.5);
 }
 
 .list{
-    margin-top: 100px;
+    margin: 50px;
+    padding: 0px 55px 50px 55px;
+    color: white;
+    background: rgb(11, 11, 11);
+    border-radius: 5px;
+    width: 80%;
 }
 
 .list li{
