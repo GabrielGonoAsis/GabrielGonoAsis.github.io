@@ -831,7 +831,7 @@ gsap.fromTo(".about-desc",
   markers: false,
   toggleActions: "play none none none",
 },
-  opacity: "50%", 
+  opacity: 1, 
   duration: 1.5, 
   ease: "power3.inOut", 
   delay: 2}
@@ -846,7 +846,7 @@ gsap.fromTo(".vision-title",
   trigger: ".visions",
   start: "10% center",
   end: "bottom center",
-  markers: true,
+  markers: false,
   toggleActions: "play none none none",
 },
   opacity: 1, 
@@ -882,7 +882,7 @@ gsap.fromTo(".vision-subhead",
   trigger: ".visions",
   start: "10% center",
   end: "bottom center",
-  markers: true,
+  markers: false,
   toggleActions: "play none none none",
 },
   opacity: 1, 
@@ -903,7 +903,7 @@ gsap.fromTo(".vision-desc",
   markers: false,
   toggleActions: "play none none none",
 },
-  opacity: "50%", 
+  opacity: 1, 
   x: 0,
   duration: 1, 
   ease: "power3.inOut", 
@@ -931,3 +931,101 @@ vision_img.to(".vision-img-anim",
   stagger: 0.2,
   duration: 1,
 });
+
+//mission animations
+gsap.fromTo(".mission-title", 
+{opacity: 0, 
+  x: 100,
+},
+{ scrollTrigger: {
+  trigger: ".missions",
+  start: "10% center",
+  end: "bottom center",
+  markers: false,
+  toggleActions: "restart none none none",
+},
+  opacity: 1, 
+  x: 0,
+  duration: 1.3, 
+  ease: "power3.inOut", 
+  delay: 0}
+);
+
+gsap.fromTo(".mission-hr", 
+{opacity: 0, 
+  x: 100,
+},
+{ scrollTrigger: {
+  trigger: ".missions",
+  start: "10% center",
+  end: "bottom center",
+  markers: false,
+  toggleActions: "restart none none none",
+},
+  opacity: 1, 
+  x: 0,
+  duration: 1.3, 
+  ease: "power3.inOut", 
+  delay: 0.3}
+);
+
+let mission_left = gsap.timeline({
+  scrollTrigger: {
+    trigger: ".missions",
+    start: "10% center",
+    end: "bottom center",
+    markers: false,
+    toggleActions: "play none none none",
+  }
+});
+
+mission_left.to(".img-txt-left",
+{opacity: 0, 
+  x: -100,
+});
+
+mission_left.to(".img-txt-left",
+{opacity: 1, 
+  x: 0,
+  stagger: 0.2,
+  duration: 1,
+});
+
+let mission_right = gsap.timeline({
+  scrollTrigger: {
+    trigger: ".missions",
+    start: "10% center",
+    end: "bottom center",
+    markers: false,
+    toggleActions: "play none none none",
+  }
+});
+
+mission_right.to(".img-txt-right",
+{opacity: 0, 
+  x: 100,
+});
+
+mission_right.to(".img-txt-right",
+{opacity: 1, 
+  x: 0,
+  stagger: 0.2,
+  duration: 1,
+});
+
+//meet our team
+teamTXT = new SplitType('.team-title', { types: 'words' });
+
+gsap.from('.word',
+{opacity: 0, 
+  y: -100,
+  duration: 1,
+  stagger: 0.2,
+  scrollTrigger: {
+  trigger: ".team-title",
+  start: "10% center",
+  end: "bottom center",
+  markers: true,
+  toggleActions: "restart none none none",
+}}
+);

@@ -1380,7 +1380,6 @@ body{
     letter-spacing: 2px;
     line-height: 32px;
     width: 100%;
-    opacity: 50%;
     text-shadow: 5px 5px 10px black;
 }
 
@@ -1463,21 +1462,19 @@ body{
 
 .top-txt-img{
     display: flex;
-    position: relative;
     justify-content: space-between;
-    align-items:last baseline;
+    align-items: center;
     margin-bottom: 50px;
 }
 
-.top-txt-img .txt span{
-    position: absolute;
-    width: 48%;
-    top: 0px;
+.img-txt-left, .img-txt-right{
+    opacity: 0;
 }
 
 .top-txt-img .txt p{
     width: 100%;
     font-size: 20px;
+    margin: 12px 0px;
 }
 
 .top-txt-img .txt{
