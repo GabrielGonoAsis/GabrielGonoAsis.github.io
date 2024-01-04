@@ -133,17 +133,17 @@ body{
 
 @media only screen and (max-width: 769px) and (max-width: 1025px){
     #header{
-        padding-top: 9px;
-        padding-bottom: 9px;
+        padding-top: 12px;
+        padding-bottom: 12px;
     }  
 
     #nav-bar > ul {
-        font-size: 14px; 
-        gap: 50px;
+        font-size: 16px; 
+        gap: 40px;
     }
     
     .logo{
-        font-size: 23px;
+        font-size: 25px;
     }
 }
 
@@ -152,6 +152,7 @@ body{
 .poster img{
     width: 100%;
     filter: blur(1px) brightness(70%);
+    
 }
 
 .slogan{
@@ -180,20 +181,54 @@ body{
     margin-right: 0px;
 }
 
-/*slogan media queries*/
+/*poster media queries*/
 @media only screen and (max-width: 1025px) {    
+    .poster img{
+        height: 100vh;
+        object-fit: cover;
+    }
+
     .slogan{
-        top: 25%;
-        font-size: 8vw;
+        letter-spacing: 11px;
     }    
 }
 
 
 @media only screen and (max-width: 769px) and (max-width: 1025px){
+    .poster img{
+        height: 100vh;
+        object-position: 100%;
+    }
+
     .slogan{
-        font-size: 6vw;
+        font-size: 9vw;
+        letter-spacing: 9px;
+    }
+
+    .slogan .word:first-child{
+        margin-right: 30px;
     }
 }
+
+@media only screen and (max-width: 412px) and (max-width: 769px){
+    .poster img{
+        object-position: 87%;
+    }
+
+    .slogan{
+        font-size: 9vw;
+        letter-spacing: 6px;
+    }
+
+    .slogan .word:first-child{
+        margin-right: 12px;
+    }
+
+    .slogan .word:nth-child(2){
+        margin-right: 18px;
+    }
+}
+
 
 .trailer-container{
     padding: 150px 0px;
@@ -286,7 +321,14 @@ body{
 
 @media only screen and (max-width: 769px) and (max-width: 1025px){
     .trailer-container{
+        height: 75vh;
         padding: 100px 0px;
+        display: flex;
+        align-items: center;
+    }
+
+    .trailer{
+        width: 80%;
     }
 }
 
@@ -326,6 +368,7 @@ body{
 .overview .paragraphs{
     font-family: "Poppins", sans-serif; 
     font-size: 25px;
+    text-align: justify;
     line-height: 38px;
     color: white;
     opacity: 65%;
@@ -364,26 +407,52 @@ body{
 
 @media only screen and (max-width: 769px) and (max-width: 1025px){
     .overview{
-        height: 45vh;
+        height: 100vh;
     }
 
     .overview h1{
-        font-size: 35px;
+        text-align: center;
+        font-size: 65px;  
+        margin: auto;
         margin-bottom: 18px;
+        width: 100%;
     }
 
     .overview hr{
-        width: 22%;  
+        width: 24%;  
+        margin: 30px auto 60px auto;
     }
 
     .overview .paragraphs{
-        font-size: 15px;
-        line-height: 22px;
-        width: 48%;
-        margin-right: 18px;
+        text-align: justify;
+        font-size: 30px;
+        line-height: 40px;
+        width: 82%;
+        margin: auto;
+        float: none;
     }
 }
 
+@media only screen and (max-width: 412px) and (max-width: 769px){
+    .overview{
+        height: 100vh;
+        background-position: center;
+    }
+
+    .overview h1{        
+        font-size: 35px;  
+    }
+
+    .overview hr{
+        width: 45%;  
+        margin: 20px auto 60px auto;
+    }
+
+    .overview .paragraphs{
+        font-size: 16px;
+        line-height: 24px;
+    }
+}
 
 /*horizontal scrolling section*/
 .scroll_wrapper {
@@ -504,12 +573,12 @@ body{
 .features-vid video{
     width: 100%;
     box-shadow: 0px 0px 50px black;
+    border: solid #4DB3BD 1px;
 }
 
 .features-vid{
     width: 130vh;
     position: relative;
-    border: solid #4DB3BD 1px;
     span.border_btm {
         &:after {
           display: block;
@@ -562,10 +631,164 @@ body{
 }
 
 /*key features media queries*/
-@media only screen and (max-width: 1025px) {
+@media only screen and (min-width: 1024px) {
+    .key-features-vert{
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 1026px) {
+
+    .title-features h1{
+        font-size: 6rem;
+    }
+    
+    .features-vid{
+        width: 100vh;
+    }
+    
+    .bottom p, .top p{
+        width: 100vh;
+    }
+    
+}
+
+@media only screen and (max-width: 769px) {
     .scroll_container{
         display: none;
     }
+}
+
+/*key-features vertical version*/
+.key-features-vert{
+    background-color: #08001A;
+    color: white;
+}
+
+.title-features-vert{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    margin: auto;
+    padding-top: 50px;
+    padding-bottom: 200px;
+}
+
+.section-vert{
+    width: 83vw;
+}
+
+.key-features-vert > *:not(:first-child){
+    height: 58vh;
+    padding-bottom: 800px;
+}
+
+.key-features-vert > :last-child{
+    padding-bottom: 0px;
+}
+
+.vert-title{
+    font-family: 'Monument-Bold';
+    font-size: 5.5rem;
+    letter-spacing: 0.8rem;
+}
+
+.vert-text h1{
+    font-family: 'High-Tech 2 Bold';
+    font-size: 40px;
+    letter-spacing: 3px;
+    word-spacing: 8px;
+    margin-bottom: 8px;    
+}
+
+.vert-text p{
+    font-family: 'High-Tech Thin';
+    font-size: 15px;
+    text-align: justify;
+    letter-spacing: 2px;
+    line-height: 20px;
+    margin-bottom: 28px;
+    opacity: 50%;
+}
+
+.vert-text p span{
+    font-family: 'High-Tech Italic';
+    color: #F05454;
+}
+
+.vert-vid{
+    width: 100%;
+    position: relative;
+    span.border_btm {
+        &:after {
+          display: block;
+          content: "";
+          width: 12px;
+          height: 12px;
+          position: absolute;
+          bottom: -8px;
+          right: -12px;
+          border-bottom: 2px solid white;
+          border-right: 2px solid white;
+        }
+        &:before {
+          display: block;
+          content: "";
+          width: 12px;
+          height: 12px;
+          position: absolute;
+          bottom: -8px;
+          left: -12px;
+          border-bottom: 2px solid white;
+          border-left: 2px solid white;
+        }
+    }
+    
+    &:before {
+        display: block;
+        content: "";
+        width: 12px;
+        height: 12px;
+        position: absolute;
+        top: -10px;
+        left: -10px;
+        border-top: 2px solid white;
+        border-left: 2px solid white;
+    }
+    
+    &:after {
+        display: block;
+        content: "";
+        width: 12px;
+        height: 12px;
+        position: absolute;
+        top: -10px;
+        right: -10px;
+        border-top: 2px solid white;
+        border-right: 2px solid white;
+    }
+}
+
+.vert-vid video{
+    width: 100%;
+    border: solid #4DB3BD 2px;
+    box-shadow: 0px 0px 30px black;
+}
+
+.left{
+    margin-left: 32px;
+}
+
+.right{
+    text-align: right;
+    margin: auto;
+    margin-right: 32px;
+}
+
+.right p{
+    text-align: right;
 }
 
 /*titles*/
@@ -642,7 +865,6 @@ body{
 }
 
 .friends{
-    height: 100vh;
     width: 100%;
     margin-top: 135px;
 }
@@ -654,7 +876,8 @@ body{
 }
 
 .foes{
-    height: 100vh;
+    width: 100%;
+    padding-bottom: 135px;
 }
 
 .friends .slider-container{
@@ -695,16 +918,24 @@ body{
         padding-top: 100px;
     }
 
+    .friends-title{
+        padding-top: 0px;
+    }
+
     .friends-title, .foes-title{    
         font-size: 50px;
     }
 
-    .friends, .foes{
-        height: 55vh;
+    .characters hr{
+        margin: 80px auto;
     }
 
     .foes .slider-container{
         width: 100%;
+    }
+
+    .foes{
+        padding-bottom: 80px;
     }
 }
 
@@ -1292,13 +1523,13 @@ body{
 
 @media only screen and (max-width: 769px) and (max-width: 1025px) {
     .popup {
-        top: 35%;
+        top: 50%;
         width: 60%;
         padding: 20px;
     }
 
     .popup h2 {
-        font-size: 42px;
+        font-size: 47px;
         letter-spacing: 3px;
         margin-bottom: 20px;
     }
@@ -1308,9 +1539,9 @@ body{
     }
     
     .popup p {
-        padding-top: 12px;
+        padding-top: 15px;
         margin-bottom: auto;
-        font-size: 18px;
+        font-size: 20px;
         line-height: 1.6rem;
     }
 
@@ -1344,7 +1575,7 @@ body{
 
 .games .standard, .deluxe{
     background-color: #1E1E1E;
-    height: 104vh;
+    height: 48rem;
     margin: auto;
     border-radius: 5px;
     position: relative;
@@ -1444,6 +1675,9 @@ body{
 }
 
 /*buy now media queries*/
+@media only screen and (max-width: 1440px) {
+}
+
 @media only screen and (max-width: 1025px) {
     .games h1{
         font-size: 28px;
@@ -1461,7 +1695,7 @@ body{
     }
 
     .games .standard, .deluxe{
-        height: 100vh;
+        height: 41.5rem;
     }
 
     .price{
@@ -1476,12 +1710,6 @@ body{
         font-size: 13px;
         width: 110px;
         padding: 5px 0px;
-    }
-}
-
-@media only screen and (max-width: 1440px) {
-    .games .standard, .deluxe{
-        height: 86vh;
     }
 }
 
@@ -1521,9 +1749,9 @@ body{
         font-size: 16px;
         width: 128px;
         padding: 7px 0px;
+        margin-top: 30px;
     }
 }
-
 
 /*previous games*/
 .old{
@@ -1594,7 +1822,7 @@ body{
     }
 
     .old .container{
-        width: 40%;
+        width: 42%;
     }
 
     .first .add-to-cart, .miles .add-to-cart{
@@ -2215,18 +2443,12 @@ body{
         margin: 18px 0px;
     }
 
-    .about .text p{
-        font-size: 11px;
-        letter-spacing: 1px;
-        line-height: 22px;
-    }
-
     .visions hr{
         width: 40%;
     }
 
     .visions .text p{
-        font-size: 11px;
+        font-size: 11.5px;
         line-height: 18px;
     }
 
@@ -2235,12 +2457,12 @@ body{
     }
 
     .missions .text p{
-        font-size: 11px;
-        line-height: 18px;
+        font-size: 12px;
+        line-height: 16px;
     }
 
     .top-txt-img .txt{
-        width: 55%;
+        width: 56.5%;
     }
 
     .top-txt-img .img{
@@ -2249,12 +2471,12 @@ body{
 
     .top-txt-img .img img{
         width: 260px;
-        height: 175px;
+        height: 170px;
         object-fit: cover;
     }  
 
     .top-txt-img{
-        margin-bottom: 3px;
+        margin-bottom: 10px;
     }
 
     .team h1{

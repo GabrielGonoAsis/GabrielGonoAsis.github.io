@@ -208,7 +208,7 @@ let tl = gsap.timeline({
     trigger: ".trailer",
     start: "20% 80%",
     end: "80% 50px",
-    scrub: 2,
+    scrub: 3,
     markers: false,
     toggleActions: "play none none none",
   }
@@ -303,51 +303,110 @@ gsap.fromTo(".p-overview2", //paragraph
 );
 
 //key features section animation
-const container = document.querySelector(".scroll_container");
-const sections = gsap.utils.toArray(".section");
 
-let scrollTween = gsap.to(sections, {
-  xPercent: -142 * (sections.length - 1),
-  ease: "none",
-  scrollTrigger: {
-    trigger: container,
-    pin: true,
-    scrub: 1,
-    end: "+=3000",
-    markers: false,
+//horizontal scrolling
+ScrollTrigger.matchMedia({
+  "(min-width: 1025px)": function() {
+    
+  const container = document.querySelector(".scroll_container");
+  const sections = gsap.utils.toArray(".section");
+
+    let scrollTween = gsap.to(sections, {
+      xPercent: -144 * (sections.length - 1),
+      ease: "none",
+      scrollTrigger: {
+        trigger: container,
+        pin: true,
+        scrub: 1,
+        end: "+=3000",
+        markers: false,
+      }
+    });
+    
+  function animateText(textSelector, yValue, xValue, opacityValue, durationValue, easeType, staggerValue, scaleValue) {
+    sections.forEach((section) => {
+      let text = section.querySelectorAll(textSelector);
+      
+      if (text.length === 0) return;
+      
+      gsap.from(text, {
+        y: yValue,
+        x: xValue,
+        opacity: opacityValue,
+        duration: durationValue,
+        ease: easeType,
+        stagger: staggerValue,
+        scale: scaleValue,
+        scrollTrigger: {
+          trigger: section,
+          containerAnimation: scrollTween,
+          start: "left 85%",
+          markers: false,
+        },
+      });
+    });
   }
+
+  animateText(".anim", -130, 0, 0, 1, "power3.inOut", 0.1, 1);
+  animateText(".anim2", 130, 0, 0, 1, "power3.inOut", 0.1, 1);
+  animateText(".anim3", 0, -200, 0, 1.2, "power2.inOut", 0), 1;
+  animateText(".anim4", 0, 200, 0, 1.2, "power2.inOut", 0, 1);
+  animateText(".anim5", 0, 0, 0, 1.2, "power2.inOut", 0.3, 0.6);
+  
+  },
+
+  "(max-width: 1024px)": function() {
+    
+    const container = document.querySelector(".scroll_container");
+    const sections = gsap.utils.toArray(".section");
+  
+      let scrollTween = gsap.to(sections, {
+        xPercent: -153 * (sections.length - 1),
+        ease: "none",
+        scrollTrigger: {
+          trigger: container,
+          pin: true,
+          scrub: 1,
+          end: "+=3000",
+          markers: false,
+        }
+      });
+      
+    function animateText(textSelector, yValue, xValue, opacityValue, durationValue, easeType, staggerValue, scaleValue) {
+      sections.forEach((section) => {
+        let text = section.querySelectorAll(textSelector);
+        
+        if (text.length === 0) return;
+        
+        gsap.from(text, {
+          y: yValue,
+          x: xValue,
+          opacity: opacityValue,
+          duration: durationValue,
+          ease: easeType,
+          stagger: staggerValue,
+          scale: scaleValue,
+          scrollTrigger: {
+            trigger: section,
+            containerAnimation: scrollTween,
+            start: "left 85%",
+            markers: false,
+          },
+        });
+      });
+    }
+  
+    animateText(".anim", -130, 0, 0, 1, "power3.inOut", 0.1, 1);
+    animateText(".anim2", 130, 0, 0, 1, "power3.inOut", 0.1, 1);
+    animateText(".anim3", 0, -200, 0, 1.2, "power2.inOut", 0), 1;
+    animateText(".anim4", 0, 200, 0, 1.2, "power2.inOut", 0, 1);
+    animateText(".anim5", 0, 0, 0, 1.2, "power2.inOut", 0.3, 0.6);
+    
+    }
 });
 
-function animateText(textSelector, yValue, xValue, opacityValue, durationValue, easeType, staggerValue, scaleValue) {
-  sections.forEach((section) => {
-    let text = section.querySelectorAll(textSelector);
-    
-    if (text.length === 0) return;
-    
-    gsap.from(text, {
-      y: yValue,
-      x: xValue,
-      opacity: opacityValue,
-      duration: durationValue,
-      ease: easeType,
-      stagger: staggerValue,
-      scale: scaleValue,
-      scrollTrigger: {
-        trigger: section,
-        containerAnimation: scrollTween,
-        start: "left 85%",
-        markers: false,
-      },
-    });
-  });
-}
-
-animateText(".anim", -130, 0, 0, 1, "power3.inOut", 0.1, 1);
-animateText(".anim2", 130, 0, 0, 1, "power3.inOut", 0.1, 1);
-animateText(".anim3", 0, -200, 0, 1.2, "power2.inOut", 0), 1;
-animateText(".anim4", 0, 200, 0, 1.2, "power2.inOut", 0, 1);
-animateText(".anim5", 0, 0, 0, 1.2, "power2.inOut", 0.3, 0.6);
-
+window.addEventListener('load', videoScroll);
+window.addEventListener('scroll', videoScroll);
 
 //autoplay on scroll for key-features videos
 function videoScroll() {
@@ -363,6 +422,33 @@ function videoScroll() {
           videoClientRect = thisVideoEl.getBoundingClientRect().left;
 
       if ( videoClientRect <= ( (windowWidth) - (videoWidth*.9) ) && videoClientRect >= ( 0 - ( videoWidth*.3 ) ) ) {
+        thisVideoEl.play();
+      } else {
+        thisVideoEl.pause();
+      }
+
+    }
+  }
+
+}
+
+//autoplay on scroll for key-features videos
+window.addEventListener('load', videoScroll2);
+window.addEventListener('scroll', videoScroll2);
+
+function videoScroll2() {
+
+  if ( document.querySelectorAll('.vert-vid video').length > 0) {
+    var windowHeight = window.innerHeight,
+        videoEl = document.querySelectorAll('.vert-vid video');
+
+    for (var i = 0; i < videoEl.length; i++) {
+
+      var thisVideoEl = videoEl[i],
+          videoHeight = thisVideoEl.clientHeight,
+          videoClientRect = thisVideoEl.getBoundingClientRect().top;
+
+      if ( videoClientRect <= ( (windowHeight) - (videoHeight*.6) ) && videoClientRect >= ( 0 - ( videoHeight*.6 ) ) ) {
         thisVideoEl.play();
       } else {
         thisVideoEl.pause();
@@ -412,6 +498,39 @@ document.addEventListener("DOMContentLoaded", function () {
 window.addEventListener('load', videoScroll);
 window.addEventListener('scroll', videoScroll);
 
+//vertical key features
+const section_vert = gsap.utils.toArray(".section-vert");
+
+function animateVerticalText(textSelector, yValue, xValue, opacityValue, durationValue, easeType, staggerValue, scaleValue) {
+  section_vert.forEach((section_vert) => {
+    let text = section_vert.querySelectorAll(textSelector);
+    
+    if (text.length === 0) return;
+    
+    gsap.from(text, {
+      y: yValue,
+      xPercent: xValue,
+      opacity: opacityValue,
+      duration: durationValue,
+      ease: easeType,
+      stagger: staggerValue,
+      scale: scaleValue,
+      scrollTrigger: {
+        trigger: section_vert,
+        start: "10% center",
+        toggleActions: "play none none none",
+        markers: false,
+      },
+    });
+  });
+}
+
+featureTitleTXT = new SplitType('.vert-title', { types: 'words' });
+
+animateVerticalText(".vert-title .word", 0, 0, 0, 1.2, "power2.inOut", 0.3, 0.8);
+animateVerticalText(".anim-right", 0, -12, 0, 1.2, "power2.inOut", 0.3, 1);
+animateVerticalText(".anim-left", 0, 12, 0, 1.2, "power2.inOut", 0.3, 1);
+
 //characters section animation
 gsap.from(".characters .title-anim", //title and description
 {opacity: 0, 
@@ -456,12 +575,12 @@ let friends_anim = gsap.timeline({
 //slider animation
 friends_anim.to("#friend-card-article", 
 {opacity: 0, 
-  x: -70,
+  xPercent: -10,
 });
 
 friends_anim.to("#friend-card-article",
 {opacity: 100, 
-  x: 0,
+  xPercent: 0,
   ease: "power2.inOut", 
   duration: 1,
   stagger: 0.1,
@@ -523,12 +642,12 @@ let foes_anim = gsap.timeline({
 //slider animation
 foes_anim.to("#foes-card-article",
 {opacity: 0, 
-  x: 70,
+  xPercent: 10,
 });
 
 foes_anim.to("#foes-card-article",
 {opacity: 100, 
-  x: 0,
+  xPercent: 0,
   ease: "power2.inOut", 
   duration: 1,
   stagger: 0.05,
@@ -596,17 +715,17 @@ map_anim.to(".map-img", //map image
 //map pin animations
 map_anim.to("#pin-right",
 {opacity: 0, 
-  x: 200,
+  xPercent: 200,
 });
 
 map_anim.to("#pin-left",
 {opacity: 0, 
-  x: -200,
+  xPercent: -200,
 });
 
 map_anim.to("#pin-right",
 {opacity: 1, 
-  x: 0,
+  xPercent: 0,
   duration: 1.5,
   stagger: 0.1,
   ease: "power4.inOut", 
@@ -614,7 +733,7 @@ map_anim.to("#pin-right",
 
 map_anim.to("#pin-left",
 {opacity: 1, 
-  x: 0,
+  xPercent: 0,
   duration: 1.5,
   stagger: 0.2,
   ease: "power4.inOut", 
@@ -639,17 +758,17 @@ map_anim.to(".side-title",
 //spider-man 2
 gsap.fromTo(".standard-container", //standard edition game
 {opacity: 0, 
-  x: -70,
+  xPercent: -15,
 },
 { scrollTrigger: {
-  trigger: ".games-new",
+  trigger: ".standard-container",
   start: "10% center",
   end: "bottom center",
   markers: false,
   toggleActions: "play none none none",
 },
   opacity: 1, 
-  x: 0,
+  xPercent: 0,
   duration: 1.5, 
   ease: "power3.inOut", 
   delay: 0}
@@ -657,17 +776,17 @@ gsap.fromTo(".standard-container", //standard edition game
 
 gsap.fromTo(".deluxe-container", //deluxe edition game
 {opacity: 0, 
-  x: 70,
+  xPercent: 15,
 },
 { scrollTrigger: {
-  trigger: ".games-new",
+  trigger: ".deluxe-container",
   start: "10% center",
   end: "bottom center",
   markers: false,
   toggleActions: "play none none none",
 },
   opacity: 1, 
-  x: 0,
+  xPercent: 0,
   duration: 1.5, 
   ease: "power3.inOut", 
   delay: 0}
@@ -676,7 +795,7 @@ gsap.fromTo(".deluxe-container", //deluxe edition game
 //previous titlesmiles
 gsap.fromTo(".old-container", //spider-man 1
 {opacity: 0, 
-  x: -70,
+  xPercent: -9,
 },
 { scrollTrigger: {
   trigger: ".games-old",
@@ -686,7 +805,7 @@ gsap.fromTo(".old-container", //spider-man 1
   toggleActions: "play none none none",
 },
   opacity: 1, 
-  x: 0,
+  xPercent: 0,
   duration: 1.5, 
   ease: "power3.inOut", 
   delay: 0}
@@ -694,7 +813,7 @@ gsap.fromTo(".old-container", //spider-man 1
 
 gsap.fromTo(".miles-container", //spider-man miles morales
 {opacity: 0, 
-  x: 70,
+  xPercent: 9,
 },
 { scrollTrigger: {
   trigger: ".games-old",
@@ -704,7 +823,7 @@ gsap.fromTo(".miles-container", //spider-man miles morales
   toggleActions: "play none none none",
 },
   opacity: 1, 
-  x: 0,
+  xPercent: 0,
   duration: 1.5, 
   ease: "power3.inOut", 
   delay: 0}
@@ -739,7 +858,7 @@ gallery_anim.to(".img-container",
 //about us
 gsap.fromTo(".about-title", 
 {opacity: 0, 
-  x: -100,
+  xPercent: -100,
 },
 { scrollTrigger: {
   trigger: ".about",
@@ -749,7 +868,7 @@ gsap.fromTo(".about-title",
   toggleActions: "play none none none",
 },
   opacity: 1, 
-  x: 0,
+  xPercent: 0,
   scale: 1,
   duration: 1.5, 
   ease: "power3.inOut", 
@@ -758,7 +877,7 @@ gsap.fromTo(".about-title",
 
 gsap.fromTo(".about-hr", 
 {opacity: 0, 
-  x: -100,
+  xPercent: -100,
 },
 { scrollTrigger: {
   trigger: ".about",
@@ -768,7 +887,7 @@ gsap.fromTo(".about-hr",
   toggleActions: "play none none none",
 },
   opacity: 1, 
-  x: 0,
+  xPercent: 0,
   scale: 1,
   duration: 1.5, 
   ease: "power3.inOut", 
@@ -797,7 +916,7 @@ gsap.fromTo(".inso-logo",
 
 gsap.fromTo(".about-img-left", 
 {opacity: 0, 
-  x: -70,
+  xPercent: -10,
 },
 { scrollTrigger: {
   trigger: ".about",
@@ -807,7 +926,7 @@ gsap.fromTo(".about-img-left",
   toggleActions: "play none none none",
 },
   opacity: 1, 
-  x: 0,
+  xPercent: 0,
   duration: 1.5, 
   ease: "power3.inOut", 
   delay: 1.8}
@@ -815,7 +934,7 @@ gsap.fromTo(".about-img-left",
 
 gsap.fromTo(".about-img-right", 
 {opacity: 0, 
-  x: 70,
+  xPercent: 10,
 },
 { scrollTrigger: {
   trigger: ".about",
@@ -825,7 +944,7 @@ gsap.fromTo(".about-img-right",
   toggleActions: "play none none none",
 },
   opacity: 1, 
-  x: 0,
+  xPercent: 0,
   duration: 1.5, 
   ease: "power3.inOut", 
   delay: 1.8}
@@ -850,7 +969,7 @@ gsap.fromTo(".about-desc",
 //our vision
 gsap.fromTo(".vision-title", 
 {opacity: 0, 
-  x: 70,
+  xPercent: 10,
 },
 { scrollTrigger: {
   trigger: ".visions",
@@ -860,7 +979,7 @@ gsap.fromTo(".vision-title",
   toggleActions: "play none none none",
 },
   opacity: 1, 
-  x: 0,
+  xPercent: 0,
   duration: 1, 
   ease: "power3.inOut", 
   delay: 0}
@@ -868,7 +987,7 @@ gsap.fromTo(".vision-title",
 
 gsap.fromTo(".vision-hr", 
 {opacity: 0, 
-  x: 70,
+  xPercent: 10,
 },
 { scrollTrigger: {
   trigger: ".visions",
@@ -878,7 +997,7 @@ gsap.fromTo(".vision-hr",
   toggleActions: "play none none none",
 },
   opacity: 1, 
-  x: 0,
+  xPercent: 0,
   duration: 1, 
   ease: "power3.inOut", 
   delay: 0.3}
@@ -886,7 +1005,7 @@ gsap.fromTo(".vision-hr",
 
 gsap.fromTo(".vision-subhead", 
 {opacity: 0, 
-  x: 70,
+  xPercent: 10,
 },
 { scrollTrigger: {
   trigger: ".visions",
@@ -896,7 +1015,7 @@ gsap.fromTo(".vision-subhead",
   toggleActions: "play none none none",
 },
   opacity: 1, 
-  x: 0,
+  xPercent: 0,
   duration: 1, 
   ease: "power3.inOut", 
   delay: 0.5}
@@ -904,7 +1023,7 @@ gsap.fromTo(".vision-subhead",
 
 gsap.fromTo(".vision-desc", 
 {opacity: 0, 
-  x: 70,
+  xPercent: 10,
 },
 { scrollTrigger: {
   trigger: ".visions",
@@ -914,7 +1033,7 @@ gsap.fromTo(".vision-desc",
   toggleActions: "play none none none",
 },
   opacity: 1, 
-  x: 0,
+  xPercent: 0,
   duration: 1, 
   ease: "power3.inOut", 
   delay: 0.7}
@@ -932,12 +1051,12 @@ let vision_img = gsap.timeline({
 
 vision_img.to(".vision-img-anim",
 {opacity: 0, 
-  x: -100,
+  xPercent: -100,
 });
 
 vision_img.to(".vision-img-anim",
 {opacity: 1, 
-  x: 0,
+  xPercent: 0,
   stagger: 0.2,
   duration: 1,
 });
@@ -945,7 +1064,7 @@ vision_img.to(".vision-img-anim",
 //mission animations
 gsap.fromTo(".mission-title", 
 {opacity: 0, 
-  x: 70,
+  xPercent: 10,
 },
 { scrollTrigger: {
   trigger: ".missions",
@@ -955,7 +1074,7 @@ gsap.fromTo(".mission-title",
   toggleActions: "play none none none",
 },
   opacity: 1, 
-  x: 0,
+  xPercent: 0,
   duration: 1.3, 
   ease: "power3.inOut", 
   delay: 0}
@@ -963,7 +1082,7 @@ gsap.fromTo(".mission-title",
 
 gsap.fromTo(".mission-hr", 
 {opacity: 0, 
-  x: 70,
+  xPercent: 10,
 },
 { scrollTrigger: {
   trigger: ".missions",
@@ -973,7 +1092,7 @@ gsap.fromTo(".mission-hr",
   toggleActions: "play none none none",
 },
   opacity: 1, 
-  x: 0,
+  xPercent: 0,
   duration: 1.3, 
   ease: "power3.inOut", 
   delay: 0.3}
@@ -991,12 +1110,12 @@ let mission_left = gsap.timeline({
 
 mission_left.to(".img-txt-left",
 {opacity: 0, 
-  x: -70,
+  xPercent: -10,
 });
 
 mission_left.to(".img-txt-left",
 {opacity: 1, 
-  x: 0,
+  xPercent: 0,
   stagger: 0.2,
   duration: 1,
 });
@@ -1013,12 +1132,12 @@ let mission_right = gsap.timeline({
 
 mission_right.to(".img-txt-right",
 {opacity: 0, 
-  x: 70,
+  xPercent: 10,
 });
 
 mission_right.to(".img-txt-right",
 {opacity: 1, 
-  x: 0,
+  xPercent: 0,
   stagger: 0.2,
   duration: 1,
 });
@@ -1056,7 +1175,7 @@ gsap.from('.team-subhead',
 
 gsap.from('.direc-content-right',
 {opacity: 0, 
-  x: 70,
+  xPercent: 10,
   duration: 2,
   stagger: 0.5,
   scrollTrigger: {
@@ -1070,7 +1189,7 @@ gsap.from('.direc-content-right',
 
 gsap.from('.direc-content-left',
 {opacity: 0, 
-  x: -70,
+  xPercent: -10,
   duration: 2,
   stagger: 0.5,
   scrollTrigger: {
@@ -1102,7 +1221,7 @@ gsap.fromTo(".direc-hr",
 
 gsap.from('.list-left',
 {opacity: 0, 
-  x: -70,
+  xPercent: -10,
   duration: 2,
   stagger: 0.5,
   scrollTrigger: {
@@ -1116,7 +1235,7 @@ gsap.from('.list-left',
 
 gsap.from('.list-right',
 {opacity: 0, 
-  x: 70,
+  xPercent: 10,
   duration: 2,
   stagger: 0.5,
   scrollTrigger: {
@@ -1130,7 +1249,7 @@ gsap.from('.list-right',
 //previous work
 gsap.fromTo(".prev-title", 
 {opacity: 0, 
-  x: -150,
+  xPercent: -150,
 },
 { scrollTrigger: {
   trigger: ".prev-work",
@@ -1140,7 +1259,7 @@ gsap.fromTo(".prev-title",
   toggleActions: "play none none none",
 },
   opacity: 1, 
-  x: 0,
+  xPercent: 0,
   duration: 1.3, 
   ease: "power3.inOut", 
   delay: 0}
@@ -1148,7 +1267,7 @@ gsap.fromTo(".prev-title",
 
 gsap.fromTo(".prev-hr", 
 {opacity: 0, 
-  x: -150,
+  xPercent: -150,
 },
 { scrollTrigger: {
   trigger: ".prev-work",
@@ -1158,7 +1277,7 @@ gsap.fromTo(".prev-hr",
   toggleActions: "play none none none",
 },
   opacity: 1, 
-  x: 0,
+  xPercent: 0,
   duration: 1.3, 
   ease: "power3.inOut", 
   delay: 0.3}

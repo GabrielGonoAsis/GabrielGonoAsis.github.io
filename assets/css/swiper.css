@@ -297,7 +297,7 @@
 
 @media only screen and (max-width: 769px) and (max-width: 1026px) {
   .card__data {
-    height: 148px;
+    height: 195px;
   }
   
   .card__data .card__name{
@@ -306,20 +306,20 @@
   }
   
   .card__data .card__description{
-    font-size: 0.8rem;
+    font-size: 1rem;
   }
 
   .foes .card__data {
-    height: 160px;
+    height: 212px;
   }
 
   .foes .card__data .card__name{
-    font-size: 20px;
+    font-size: 23px;
     top: -6px;
   }
 
   .foes .card__data .card__description{
-    font-size: 0.9rem;
+    font-size: 1.05rem;
   }
 
 }

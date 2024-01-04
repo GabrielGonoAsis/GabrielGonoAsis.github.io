@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            overflow: hidden; /* Prevent scrollbars from appearing during transition */
+        }
+
+        section {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2em;
+            text-align: center;
+            position: relative;
+            overflow: hidden; /* Ensure content does not overflow */
+        }
+
+        section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background: linear-gradient(rgba(255, 255, 255, 0), #fff, rgba(255, 255, 255, 0)); /* Gradient at the top and bottom edges */
+            pointer-events: none; /* Allows clicking through the overlay to the content below */
+        }
+
+        #section1 {
+            background: url('../Images/peterandmiles.png') center / cover;
+        }
+
+        #section2 {
+            background: url('section2-background.jpg') center / cover;
+        }
+    </style>
+</head>
+<body>
+    <section id="section1">
+        <p>Section 1</p>
+    </section>
+    <section id="section2">
+        <p>Section 2</p>
+    </section>
+</body>
+</html>
