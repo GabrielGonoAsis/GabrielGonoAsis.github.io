@@ -203,7 +203,6 @@
   width: initial;
   height: initial;
   font-size: 3rem;
-  display: none;
   position: absolute;
 }
 
@@ -213,7 +212,7 @@
 }
 
 .swiper-button-next-foes{
-  right: 1200px;
+  right: 0px;
   color: rgba(255, 255, 255, 0.8);;
 }
 
@@ -242,7 +241,6 @@
   }
 }
 
-/* For medium devices */
 @media screen and (min-width: 768px) {
   .card__content {
     margin-inline: 3rem;
@@ -259,22 +257,69 @@
   }
 }
 
+
+
 @media screen and (min-width: 1120px) {
   .card__container {
     max-width: 1120px;
   }
-
+  
   .swiper-button-prev {
     left: -1rem;
   }
   .swiper-button-next {
     right: -1rem;
   }
-
+  
   .swiper-button-prev-foes {
     left: -1rem;
   }
   .swiper-button-next-foes {
     right: -1rem;
   }
+}
+
+@media only screen and (max-width: 1026px) {
+  .card__data .card__description{
+    font-size: 0.9rem;
+  }
+
+  .foes .card__data .card__name{
+    font-size: 23px;
+    top: -6px;
+  }
+  
+  .foes .card__data .card__description{
+    font-size: 1.05rem;
+  }
+}
+
+
+@media only screen and (max-width: 769px) and (max-width: 1026px) {
+  .card__data {
+    height: 148px;
+  }
+  
+  .card__data .card__name{
+    font-size: 15px;
+    top: -2px;
+  }
+  
+  .card__data .card__description{
+    font-size: 0.8rem;
+  }
+
+  .foes .card__data {
+    height: 160px;
+  }
+
+  .foes .card__data .card__name{
+    font-size: 20px;
+    top: -6px;
+  }
+
+  .foes .card__data .card__description{
+    font-size: 0.9rem;
+  }
+
 }

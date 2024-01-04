@@ -54,7 +54,7 @@ let swiperCards = new Swiper(".friends .card__content", {
 //foes carousels
 let swiperCards2 = new Swiper(".foes .card__content", {
   loop: true,
-  spaceBetween: 20,
+  spaceBetween: 50,
   grabCursor: true,
   centeredSlides: true,
   effect: "coverflow",
@@ -110,9 +110,9 @@ function showPopup(title, content, imagePath) {
   overlay.style.display = 'block';
   popup.style.display = 'block';
 
-  gsap.fromTo(overlay, { opacity: 0 }, { opacity: 1, duration: 0.5 });
+  gsap.fromTo(overlay, { opacity: 0 }, { opacity: 1, duration: 1.2 });
 
-  gsap.fromTo(popup, { opacity: 0, scale: 0.1 }, { opacity: 1, scale: 1, duration: 0.5, ease: 'fade.out', delay: 0.1 });
+  gsap.fromTo(popup, { opacity: 0, scale: 0.1 }, { opacity: 1, scale: 1, duration: 1.2, ease: 'power2.inOut', delay: 0.1 });
 }
 
 //hides popup
@@ -120,11 +120,11 @@ function closePopup() {
   const overlay = document.getElementById('overlay');
   const popup = document.getElementById('popup');
 
-  gsap.to([popup], { opacity: 0, scale: 0, duration: 0.5, ease: 'fade.in', onComplete: () => {
+  gsap.to([popup], { opacity: 0, scale: 0, duration: 1.2, ease: 'power2.inOut', onComplete: () => {
     popup.style.display = 'none';
   } });
 
-  gsap.to([overlay], { opacity: 0, duration: 0.5, ease: 'fade.in', onComplete: () => {
+  gsap.to([overlay], { opacity: 0, duration: 1.2, ease: 'power2.inOut', onComplete: () => {
     overlay.style.display = 'none';
   } });
 
@@ -172,27 +172,35 @@ function hideImages() {
 gsap.registerPlugin(ScrollTrigger)
 
 //slogan animation
-gsap.fromTo('.first-word', 
-{opacity: 0, 
-  y:-300
-}, 
-{opacity: 1, 
-  y: 0, 
-  duration: 2, 
-  ease: "power2.inOut"  , 
-  delay: 0 
-});
+sloganTXT = new SplitType('.slogan', { types: 'words' });
 
-gsap.fromTo('.second-word', 
+gsap.from('.slogan .word:nth-child(1)',
 {opacity: 0, 
-  y:-300
-}, 
-{opacity: 1, 
-  y: 0, 
-  duration: 2, 
+  y: -200,
+  duration: 2,
   ease: "power2.inOut", 
-delay: 2 
-});
+}
+);
+
+gsap.from('.slogan .word:nth-child(2)',
+{opacity: 0, 
+  y: -200,
+  duration: 2,
+  delay: 0.7,
+  ease: "power2.inOut", 
+}
+);
+
+gsap.from('.slogan .word:nth-child(3)',
+{opacity: 0, 
+  y: -200,
+  duration: 2,
+  delay: 2.5,
+  ease: "power2.inOut", 
+}
+);
+
+
 
 //trailer video animation
 let tl = gsap.timeline({
@@ -235,7 +243,7 @@ gsap.fromTo(".header-overview", //header
 },
   opacity: 1, 
   x: 0,
-  duration: 1, 
+  duration: 1.8, 
   ease: "power3.inOut", 
   delay: 0}
 );
@@ -253,7 +261,7 @@ gsap.fromTo(".overview-hr", //horizontal line
 },
   opacity: 1, 
   x: 0,
-  duration: 1, 
+  duration: 1.8, 
   ease: "power3.inOut", 
   delay: 0.3}
 );
@@ -271,7 +279,7 @@ gsap.fromTo(".p-overview1", //paragraph
 },
   opacity: 1, 
   y: 0,
-  duration: 1, 
+  duration: 1.8, 
   ease: "power3.inOut", 
   delay: 0}
 );
@@ -289,7 +297,7 @@ gsap.fromTo(".p-overview2", //paragraph
 },
   opacity: 1, 
   y: 0,
-  duration: 1, 
+  duration: 1.8, 
   ease: "power3.inOut", 
   delay: 0.3}
 );
@@ -310,7 +318,7 @@ let scrollTween = gsap.to(sections, {
   }
 });
 
-function animateText(textSelector, yValue, xValue, opacityValue, durationValue, easeType, staggerValue) {
+function animateText(textSelector, yValue, xValue, opacityValue, durationValue, easeType, staggerValue, scaleValue) {
   sections.forEach((section) => {
     let text = section.querySelectorAll(textSelector);
     
@@ -323,6 +331,7 @@ function animateText(textSelector, yValue, xValue, opacityValue, durationValue, 
       duration: durationValue,
       ease: easeType,
       stagger: staggerValue,
+      scale: scaleValue,
       scrollTrigger: {
         trigger: section,
         containerAnimation: scrollTween,
@@ -333,10 +342,11 @@ function animateText(textSelector, yValue, xValue, opacityValue, durationValue, 
   });
 }
 
-animateText(".anim", -130, 0, 0, 1, "power3.inOut", 0.1);
-animateText(".anim2", 130, 0, 0, 1, "power3.inOut", 0.1);
-animateText(".anim3", 0, -200, 0, 1.2, "power2.inOut", 0);
-animateText(".anim4", 0, 200, 0, 1.2, "power2.inOut", 0);
+animateText(".anim", -130, 0, 0, 1, "power3.inOut", 0.1, 1);
+animateText(".anim2", 130, 0, 0, 1, "power3.inOut", 0.1, 1);
+animateText(".anim3", 0, -200, 0, 1.2, "power2.inOut", 0), 1;
+animateText(".anim4", 0, 200, 0, 1.2, "power2.inOut", 0, 1);
+animateText(".anim5", 0, 0, 0, 1.2, "power2.inOut", 0.3, 0.6);
 
 
 //autoplay on scroll for key-features videos
@@ -446,7 +456,7 @@ let friends_anim = gsap.timeline({
 //slider animation
 friends_anim.to("#friend-card-article", 
 {opacity: 0, 
-  x: -200,
+  x: -70,
 });
 
 friends_anim.to("#friend-card-article",
@@ -513,7 +523,7 @@ let foes_anim = gsap.timeline({
 //slider animation
 foes_anim.to("#foes-card-article",
 {opacity: 0, 
-  x: 200,
+  x: 70,
 });
 
 foes_anim.to("#foes-card-article",
@@ -629,7 +639,7 @@ map_anim.to(".side-title",
 //spider-man 2
 gsap.fromTo(".standard-container", //standard edition game
 {opacity: 0, 
-  x: -114,
+  x: -70,
 },
 { scrollTrigger: {
   trigger: ".games-new",
@@ -647,7 +657,7 @@ gsap.fromTo(".standard-container", //standard edition game
 
 gsap.fromTo(".deluxe-container", //deluxe edition game
 {opacity: 0, 
-  x: 114,
+  x: 70,
 },
 { scrollTrigger: {
   trigger: ".games-new",
@@ -663,10 +673,10 @@ gsap.fromTo(".deluxe-container", //deluxe edition game
   delay: 0}
 );
 
-//previous titles
+//previous titlesmiles
 gsap.fromTo(".old-container", //spider-man 1
 {opacity: 0, 
-  x: -114,
+  x: -70,
 },
 { scrollTrigger: {
   trigger: ".games-old",
@@ -684,7 +694,7 @@ gsap.fromTo(".old-container", //spider-man 1
 
 gsap.fromTo(".miles-container", //spider-man miles morales
 {opacity: 0, 
-  x: 114,
+  x: 70,
 },
 { scrollTrigger: {
   trigger: ".games-old",
@@ -787,7 +797,7 @@ gsap.fromTo(".inso-logo",
 
 gsap.fromTo(".about-img-left", 
 {opacity: 0, 
-  x: -100,
+  x: -70,
 },
 { scrollTrigger: {
   trigger: ".about",
@@ -805,7 +815,7 @@ gsap.fromTo(".about-img-left",
 
 gsap.fromTo(".about-img-right", 
 {opacity: 0, 
-  x: 100,
+  x: 70,
 },
 { scrollTrigger: {
   trigger: ".about",
@@ -840,7 +850,7 @@ gsap.fromTo(".about-desc",
 //our vision
 gsap.fromTo(".vision-title", 
 {opacity: 0, 
-  x: 100,
+  x: 70,
 },
 { scrollTrigger: {
   trigger: ".visions",
@@ -858,7 +868,7 @@ gsap.fromTo(".vision-title",
 
 gsap.fromTo(".vision-hr", 
 {opacity: 0, 
-  x: 100,
+  x: 70,
 },
 { scrollTrigger: {
   trigger: ".visions",
@@ -876,7 +886,7 @@ gsap.fromTo(".vision-hr",
 
 gsap.fromTo(".vision-subhead", 
 {opacity: 0, 
-  x: 100,
+  x: 70,
 },
 { scrollTrigger: {
   trigger: ".visions",
@@ -894,7 +904,7 @@ gsap.fromTo(".vision-subhead",
 
 gsap.fromTo(".vision-desc", 
 {opacity: 0, 
-  x: 100,
+  x: 70,
 },
 { scrollTrigger: {
   trigger: ".visions",
@@ -935,14 +945,14 @@ vision_img.to(".vision-img-anim",
 //mission animations
 gsap.fromTo(".mission-title", 
 {opacity: 0, 
-  x: 100,
+  x: 70,
 },
 { scrollTrigger: {
   trigger: ".missions",
   start: "10% center",
   end: "bottom center",
   markers: false,
-  toggleActions: "restart none none none",
+  toggleActions: "play none none none",
 },
   opacity: 1, 
   x: 0,
@@ -953,14 +963,14 @@ gsap.fromTo(".mission-title",
 
 gsap.fromTo(".mission-hr", 
 {opacity: 0, 
-  x: 100,
+  x: 70,
 },
 { scrollTrigger: {
   trigger: ".missions",
   start: "10% center",
   end: "bottom center",
   markers: false,
-  toggleActions: "restart none none none",
+  toggleActions: "play none none none",
 },
   opacity: 1, 
   x: 0,
@@ -981,7 +991,7 @@ let mission_left = gsap.timeline({
 
 mission_left.to(".img-txt-left",
 {opacity: 0, 
-  x: -100,
+  x: -70,
 });
 
 mission_left.to(".img-txt-left",
@@ -1003,7 +1013,7 @@ let mission_right = gsap.timeline({
 
 mission_right.to(".img-txt-right",
 {opacity: 0, 
-  x: 100,
+  x: 70,
 });
 
 mission_right.to(".img-txt-right",
@@ -1014,18 +1024,160 @@ mission_right.to(".img-txt-right",
 });
 
 //meet our team
+
+//directors image and text
 teamTXT = new SplitType('.team-title', { types: 'words' });
 
-gsap.from('.word',
+gsap.from('.team-title .word',
 {opacity: 0, 
-  y: -100,
-  duration: 1,
+  y: -80,
+  duration: 1.2,
   stagger: 0.2,
   scrollTrigger: {
   trigger: ".team-title",
   start: "10% center",
   end: "bottom center",
-  markers: true,
-  toggleActions: "restart none none none",
+  markers: false,
+  toggleActions: "play none none none",
 }}
+);
+
+gsap.from('.team-subhead',
+{opacity: 0, 
+  duration: 2,
+  scrollTrigger: {
+  trigger: ".team-subhead",
+  start: "10% center",
+  end: "bottom center",
+  markers: false,
+  toggleActions: "play none none none",
+}}
+);
+
+gsap.from('.direc-content-right',
+{opacity: 0, 
+  x: 70,
+  duration: 2,
+  stagger: 0.5,
+  scrollTrigger: {
+  trigger: ".directors-img",
+  start: "5% center",
+  end: "bottom center",
+  markers: false,
+  toggleActions: "play none none none",
+}}
+);
+
+gsap.from('.direc-content-left',
+{opacity: 0, 
+  x: -70,
+  duration: 2,
+  stagger: 0.5,
+  scrollTrigger: {
+  trigger: ".directors-img",
+  start: "5% center",
+  end: "bottom center",
+  markers: false,
+  toggleActions: "play none none none",
+}}
+);
+
+gsap.fromTo(".direc-hr", 
+{opacity: 0, 
+  y: -250,
+},
+{ scrollTrigger: {
+  trigger: ".directors-img",
+  start: "5% center",
+  end: "bottom center",
+  markers: false,
+  toggleActions: "play none none none",
+},
+  opacity: "50%", 
+  y: 0,
+  duration: 2, 
+  ease: "power3.inOut", 
+  delay: 0}
+);
+
+gsap.from('.list-left',
+{opacity: 0, 
+  x: -70,
+  duration: 2,
+  stagger: 0.5,
+  scrollTrigger: {
+  trigger: ".other-team",
+  start: "5% center",
+  end: "bottom center",
+  markers: false,
+  toggleActions: "play none none none",
+}}
+);
+
+gsap.from('.list-right',
+{opacity: 0, 
+  x: 70,
+  duration: 2,
+  stagger: 0.5,
+  scrollTrigger: {
+  trigger: ".other-team",
+  start: "5% center",
+  end: "bottom center",
+  markers: false,
+  toggleActions: "play none none none",
+}}
+);
+//previous work
+gsap.fromTo(".prev-title", 
+{opacity: 0, 
+  x: -150,
+},
+{ scrollTrigger: {
+  trigger: ".prev-work",
+  start: "10% center",
+  end: "bottom center",
+  markers: false,
+  toggleActions: "play none none none",
+},
+  opacity: 1, 
+  x: 0,
+  duration: 1.3, 
+  ease: "power3.inOut", 
+  delay: 0}
+);
+
+gsap.fromTo(".prev-hr", 
+{opacity: 0, 
+  x: -150,
+},
+{ scrollTrigger: {
+  trigger: ".prev-work",
+  start: "10% center",
+  end: "bottom center",
+  markers: false,
+  toggleActions: "play none none none",
+},
+  opacity: 1, 
+  x: 0,
+  duration: 1.3, 
+  ease: "power3.inOut", 
+  delay: 0.3}
+);
+
+gsap.fromTo(".prev-img", 
+{opacity: 0, 
+  scale: 0.8,
+},
+{ scrollTrigger: {
+  trigger: ".prev-work",
+  start: "10% center",
+  end: "bottom center",
+  markers: false,
+  toggleActions: "play none none none",
+},
+  opacity: 1, 
+  scale: 1,
+  duration: 1.3, 
+  ease: "power3.inOut", 
+  delay: 0.5}
 );
