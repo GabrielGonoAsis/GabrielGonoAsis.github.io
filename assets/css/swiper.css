@@ -235,50 +235,6 @@
   background-color: rgba(255, 255, 255, 0.3);
 }
 
-@media screen and (max-width: 320px) {
-  .card__data {
-    padding: 1rem;
-  }
-}
-
-@media screen and (min-width: 768px) {
-  .card__content {
-    margin-inline: 3rem;
-  }
-
-  .swiper-button-next,
-  .swiper-button-prev {
-    display: block;
-  }
-
-  .swiper-button-next-foes,
-  .swiper-button-prev-foes {
-    display: block;
-  }
-}
-
-
-
-@media screen and (min-width: 1120px) {
-  .card__container {
-    max-width: 1120px;
-  }
-  
-  .swiper-button-prev {
-    left: -1rem;
-  }
-  .swiper-button-next {
-    right: -1rem;
-  }
-  
-  .swiper-button-prev-foes {
-    left: -1rem;
-  }
-  .swiper-button-next-foes {
-    right: -1rem;
-  }
-}
-
 @media only screen and (max-width: 1026px) {
   .card__data .card__description{
     font-size: 0.9rem;
@@ -294,12 +250,7 @@
   }
 }
 
-
-@media only screen and (max-width: 769px) and (max-width: 1026px) {
-  .card__data {
-    height: 195px;
-  }
-  
+@media only screen and (max-width: 769px) and (max-width: 1026px) {  
   .card__data .card__name{
     font-size: 15px;
     top: -2px;
@@ -320,6 +271,162 @@
 
   .foes .card__data .card__description{
     font-size: 1.05rem;
+  }
+
+}
+
+@media only screen and (max-width: 412px) and (max-width: 769px){
+  .card__data .card__name{
+    font-size: 12px;
+    white-space: nowrap;
+    top: 0px;
+  }
+  
+  .card__data{
+    height: 125px;
+    padding: 0px 15px;
+  }
+
+  .card__data .card__description{
+    font-size: 0.6rem;
+  }
+
+  .foes .card__data {
+    height: 165px;
+    padding: 0px 18px;
+  }
+
+  .foes .card__data .card__name{
+    font-size: 15px;
+    top: 0px;
+    padding: 5px 5px 0px 5px;
+    letter-spacing: 1px;
+    white-space: wrap;
+  }
+
+  .foes .card__data .card__name{
+    span.border_btm {
+      &:after {
+        width: 5px;
+        height: 5px;
+        bottom: -7px;
+        right: -5px;
+        border-bottom: 1px solid white;
+        border-right: 1px solid white;
+      }
+      &:before {
+        width: 5px;
+        height: 5px;
+        bottom: -7px;
+        left: -5px;
+        border-bottom: 1px solid white;
+        border-left: 1px solid white;
+      }
+  }
+  
+  &:before {
+      width: 5px;
+      height: 5px;
+      top: -5px;
+      left: -6px;
+      border-top: 1px solid white;
+      border-left: 1px solid white;
+  }
+  
+  &:after {
+      width: 5px;
+      height: 5px;
+      top: -5px;
+      right: -6px;
+      border-top: 1px solid white;
+      border-right: 1px solid white;
+  }
+  }
+
+  .foes .card__data .card__description{
+    font-size: 0.83rem;
+  }
+
+  #friend-nav, #foes-nav{
+    display: none;
+  }
+
+}
+
+@media only screen and (max-width: 376px) and (max-width: 412px){
+  .card__data .card__name{
+    font-size: 14px;
+    white-space: nowrap;
+    top: -1px;
+  }
+  
+  .card__data{
+    height: 152px;
+    padding: 0px 15px;
+  }
+
+  .card__data .card__description{
+    font-size: 0.75rem;
+  }
+
+  .foes .card__data {
+    height: 180px;
+    padding: 0px 18px;
+  }
+
+  .foes .card__data .card__name{
+    font-size: 17px;
+    top: 0px;
+    padding: 5px 5px 0px 5px;
+    letter-spacing: 1px;
+    white-space: wrap;
+  }
+
+  .foes .card__data .card__name{
+    span.border_btm {
+      &:after {
+        width: 5px;
+        height: 5px;
+        bottom: -7px;
+        right: -5px;
+        border-bottom: 1px solid white;
+        border-right: 1px solid white;
+      }
+      &:before {
+        width: 5px;
+        height: 5px;
+        bottom: -7px;
+        left: -5px;
+        border-bottom: 1px solid white;
+        border-left: 1px solid white;
+      }
+  }
+  
+  &:before {
+      width: 5px;
+      height: 5px;
+      top: -5px;
+      left: -6px;
+      border-top: 1px solid white;
+      border-left: 1px solid white;
+  }
+  
+  &:after {
+      width: 5px;
+      height: 5px;
+      top: -5px;
+      right: -6px;
+      border-top: 1px solid white;
+      border-right: 1px solid white;
+  }
+  }
+
+  .foes .card__data .card__description{
+    font-size: 0.88rem;
+  }
+
+  #friend-nav, #foes-nav{
+    display: none;
   }
 
 }

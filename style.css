@@ -147,6 +147,37 @@ body{
     }
 }
 
+@media only screen  and (max-width: 412px) and (max-width: 769px){
+    #header{
+        padding-top: 7px;
+        padding-bottom: 7px;
+    }  
+
+    #nav-bar > ul {
+        font-size: 13px; 
+        justify-content: space-evenly;
+    }
+
+    .logo{
+        display: none;
+    }
+}
+
+@media only screen  and (max-width: 376px) and (max-width: 412px){
+    #header{
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }  
+
+    #nav-bar > ul {
+        font-size: 11.5px; 
+        justify-content: space-evenly;
+    }
+
+    .logo{
+        display: none;
+    }
+}
 
 /*poster*/
 .poster img{
@@ -226,6 +257,25 @@ body{
 
     .slogan .word:nth-child(2){
         margin-right: 18px;
+    }
+}
+
+@media only screen and (max-width: 376px) and (max-width: 412px){
+    .poster img{
+        object-position: 83%;
+    }
+
+    .slogan{
+        font-size: 9vw;
+        letter-spacing: 6px;
+    }
+
+    .slogan .word:first-child{
+        margin-right: 10px;
+    }
+
+    .slogan .word:nth-child(2){
+        margin-right: 16px;
     }
 }
 
@@ -329,6 +379,12 @@ body{
 
     .trailer{
         width: 80%;
+    }
+}
+
+@media only screen and (max-width: 412px) and (max-width: 769px){
+    .hover_text{
+        font-size: 20px;
     }
 }
 
@@ -451,6 +507,27 @@ body{
     .overview .paragraphs{
         font-size: 16px;
         line-height: 24px;
+    }
+}
+
+@media only screen and (max-width: 376px) and (max-width: 412px){
+    .overview{
+        height: 100vh;
+        background-position: center;
+    }
+
+    .overview h1{        
+        font-size: 32px;  
+    }
+
+    .overview hr{
+        width: 45%;  
+        margin: 18px auto 56px auto;
+    }
+
+    .overview .paragraphs{
+        font-size: 18px;
+        line-height: 25px;
     }
 }
 
@@ -671,28 +748,24 @@ body{
     align-items: center;
     text-align: center;
     width: 100%;
+    height: 83vw;
     margin: auto;
     padding-top: 50px;
     padding-bottom: 200px;
-}
-
-.section-vert{
-    width: 83vw;
-}
-
-.key-features-vert > *:not(:first-child){
-    height: 58vh;
-    padding-bottom: 800px;
-}
-
-.key-features-vert > :last-child{
-    padding-bottom: 0px;
 }
 
 .vert-title{
     font-family: 'Monument-Bold';
     font-size: 5.5rem;
     letter-spacing: 0.8rem;
+}
+
+.section-vert{
+    width: 83vw;
+}
+
+.section-vert:last-child{
+    padding-bottom: 10%;
 }
 
 .vert-text h1{
@@ -791,6 +864,190 @@ body{
     text-align: right;
 }
 
+.key-features-vert hr{
+    margin: 200px auto;
+    width: 75vw;
+    border: 1px solid white;
+    opacity: 50%;
+}
+
+/*vertical version key features media queries*/
+@media only screen  and (max-width: 412px) and (max-width: 769px){
+    .title-features-vert{
+        padding-top: 35px;
+        padding-bottom: 170px;
+    }
+
+    .section-vert{
+        width: 74vw;
+    }
+    
+    .section-vert:last-child{
+        padding-bottom: 10%;
+    }
+
+    .vert-title{
+        font-size: 3rem;
+        letter-spacing: 0.4rem;
+    }    
+
+    .vert-text h1{
+        font-size: 20px;
+        letter-spacing: 1px;
+        word-spacing: 5px;
+        margin-bottom: 6px;
+    }
+
+    .vert-text p{
+        font-size: 9px;
+        letter-spacing: 1px;
+        line-height: 15px;
+        margin-bottom: 25px;
+    }
+
+    .vert-vid{
+        span.border_btm {
+            &:after {
+              width: 7px;
+              height: 7px;
+              bottom: -2px;
+              right: -6px;
+              border-bottom: 1px solid white;
+              border-right: 1px solid white;
+            }
+            &:before {
+              width: 7px;
+              height: 7px;
+              bottom: -2px;
+              left: -6px;
+              border-bottom: 1px solid white;
+              border-left: 1px solid white;
+            }
+        }
+        
+        &:before {
+            width: 7px;
+            height: 7px;
+            top: -5px;
+            left: -6px;
+            border-top: 1px solid white;
+            border-left: 1px solid white;
+        }
+        
+        &:after {
+            width: 7px;
+            height: 7px;
+            top: -5px;
+            right: -6px;
+            border-top: 1px solid white;
+            border-right: 1px solid white;
+        }
+    }
+
+    .left{
+        margin-left: 17px;
+    }
+
+    .right{
+        margin-right: 17px;
+    }
+
+    .key-features-vert hr{
+        margin: 120px auto;
+        width: 70vw;
+        opacity: 20%;
+    }
+    
+}
+
+@media only screen  and (max-width: 376px) and (max-width: 412px){
+    .title-features-vert{
+        padding-top: 35px;
+        padding-bottom: 150px;
+    }
+
+    .section-vert{
+        width: 80vw;
+    }
+    
+    .section-vert:last-child{
+        padding-bottom: 10%;
+    }
+    
+    .vert-title{
+        font-size: 2.6rem;
+        letter-spacing: 0.4rem;
+    }    
+
+    .vert-text h1{
+        font-size: 19px;
+        letter-spacing: 1px;
+        word-spacing: 4px;
+        margin-bottom: 4px;
+    }
+
+    .vert-text p{
+        font-size: 10px;
+        letter-spacing: 1px;
+        line-height: 15px;
+        margin-bottom: 18px;
+    }
+
+    .vert-vid{
+        span.border_btm {
+            &:after {
+              width: 7px;
+              height: 7px;
+              bottom: -2px;
+              right: -6px;
+              border-bottom: 1px solid white;
+              border-right: 1px solid white;
+            }
+            &:before {
+              width: 7px;
+              height: 7px;
+              bottom: -2px;
+              left: -6px;
+              border-bottom: 1px solid white;
+              border-left: 1px solid white;
+            }
+        }
+        
+        &:before {
+            width: 7px;
+            height: 7px;
+            top: -5px;
+            left: -6px;
+            border-top: 1px solid white;
+            border-left: 1px solid white;
+        }
+        
+        &:after {
+            width: 7px;
+            height: 7px;
+            top: -5px;
+            right: -6px;
+            border-top: 1px solid white;
+            border-right: 1px solid white;
+        }
+    }
+
+    .left{
+        margin-left: 17px;
+    }
+
+    .right{
+        margin-right: 17px;
+    }
+
+    .key-features-vert hr{
+        margin: 120px auto;
+        width: 70vw;
+        opacity: 20%;
+    }
+    
+}
+
 /*titles*/
 .title{
     color: white;
@@ -835,6 +1092,36 @@ body{
     .title p{
         width: 60%;
         font-size: 10px;
+    }
+}
+
+@media only screen and (max-width: 412px) and (max-width: 769px){
+    .title{
+        padding: 35px 0px;
+    }
+
+    .title h1{
+        font-size: 38px;
+    }
+
+    .title p{
+        width: 70%;
+        font-size: 8px;
+    }
+}
+
+@media only screen and (max-width: 376px) and (max-width: 412px){
+    .title{
+        padding: 30px 0px;
+    }
+
+    .title h1{
+        font-size: 38px;
+    }
+
+    .title p{
+        width: 80%;
+        font-size: 9px;
     }
 }
 
@@ -939,6 +1226,79 @@ body{
     }
 }
 
+@media only screen and (max-width: 412px) and (max-width: 769px) {
+    .char-title h1{
+        font-size: 35px;
+    }
+
+    .characters .title{
+        padding-top: 50px;
+        padding-bottom: 0px;
+        margin-bottom: 0px;
+    }
+
+    .friends{
+        margin-top: 100px;
+    }
+
+    .friends-title{
+        padding-top: 0px;
+    }
+
+    .friends-title, .foes-title{    
+        font-size: 30px;
+    }
+
+    .characters hr{
+        margin: 60px auto;
+    }
+
+    .foes .slider-container{
+        width: 90%;
+    }
+
+    .foes{
+        padding-bottom: 60px;
+    }
+}
+
+@media only screen and (max-width: 376px) and (max-width: 412px) {
+    .char-title h1{
+        font-size: 30px;
+    }
+
+    .characters .title{
+        padding-top: 38px;
+        padding-bottom: 0px;
+        margin-bottom: 0px;
+    }
+
+    .friends{
+        margin-top: 80px;
+    }
+
+    .friends-title{
+        padding-top: 0px;
+    }
+
+    .friends-title, .foes-title{    
+        font-size: 28px;
+        letter-spacing: 8px;
+    }
+
+    .characters hr{
+        margin: 40px auto;
+    }
+
+    .foes .slider-container{
+        width: 90%;
+    }
+
+    .foes{
+        padding-bottom: 40px;
+    }
+}
+
 /*map*/
 .map{
     background-color: #08001A;
@@ -1036,6 +1396,31 @@ body{
     .map-container .desc{
         width: 85vw;
         font-size: 18px;
+        margin-bottom: -42px;
+    }
+}
+
+@media only screen and (max-width: 412px) and (max-width: 769px){
+    .map{
+        padding: 65px 0px;
+    }
+
+    .map-img{
+        width: 85vw;
+    }
+
+    .side-title h1{
+        font-size: 18px;
+    }
+    
+    .side-title{
+        right: -29.5%;
+        top: 50%;
+    }
+
+    .map-container .desc{
+        width: 85vw;
+        font-size: 10px;
         margin-bottom: -42px;
     }
 }
@@ -1349,6 +1734,83 @@ body{
     }
 }
 
+@media only screen and (max-width: 412px) and (max-width: 769px) {
+    .pin span{
+        left: 0.9rem;
+        font-size: 0.45em;
+        word-spacing: 1px;
+    }
+
+    .pin2 span{
+        font-size: 0.45em;
+        word-spacing: 1px;
+    }
+
+    .pin::after{
+        width: 85%;
+        height: 85%;
+    }
+
+    .pin::before{
+        width: 85%;
+        height: 85%;
+    }
+
+    .pin2::after{
+        left: 890%;
+        width: 85%;
+        height: 85%;
+    }
+
+    .pin2::before{
+        left: 890%;
+        width: 85%;
+        height: 85%;
+    }
+   
+    .queens{
+        top: 37%;
+        right: 56%;
+    }
+
+    .queens::after{
+        left: 1050%;
+    }
+
+    .queens::before{
+        left: 1050%;
+    }
+
+    .odessa{
+        right: 27%;
+    }
+
+    .william{
+        right: 45%;
+    }
+
+    .coney{
+        bottom: 8%;
+        right: 47%;
+    }
+
+    .foundation{
+        bottom: 42%;
+        left: 4%;
+    }
+
+    .foundation::after{
+        left: 1250%;
+    }
+
+    .foundation::before{
+        left: 1250%;
+    }
+
+    .brooklyn{
+        right: 30%;
+    }
+}
 
 /*popup of location info*/
 .popup-container {
@@ -1548,6 +2010,66 @@ body{
     .instructions{
         font-size: 12px;
         margin-top: -16px;
+    }
+}
+
+@media only screen and (max-width: 1025px) and (max-width: 769px) {
+    .popup {
+        top: 50%;
+        width: 60%;
+        padding: 20px;
+    }
+
+    .popup h2 {
+        font-size: 47px;
+        letter-spacing: 3px;
+        margin-bottom: 20px;
+    }
+
+    .popup img{
+        padding-top: 20px;
+    }
+    
+    .popup p {
+        padding-top: 15px;
+        margin-bottom: auto;
+        font-size: 20px;
+        line-height: 1.6rem;
+    }
+
+    .instructions{
+        font-size: 12px;
+        margin-top: -16px;
+    }
+}
+
+@media only screen and (max-width: 412px) and (max-width: 769px) {
+    .popup {
+        top: 50%;
+        width: 80%;
+        padding: 20px;
+    }
+
+    .popup h2 {
+        font-size: 25px;
+        letter-spacing: 1px;
+        margin-bottom: 13px;
+    }
+
+    .popup img{
+        padding-top: 13px;
+    }
+    
+    .popup p {
+        padding-top: 13px;
+        margin-bottom: auto;
+        font-size: 12px;
+        line-height: 1.3rem;
+    }
+
+    .instructions{
+        font-size: 11px;
+        margin-top: -13px;
     }
 }
 
@@ -1753,6 +2275,61 @@ body{
     }
 }
 
+@media only screen and (max-width: 412px) and (max-width: 769px) {
+    .buy-now-title p{
+        width: 78%;
+    }
+
+    .games h1{
+        font-size: 23px;
+        padding: 0px 0px;
+    }
+    
+    .games .container{
+        width: 80%;
+    }
+
+    .games .standard img, .deluxe img{
+        padding: 7px;
+    }
+
+    .games ul li{
+        line-height: 30px;
+        font-size: 12px;
+        letter-spacing: 1px;
+        word-spacing: 1px;
+    }
+
+    .games .standard, .deluxe{
+        height: auto;
+        padding-bottom: 65px;
+    }
+
+    .games .standard img, .deluxe img{
+        border-radius: 11px;
+    }
+
+    .price{
+        font-size: 15px;
+        bottom: 7px;
+        margin: 0px 3px;
+    }
+    
+    .platform{
+        font-size: 15px;
+        bottom: 6px;
+        padding: 2px 12px;
+    }
+
+    .add-to-cart{
+        font-size: 14px;
+        width: 112px;
+        padding: 5px 0px;
+        margin-top: 30px;
+    }
+}
+
+
 /*previous games*/
 .old{
     background-color: #0A1020;
@@ -1777,7 +2354,7 @@ body{
     margin-bottom: 20px;
     padding: 12px;
     width: 100%;
-    border-radius: 15px;
+    border-radius: 5px;
 }
 
 .box-art{
@@ -1830,6 +2407,37 @@ body{
         width: 110px;
         padding: 5px 0px;
         margin-top: 12px;
+    }
+}
+
+@media only screen and (max-width: 412px) and (max-width: 769px) {
+    .old .title h1{
+        font-size: 28px;
+    }
+
+    .game-title{
+        font-size: 18px;
+    }
+
+    .games-old{
+        flex-direction: column;
+    }
+
+    .old .container{
+        width: 80%;
+        flex-direction: column;
+    }
+
+    .first img, .miles img{
+        padding: 9px;
+        border-radius: 4px;
+    }
+
+    .first .add-to-cart, .miles .add-to-cart{
+        font-size: 12px;
+        width: 100px;
+        padding: 4px 0px;
+        margin-top: 10px;
     }
 }
 
@@ -2097,6 +2705,65 @@ body{
     }
 }
 
+/*gallery media queries*/
+@media only screen and (max-width: 412px) and (max-width: 769px){
+    .gallery .title{
+        padding-top: 0px;
+    }
+
+    .gallery .container{
+        padding: 20px 30px;
+    }
+
+    .gallery .title p{
+        width: 75%;
+    }
+
+    .images{
+        grid-template-columns: repeat(auto-fit, minmax(100%, 1fr));
+        grid-gap: 50px 30px;
+    }
+
+    .images a{
+        span.border_btm {
+            &:after {
+              width: 8px;
+              height: 8px;
+              bottom: -2px;
+              right: -6px;
+              border-bottom: 1px solid white;
+              border-right: 1px solid white;
+            }
+            &:before {
+              width: 8px;
+              height: 8px;
+              bottom: -2px;
+              left: -6px;
+              border-bottom: 1px solid white;
+              border-left: 1px solid white;
+            }
+        }
+        
+        &:before {
+            width: 8px;
+            height: 8px;
+            top: -5px;
+            left: -6px;
+            border-top: 1px solid white;
+            border-left: 1px solid white;
+        }
+        
+        &:after {
+            width: 8px;
+            height: 8px;
+            top: -5px;
+            right: -6px;
+            border-top: 1px solid white;
+            border-right: 1px solid white;
+        }
+    }
+}
+
 .developers{
     background-color: #151C1F;
     padding-block: 20px 70px;
@@ -2151,7 +2818,6 @@ body{
 
 .inso-logo img{
     width: 100%;
-    
 }
 
 .about{
@@ -2207,7 +2873,6 @@ body{
     border-radius: 3px;
     opacity: 0;
 }
-
 
 .missions .text{
     align-self: center;
@@ -2520,6 +3185,186 @@ body{
     }
 }
 
+@media only screen and (min-width: 768px){
+    #about-2{
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 412px) and (max-width: 769px) {
+    .developers{
+        padding-block: 10px 0px;
+    }
+
+    .dev{
+        padding: 55px 32px;
+    }
+    
+    .developers .title{
+        padding: 20px 0px 30px 0px;
+    }
+
+    .dev h1{
+        font-size: 22px;
+        letter-spacing: 2px;
+        word-spacing: 3px;
+    }
+
+    .dev hr{
+        margin: 12px 0px 20px 0px;
+    }
+
+    #about-1{
+        display: none;
+    }
+
+    #about-2 .inso-logo{
+        width: 55%;
+        margin-bottom: 7px;
+    }
+
+    #about-2 .img{
+        flex-direction: column;
+        align-items: center;
+        margin: 0;
+        padding: 0;
+    }
+
+    #about-2 .img img{
+        width: 100%;
+        height: 170px;
+        margin-bottom: 10px;
+        object-fit: cover;
+        object-position: top;
+    }
+
+    .p-1{
+        margin-bottom: 30px;
+    }
+
+    .about .text p{
+        font-size: 9px;
+        letter-spacing: 1px;
+        line-height: 16px;
+    }
+
+    .visions{
+        flex-direction: column;
+    }
+
+    .visions hr{
+        width: 40%;
+    }
+
+    .visions .text{
+        width: 100%;
+    }
+
+    .visions .text p{
+        font-size: 10px;
+        line-height: 16px;
+    }
+
+    .visions .text p:last-child{
+        margin-top: 12px;
+    }
+    
+    .vision-img{
+        width: 100%;
+    }
+
+    .missions .text p{
+        font-size: 8.5px;
+        line-height: 14px;
+        letter-spacing: 0px;
+    }
+
+    .top-txt-img .txt{
+        width: 52%;
+    }
+
+    .top-txt-img .img{
+        width: 43%;
+    }    
+
+    .top-txt-img .img img{
+        width: 150px;
+        height: 150px;
+        object-fit: cover;
+    }  
+
+    .inspire .img img{
+        object-position: 37%;
+    }  
+
+    .industry .img img{
+        object-position: 75%;
+    }  
+
+    .top-txt-img{
+        margin-bottom: 0px;
+    }
+
+    .team h1{
+        margin-bottom: 22px;
+    }
+
+    .team h2{
+        font-size: 18px;
+        letter-spacing: 0px;
+        word-spacing: 2px;
+        margin: 20px 0px;
+    }
+
+    .directors-img{
+        width: 100%;
+    }
+
+    .directors-img p{
+        font-size: 12px;
+    }
+
+    .directors-img hr{
+        width: 50vw;    
+    }
+
+    .other-team{
+        margin-top: 15px;
+        grid-template-columns: repeat(auto-fit, minmax(35%, 1fr));
+        grid-gap: 15px 15px;
+    }
+
+    .other-team h2{
+        margin-bottom: 10px;
+        font-size: 12px;
+    }
+
+
+    .list{
+        width: auto;
+        margin: 0px;
+        padding: 0px;
+        padding-left: 15px;
+        padding-bottom: 15px;
+    }
+
+    .team .list li{
+        font-size: 10px;
+    }
+
+    .list li{
+        letter-spacing: 1px;
+        line-height: 25px;
+    }
+    
+    
+    .list li::before {
+        height: 11px;
+        width: 11px;
+        margin-right: 5px;
+    }
+}
+
 /*footer*/
 footer{
     background-color: #2361B4;
@@ -2601,7 +3446,7 @@ footer hr{
     font-weight: 400;
     color: white;
     opacity: 75%;
-    padding: 25px;
+    padding: 25px 0px;
 }  
 
 /*footer media queries*/
@@ -2633,5 +3478,43 @@ footer hr{
     .copyright p{
         font-size: 12px;
         padding: 16px 0px;
+    }  
+}
+
+@media only screen and (max-width: 412px) and (max-width: 769px) {
+    footer .logos{
+        padding-top: 30px;
+    }
+
+    .logos img{
+        width: 55px;
+    }
+
+    footer hr{
+        margin: 32px auto;
+    }
+    
+    .links-title{
+        font-size: 12px;
+        margin-bottom: 5px;
+    }
+
+    .links ul li{
+        font-size: 9px;
+        line-height: 17px;
+    }
+
+    .socials{
+        margin-bottom: 32px;
+    }
+
+    .socials img{
+        width: 30px;
+        margin: 0px 30px;
+    }
+    
+    .copyright p{
+        font-size: 10px;
+        padding: 13px 0px;
     }  
 }

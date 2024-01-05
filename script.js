@@ -21,9 +21,10 @@ hover_text.addEventListener("mouseleave", function (e) {
 //friends carousels
 let swiperCards = new Swiper(".friends .card__content", {
   loop: true,
-  spaceBetween: 5,
   grabCursor: true,
   centeredSlides: true,
+  slidesPerView: 2,
+  spaceBetween: 45,
   effect: "coverflow",
   coverflowEffect:{
     rotate: 0,
@@ -42,11 +43,13 @@ let swiperCards = new Swiper(".friends .card__content", {
   },
 
   breakpoints:{
-    600: {
-      slidesPerView: 2,
+    375: {
+      slidesPerView: 1.5,
+      spaceBetween: 15,
     },
-    968: {
-      slidesPerView: 3,
+    411: {
+      slidesPerView: 2,
+      spaceBetween: 15,
     },
   },
 });
@@ -54,7 +57,8 @@ let swiperCards = new Swiper(".friends .card__content", {
 //foes carousels
 let swiperCards2 = new Swiper(".foes .card__content", {
   loop: true,
-  spaceBetween: 50,
+  slidesPerView: 2,
+  spaceBetween: 45,  
   grabCursor: true,
   centeredSlides: true,
   effect: "coverflow",
@@ -75,11 +79,13 @@ let swiperCards2 = new Swiper(".foes .card__content", {
   },
 
   breakpoints:{
-    600: {
-      slidesPerView: 2,
+    375: {
+      slidesPerView: 1.35,
+      spaceBetween: 25,
     },
-    968: {
-      slidesPerView: 2,
+    411: {
+      slidesPerView: 1.5,
+      spaceBetween: 20,
     },
   },
 });
@@ -167,6 +173,23 @@ function hideImages() {
   document.getElementById("showLessButton").style.display = "none";
 }
 
+//hides images on screen size
+var mediaQuery = window.matchMedia('(max-width: 412px)');
+
+function handleMediaQuery(event) {
+    var elementsToHide = document.querySelectorAll('.images > :nth-child(n+4):nth-child(-n+6)');
+    elementsToHide.forEach(function (element) {
+        if (event.matches) {
+            element.classList.add('hidden');
+        } else {
+            element.classList.remove('hidden');
+        }
+    });
+}
+
+handleMediaQuery(mediaQuery);
+
+mediaQuery.addEventListener('change', handleMediaQuery);
 
 //GSAP animations
 gsap.registerPlugin(ScrollTrigger)
@@ -199,8 +222,6 @@ gsap.from('.slogan .word:nth-child(3)',
   ease: "power2.inOut", 
 }
 );
-
-
 
 //trailer video animation
 let tl = gsap.timeline({
@@ -499,9 +520,11 @@ window.addEventListener('load', videoScroll);
 window.addEventListener('scroll', videoScroll);
 
 //vertical key features
-const section_vert = gsap.utils.toArray(".section-vert");
+ScrollTrigger.matchMedia({
+  "(min-width: 768px)": function() {
+    const section_vert = gsap.utils.toArray(".section-vert");
 
-function animateVerticalText(textSelector, yValue, xValue, opacityValue, durationValue, easeType, staggerValue, scaleValue) {
+    function animateVerticalText(textSelector, yValue, xValue, opacityValue, durationValue, easeType, staggerValue, scaleValue) {
   section_vert.forEach((section_vert) => {
     let text = section_vert.querySelectorAll(textSelector);
     
@@ -523,13 +546,49 @@ function animateVerticalText(textSelector, yValue, xValue, opacityValue, duratio
       },
     });
   });
-}
+    }
 
-featureTitleTXT = new SplitType('.vert-title', { types: 'words' });
+    featureTitleTXT = new SplitType('.vert-title', { types: 'words' });
 
-animateVerticalText(".vert-title .word", 0, 0, 0, 1.2, "power2.inOut", 0.3, 0.8);
-animateVerticalText(".anim-right", 0, -12, 0, 1.2, "power2.inOut", 0.3, 1);
-animateVerticalText(".anim-left", 0, 12, 0, 1.2, "power2.inOut", 0.3, 1);
+    animateVerticalText(".vert-title .word", 0, 0, 0, 1.2, "power2.inOut", 0.3, 0.8);
+    animateVerticalText(".anim-right", 0, -12, 0, 1.2, "power2.inOut", 0.3, 1);
+    animateVerticalText(".anim-left", 0, 12, 0, 1.2, "power2.inOut", 0.3, 1);
+  },
+
+  "(max-width: 767px)": function() {
+    const section_vert = gsap.utils.toArray(".section-vert");
+
+    function animateVerticalText(textSelector, yValue, xValue, opacityValue, durationValue, easeType, staggerValue, scaleValue) {
+    section_vert.forEach((section_vert) => {
+    let text = section_vert.querySelectorAll(textSelector);
+    
+    if (text.length === 0) return;
+    
+    gsap.from(text, {
+      y: yValue,
+      xPercent: xValue,
+      opacity: opacityValue,
+      duration: durationValue,
+      ease: easeType,
+      stagger: staggerValue,
+      scale: scaleValue,
+      scrollTrigger: {
+        trigger: section_vert,
+        start: "-10% center",
+        toggleActions: "play none none none",
+        markers: false,
+      },
+    });
+  });
+    }
+
+    featureTitleTXT = new SplitType('.vert-title', { types: 'words' });
+
+    animateVerticalText(".vert-title .word", 0, 0, 0, 1.2, "power2.inOut", 0.3, 0.8);
+    animateVerticalText(".anim-right", 0, -12, 0, 1.2, "power2.inOut", 0.3, 1);
+    animateVerticalText(".anim-left", 0, 12, 0, 1.2, "power2.inOut", 0.3, 1);
+  }
+});
 
 //characters section animation
 gsap.from(".characters .title-anim", //title and description
@@ -852,6 +911,8 @@ gallery_anim.to(".img-container",
   stagger: 0.3,
   ease: "power2.inOut", 
 });
+
+
 
 //developers animations
 
