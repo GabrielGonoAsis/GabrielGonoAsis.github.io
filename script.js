@@ -43,6 +43,10 @@ let swiperCards = new Swiper(".friends .card__content", {
   },
 
   breakpoints:{
+    320: {
+      slidesPerView: 1.5,
+      spaceBetween: 15,
+    },
     375: {
       slidesPerView: 1.5,
       spaceBetween: 15,
@@ -79,6 +83,10 @@ let swiperCards2 = new Swiper(".foes .card__content", {
   },
 
   breakpoints:{
+    320: {
+      slidesPerView: 1.2,
+      spaceBetween: 25,
+    },
     375: {
       slidesPerView: 1.35,
       spaceBetween: 25,
@@ -100,6 +108,8 @@ function showPopup(title, content, imagePath) {
   var imageElement = document.createElement('img');
   var overlay = document.getElementById('overlay');
   var popup = document.getElementById('popup');
+
+  document.getElementById("header").style.opacity = '0';
 
   popupTitle.textContent = title;
 

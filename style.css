@@ -165,8 +165,8 @@ body{
 
 @media only screen  and (max-width: 376px) and (max-width: 412px){
     #header{
-        padding-top: 5px;
-        padding-bottom: 5px;
+        padding-top: 8px;
+        padding-bottom: 8px;
     }  
 
     #nav-bar > ul {
@@ -178,6 +178,23 @@ body{
         display: none;
     }
 }
+
+@media only screen  and (max-width: 321px) and (max-width: 376px){
+    #header{
+        padding-top: 8px;
+        padding-bottom: 8px;
+    }  
+
+    #nav-bar > ul {
+        font-size: 9px; 
+        justify-content: space-evenly;
+    }
+
+    .logo{
+        display: none;
+    }
+}
+
 
 /*poster*/
 .poster img{
@@ -279,6 +296,24 @@ body{
     }
 }
 
+@media only screen and (max-width: 321px) and (max-width: 376px){
+    .poster img{
+        object-position: 98%;
+    }
+
+    .slogan{
+        font-size: 9.5vw;
+        letter-spacing: 4px;
+    }
+
+    .slogan .word:first-child{
+        margin-right: 8px;
+    }
+
+    .slogan .word:nth-child(2){
+        margin-right: 14px;
+    }
+}
 
 .trailer-container{
     padding: 150px 0px;
@@ -528,6 +563,28 @@ body{
     .overview .paragraphs{
         font-size: 18px;
         line-height: 25px;
+    }
+}
+
+@media only screen and (max-width: 321px) and (max-width: 376px){
+    .overview{
+        height: 100vh;
+        background-position: center;
+    }
+
+    .overview h1{        
+        font-size: 28px;  
+        letter-spacing: 8px;
+    }
+
+    .overview hr{
+        width: 45%;  
+        margin: 15px auto 50px auto;
+    }
+
+    .overview .paragraphs{
+        font-size: 15px;
+        line-height: 22px;
     }
 }
 
@@ -1048,6 +1105,95 @@ body{
     
 }
 
+@media only screen  and (max-width: 321px) and (max-width: 376px){
+    .title-features-vert{
+        padding-top: 35px;
+        padding-bottom: 100px;
+    }
+
+    .section-vert{
+        width: 82vw;
+    }
+    
+    .section-vert:last-child{
+        padding-bottom: 10%;
+    }
+    
+    .vert-title{
+        font-size: 2.3rem;
+        letter-spacing: 0.3rem;
+    }    
+
+    .vert-text h1{
+        font-size: 15px;
+        letter-spacing: 0px;
+        word-spacing: 3px;
+        margin-bottom: 4px;
+    }
+
+    .vert-text p{
+        font-size: 8px;
+        letter-spacing: 1px;
+        word-spacing: 0px;
+        line-height: 15px;
+        margin-bottom: 15px;
+    }
+
+    .vert-vid{
+        span.border_btm {
+            &:after {
+              width: 7px;
+              height: 7px;
+              bottom: -2px;
+              right: -6px;
+              border-bottom: 1px solid white;
+              border-right: 1px solid white;
+            }
+            &:before {
+              width: 7px;
+              height: 7px;
+              bottom: -2px;
+              left: -6px;
+              border-bottom: 1px solid white;
+              border-left: 1px solid white;
+            }
+        }
+        
+        &:before {
+            width: 7px;
+            height: 7px;
+            top: -5px;
+            left: -6px;
+            border-top: 1px solid white;
+            border-left: 1px solid white;
+        }
+        
+        &:after {
+            width: 7px;
+            height: 7px;
+            top: -5px;
+            right: -6px;
+            border-top: 1px solid white;
+            border-right: 1px solid white;
+        }
+    }
+
+    .left{
+        margin-left: 12px;
+    }
+
+    .right{
+        margin-right: 12px;
+    }
+
+    .key-features-vert hr{
+        margin: 120px auto;
+        width: 70vw;
+        opacity: 20%;
+    }
+    
+}
+
 /*titles*/
 .title{
     color: white;
@@ -1122,6 +1268,23 @@ body{
     .title p{
         width: 80%;
         font-size: 9px;
+        letter-spacing: 1px;
+    }
+}
+
+@media only screen and (max-width: 321px) and (max-width: 376px){
+    .title{
+        padding: 20px 0px;
+    }
+
+    .title h1{
+        font-size: 28px;
+    }
+
+    .title p{
+        width: 80%;
+        font-size: 9px;
+        letter-spacing: 0px;
     }
 }
 
@@ -1144,6 +1307,7 @@ body{
     font-size: 85px;
     text-align: center;
     margin: 0 auto;
+    margin-bottom: 50px;
     letter-spacing: 15px;
     padding-top: 50px;
     color: #ffffff00;
@@ -1189,6 +1353,7 @@ body{
     .friends-title, .foes-title{    
         font-size: 70px;
         padding-top: 20px;
+        margin-bottom: 30px;
     }
 
     .characters hr{
@@ -1211,6 +1376,7 @@ body{
 
     .friends-title, .foes-title{    
         font-size: 50px;
+        margin-bottom: 24px;
     }
 
     .characters hr{
@@ -1247,6 +1413,7 @@ body{
 
     .friends-title, .foes-title{    
         font-size: 30px;
+        margin-bottom: 15px;
     }
 
     .characters hr{
@@ -1287,6 +1454,45 @@ body{
     }
 
     .characters hr{
+        margin: 40px auto;
+    }
+
+    .foes .slider-container{
+        width: 90%;
+    }
+
+    .foes{
+        padding-bottom: 40px;
+    }
+}
+
+@media only screen and (max-width: 321px) and (max-width: 376px) {
+    .char-title h1{
+        font-size: 23px;
+    }
+
+    .characters .title{
+        padding-top: 38px;
+        padding-bottom: 0px;
+        margin-bottom: 0px;
+    }
+
+    .friends{
+        margin-top: 60px;
+    }
+
+    .friends-title{
+        padding-top: 0px;
+    }
+
+    .friends-title, .foes-title{    
+        font-size: 22px;
+        letter-spacing: 6px;
+        margin-bottom: 10px;
+    }
+
+    .characters hr{
+        width: 78%;
         margin: 40px auto;
     }
 
@@ -1425,6 +1631,73 @@ body{
     }
 }
 
+@media only screen and (max-width: 376px) and (max-width: 412px){
+    .map{
+        padding: 65px 0px;
+    }
+
+    .map-img{
+        width: 100vw;
+    }
+    
+    .side-title{
+        display: none;
+    }
+
+    .top-title{
+        padding: 0;
+        padding-bottom: 5px;
+    }
+
+    .top-title h1{
+        font-size: 20px;
+        margin: 0px;
+    }
+
+    .map-container .desc{
+        width: 89vw;
+        font-size: 10px;
+        margin-bottom: -42px;
+    }
+}
+
+@media only screen and (min-width: 411px){
+    .top-title{
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 321px) and (max-width: 376px){
+    .map{
+        padding: 20px 0px;
+    }
+
+    .map-img{
+        width: 100vw;
+    }
+    
+    .side-title{
+        display: none;
+    }
+
+    .top-title{
+        padding: 0;
+        padding-bottom: 5px;
+    }
+
+    .top-title h1{
+        font-size: 17px;
+        letter-spacing: 2px;
+        margin: 0px;
+    }
+
+    .map-container .desc{
+        width: 89vw;
+        font-size: 8px;
+        letter-spacing: 1px;
+        margin-bottom: -19px;
+    }
+}
 
 /*map pins*/
 .pin{
@@ -1812,6 +2085,189 @@ body{
     }
 }
 
+@media only screen and (max-width: 376px) and (max-width: 412px) {
+    .pin span{
+        left: 0.9rem;
+        font-size: 0.5em;
+        word-spacing: 1px;
+    }
+
+    .pin2 span{
+        font-size: 0.5em;
+        word-spacing: 1px;
+        padding-top: 5px;
+        padding-right: 5px;
+        padding-left: 7px;
+    }
+
+    .pin{
+        width: 0.6em;
+        height: 0.6em;
+    }
+
+    .pin::after{
+        width: 85%;
+        height: 85%;
+    }
+
+    .pin::before{
+        width: 85%;
+        height: 85%;
+    }
+
+    .pin2::after{
+        left: 920%;
+        width: 85%;
+        height: 85%;
+    }
+
+    .pin2::before{
+        left: 920%;
+        width: 85%;
+        height: 85%;
+    }
+   
+    .astoria{
+        left: 71.5%;    
+    }
+
+    .queens{
+        top: 41%;
+        right: 55%;
+    }
+
+    .queens::after{
+        left: 1090%;
+    }
+
+    .queens::before{
+        left: 1090%;
+    }
+
+    .odessa{
+        top: 54%;
+        right: 24%;
+    }
+
+    .william{
+        right: 45%;
+    }
+
+    .coney{
+        bottom: 7%;
+        right: 46%;
+    }
+
+    .foundation{
+        bottom: 39%;
+        left: -2%;
+    }
+
+    .foundation::after{
+        left: 1300%;
+    }
+
+    .foundation::before{
+        left: 1300%;
+    }
+
+    .brooklyn{
+        right: 30%;
+    }
+}
+
+@media only screen and (max-width: 321px) and (max-width: 376px) {
+    .pin span{
+        left: 0.9rem;
+        font-size: 0.4em;
+        word-spacing: 1px;
+        padding: 0.7em 0.7em 0.3em 0.7em;
+    }
+
+    .pin2 span{
+        font-size: 0.4em;
+        word-spacing: 1px;
+        padding-top: 5px;
+        padding-right: 5px;
+        padding-left: 7px;
+    }
+
+    .pin{
+        width: 0.6em;
+        height: 0.6em;
+    }
+
+    .pin::after{
+        width: 85%;
+        height: 85%;
+    }
+
+    .pin::before{
+        width: 85%;
+        height: 85%;
+    }
+
+    .pin2::after{
+        left: 850%;
+        width: 85%;
+        height: 85%;
+    }
+
+    .pin2::before{
+        left: 850%;
+        width: 85%;
+        height: 85%;
+    }
+   
+    .astoria{
+        left: 71.5%;    
+    }
+
+    .queens{
+        top: 41%;
+        right: 59%;
+    }
+
+    .queens::after{
+        left: 980%;
+    }
+
+    .queens::before{
+        left: 980%;
+    }
+
+    .odessa{
+        top: 54%;
+        right: 24%;
+    }
+
+    .william{
+        right: 47%;
+    }
+
+    .coney{
+        bottom: 7%;
+        right: 48%;
+    }
+
+    .foundation{
+        bottom: 39%;
+        left: -4%;
+    }
+
+    .foundation::after{
+        left: 1150%;
+    }
+
+    .foundation::before{
+        left: 1150%;
+    }
+
+    .brooklyn{
+        right: 30%;
+    }
+}
+
 /*popup of location info*/
 .popup-container {
     position: relative;
@@ -1952,6 +2408,7 @@ body{
     color: white;
     opacity: 50%;
     margin-top: -25px;
+    margin-bottom: 0px;
 }
 
 @media only screen and (max-width: 1025px) {
@@ -2041,6 +2498,45 @@ body{
         font-size: 12px;
         margin-top: -16px;
     }
+
+    .popup{
+        span.border_btm {
+            &:after {
+              width: 10px;
+              height: 10px;
+              bottom: -8px;
+              right: -8px;
+              border-bottom: 1px solid white;
+              border-right: 1px solid white;
+            }
+            &:before {
+              width: 10px;
+              height: 10px;
+              bottom: -8px;
+              left: -8px;
+              border-bottom: 1px solid white;
+              border-left: 1px solid white;
+            }
+        }
+        
+        &:before {
+            width: 10px;
+            height: 10px;
+            top: -8px;
+            left: -8px;
+            border-top: 1px solid white;
+            border-left: 1px solid white;
+        }
+        
+        &:after {
+            width: 10px;
+            height: 10px;
+            top: -8px;
+            right: -8px;
+            border-top: 1px solid white;
+            border-right: 1px solid white;
+        }
+    }
 }
 
 @media only screen and (max-width: 412px) and (max-width: 769px) {
@@ -2073,6 +2569,47 @@ body{
     }
 }
 
+@media only screen and (max-width: 376px) and (max-width: 412px) {
+    .popup {
+        top: 35%;
+    }
+
+    .instructions{
+        font-size: 10px;
+        margin-top: -12px;
+    }
+}
+
+@media only screen and (max-width: 321px) and (max-width: 376px) {
+    .popup {
+        top: 50%;
+        left: 54%;
+        width: 75%;
+        padding: 20px;
+    }
+
+    .popup h2 {
+        font-size: 19px;
+        letter-spacing: 1px;
+        margin-bottom: 10px;
+    }
+
+    .popup img{
+        padding-top: 10px;
+    }
+    
+    .popup p {
+        padding-top: 4px;
+        margin-bottom: auto;
+        font-size: 10px;
+        line-height: 1rem;
+    }
+
+    .instructions{
+        font-size: 11px;
+        margin-top: -13px;
+    }
+}
 /*games*/
 /*spider-man 2 game*/
 .buy-now{
@@ -2329,6 +2866,66 @@ body{
     }
 }
 
+@media only screen and (max-width: 321px) and (max-width: 412px) {
+    .buy-now-title p{
+        width: 80%;
+    }
+
+    .games .container{
+        padding-block: 18px 55px;
+    }
+
+    .games h1{
+        font-size: 20px;
+        padding: 0px 0px;
+    }
+    
+    .games .container{
+        width: 75%;
+    }
+
+    .games .standard img, .deluxe img{
+        padding: 7px;
+    }
+
+    .games ul li{
+        line-height: 23px;
+        font-size: 10px;
+        letter-spacing: 0px;
+        word-spacing: 1px;
+    }
+
+    .games .standard, .deluxe{
+        height: auto;
+        padding-bottom: 45px;
+        box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
+    }
+
+    .games .standard img, .deluxe img{
+        border-radius: 11px;
+    }   
+
+    .price{
+        font-size: 13px;
+        bottom: 6px;
+        margin: 0px 12px;
+        padding: 0px;
+    }
+    
+    .platform{
+        font-size: 13px;
+        bottom: 6px;
+        margin: 0px 12px;
+        padding: 0px 9px;
+    }
+
+    .add-to-cart{
+        font-size: 12px;
+        width: 100px;
+        padding: 4px 0px;
+        margin-top: 20px;
+    }
+}
 
 /*previous games*/
 .old{
@@ -2441,6 +3038,39 @@ body{
     }
 }
 
+@media only screen and (max-width: 376px) and (max-width: 412px) {
+    .game-title{
+        font-size: 16px;
+    }
+
+    .old .title p{
+        width: 82%;
+    }
+}
+
+@media only screen and (max-width: 321px) and (max-width: 376px) {
+    .first .game-title{
+        font-size: 18px;
+    }
+
+    .miles .game-title{
+        font-size: 13.5px;
+    }
+
+    .first img, .miles img{
+        margin-bottom: 10px;
+    }
+
+    .old .title p{
+        width: 73%;
+    }
+
+    .box-art .platform{
+        margin-right: 14px;
+        bottom: 15px;
+    }
+}
+
 /*gallery*/
 .gallery{
     padding-block: 20px 70px;
@@ -2499,6 +3129,34 @@ body{
     
     &:after {
         transform: scale(1.3);
+        transition: 0.3s all ease-in-out;
+    }
+}
+
+.images a:active{
+    .gallery_img{
+        filter: brightness(10%);
+        transform: scale(1);
+    }
+
+    span.border_btm {
+        &:after {
+            transform: scale(1);
+            transition: 0.3s all ease-in-out;
+        }
+        &:before {
+            transform: scale(1);
+            transition: 0.3s all ease-in-out;
+        }
+    }
+    
+    &:before {
+        transform: scale(1);
+        transition: 0.3s all ease-in-out;
+    }
+    
+    &:after {
+        transform: scale(1);
         transition: 0.3s all ease-in-out;
     }
 }
@@ -2761,6 +3419,12 @@ body{
             border-top: 1px solid white;
             border-right: 1px solid white;
         }
+    }
+}
+
+@media only screen and (max-width: 769px){
+    .click_text:hover{
+        opacity: 0;
     }
 }
 
@@ -3365,6 +4029,226 @@ body{
     }
 }
 
+@media only screen and (max-width: 376px) and (max-width: 412px) {
+    .dev{
+        padding: 52px 22px;
+    }
+
+    .visions .text p{
+        font-size: 9px;
+        line-height: 14px;
+        letter-spacing: 1px;
+    }
+
+    .visions .text p:last-child{
+        margin-top: 12px;
+    }
+
+    .missions .text p{
+        font-size: 8.5px;
+        line-height: 14px;
+        letter-spacing: 0px;
+    }
+
+    .top-txt-img .txt{
+        width: 52%;
+    }
+
+    .top-txt-img .img{
+        width: auto;
+    }    
+
+    .top-txt-img .img img{
+        width: 150px;
+        height: 150px;
+        object-fit: cover;
+    }  
+
+    .inspire .img img{
+        object-position: 38%;
+    }  
+
+    .industry .img img{
+        object-position: 75%;
+    }  
+
+    .top-txt-img{
+        margin-bottom: 0px;
+    }
+
+    .team h1{
+        margin-bottom: 22px;
+    }
+
+    .team h2{
+        font-size: 16px;
+        word-spacing: 1px;
+        margin: 10px 0px;
+    }
+
+    .directors-img p{
+        margin-top: -10px;
+        font-size: 10px;
+    }
+
+    .directors-img hr{
+        width: 50vw;    
+    }
+
+    .other-team{
+        margin-top: 15px;
+        grid-template-columns: repeat(auto-fit, minmax(35%, 1fr));
+        grid-gap: 15px 15px;
+    }
+    
+    .other-team h2{
+        margin-bottom: 10px;
+        font-size: 12px;
+    }
+
+    .list{
+        width: auto;
+        margin: 0px;
+        padding: 0px;
+        padding-left: 15px;
+        padding-bottom: 15px;
+    }
+
+    .team .list li{
+        font-size: 9.5px;
+    }
+
+    .list li{
+        letter-spacing: 1px;
+        line-height: 25px;
+    }
+    
+    
+    .list li::before {
+        height: 10px;
+        width: 10px;
+        margin-right: 5px;
+    }
+}
+
+@media only screen and (max-width: 321px) and (max-width: 376px) {
+    .dev{
+        padding: 47px 19px;
+    }
+
+    .developers .title{
+        padding: 15px 0px 22px 0px;
+    }
+
+    .dev h1{
+        font-size: 19px;
+        letter-spacing: 1px;
+        word-spacing: 2px;
+    }
+
+    .dev hr{
+        margin: 8px 0px 15px 0px;
+    }
+
+    #about-2 .inso-logo{
+        width: 53%;
+        margin-bottom: 9px;
+    }
+
+    .about .text p{
+        font-size: 9px;
+        letter-spacing: 0px;
+        line-height: 16px;
+    }
+
+    .missions .text p{
+        font-size: 8px;
+        line-height: 13px;
+        letter-spacing: 0px;
+    }
+
+    .top-txt-img .txt{
+        width: 58%;
+    }
+
+    .top-txt-img .img{
+        width: auto;
+    }    
+
+    .top-txt-img .img img{
+        width: 110px;
+        height: 140px;
+        object-fit: cover;
+        border-radius: 2px;
+    }  
+
+    .inspire .img img{
+        object-position: 30%;
+    }  
+
+    .industry .img img{
+        object-position: 75%;
+    }  
+
+    .top-txt-img{
+        margin-bottom: 5px;
+    }
+
+    .team h1{
+        margin-bottom: 17px;
+    }
+
+    .team h2{
+        font-size: 14px;
+        word-spacing: 1px;
+        margin: 10px 0px;
+    }
+
+    .directors-img p{
+        margin-top: -12px;
+        font-size: 9px;
+    }
+
+    .directors-img hr{
+        width: 50vw;    
+    }
+
+    .other-team{
+        margin-top: 15px;
+        grid-template-columns: repeat(auto-fit, minmax(35%, 1fr));
+        grid-gap: 15px 15px;
+    }
+    
+    .other-team h2{
+        margin-bottom: 7px;
+        font-size: 10px;
+    }
+
+    .list{
+        width: auto;
+        margin: 0px;
+        padding: 0px;
+        padding-left: 15px;
+        padding-bottom: 10px;
+    }
+
+    .team .list li{
+        font-size: 8px;
+    }
+
+    .list li{
+        letter-spacing: 1px;
+        line-height: 25px;
+    }
+    
+    
+    .list li::before {
+        height: 10px;
+        width: 10px;
+        margin-right: 5px;
+    }
+}
+
 /*footer*/
 footer{
     background-color: #2361B4;
@@ -3516,5 +4400,50 @@ footer hr{
     .copyright p{
         font-size: 10px;
         padding: 13px 0px;
+    }  
+}
+
+@media only screen and (max-width: 376px) and (max-width: 412px) {
+    .copyright p{
+        font-size: 9px;
+        padding: 13px 0px;
+    }  
+}
+
+@media only screen and (max-width: 321px) and (max-width: 376px) {
+    footer .logos{
+        padding-top: 25px;
+    }
+
+    .logos img{
+        width: 40px;
+    }
+
+    footer hr{
+        margin: 25px auto;
+    }
+    
+    .links-title{
+        font-size: 10px;
+        margin-bottom: 5px;
+    }
+
+    .links ul li{
+        font-size: 7px;
+        line-height: 17px;
+    }
+
+    .socials{
+        margin-bottom: 25px;
+    }
+
+    .socials img{
+        width: 25px;
+        margin: 0px 25px;
+    }
+    
+    .copyright p{
+        font-size: 8px;
+        padding: 11px 0px;
     }  
 }

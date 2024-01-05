@@ -29,7 +29,7 @@
 }
 
 .card__container {
-  padding-block: 3rem;
+  padding-bottom: 3rem;
 }
 
 .card__content {
@@ -423,6 +423,84 @@
 
   .foes .card__data .card__description{
     font-size: 0.88rem;
+  }
+
+  #friend-nav, #foes-nav{
+    display: none;
+  }
+
+}
+
+@media only screen and (max-width: 321px) and (max-width: 376px){
+  .card__data .card__name{
+    font-size: 12px;
+    white-space: nowrap;
+    top: 0px;
+  }
+  
+  .card__data{
+    height: 142px;
+    padding: 0px 15px;
+  }
+
+  .card__data .card__description{
+    font-size: 0.65rem;
+  }
+
+  .foes .card__data {
+    height: 165px;
+    padding: 0px 18px;
+  }
+
+  .foes .card__data .card__name{
+    font-size: 17px;
+    top: 0px;
+    padding: 5px 5px 0px 5px;
+    letter-spacing: 1px;
+    white-space: wrap;
+  }
+
+  .foes .card__data .card__name{
+    span.border_btm {
+      &:after {
+        width: 5px;
+        height: 5px;
+        bottom: -7px;
+        right: -5px;
+        border-bottom: 1px solid white;
+        border-right: 1px solid white;
+      }
+      &:before {
+        width: 5px;
+        height: 5px;
+        bottom: -7px;
+        left: -5px;
+        border-bottom: 1px solid white;
+        border-left: 1px solid white;
+      }
+  }
+  
+  &:before {
+      width: 5px;
+      height: 5px;
+      top: -5px;
+      left: -6px;
+      border-top: 1px solid white;
+      border-left: 1px solid white;
+  }
+  
+  &:after {
+      width: 5px;
+      height: 5px;
+      top: -5px;
+      right: -6px;
+      border-top: 1px solid white;
+      border-right: 1px solid white;
+  }
+  }
+
+  .foes .card__data .card__description{
+    font-size: 0.8rem;
   }
 
   #friend-nav, #foes-nav{
