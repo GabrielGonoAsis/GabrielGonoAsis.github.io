@@ -1,20 +1,48 @@
-//hover to play video
-let video = document.querySelector(".video") 
+let video = document.querySelector(".video");
 document.querySelector(".video").style.transition = "0.3s ease";
-let hover_text = document.querySelector(".hover_text")
+let hover_text = document.querySelector(".hover_text");
 document.querySelector(".hover_text p").style.transition = "0.3s ease";
+let click_to_play = document.querySelector(".click_to_play");
+document.querySelector(".click_to_play p").style.transition = "0.3s ease";
 
-hover_text.addEventListener("mouseenter", function (e) { 
-    document.querySelector(".hover_text p").style.opacity='0';
-    document.querySelector(".video") .style.filter='brightness(100%)';
-    video.play(); 
-}) 
+var mediaQuery769px = window.matchMedia('(min-width: 769px)');
+let isTouchDevice = 'ontouchstart' in window || navigator.msMaxTouchPoints;
 
-hover_text.addEventListener("mouseleave", function (e) { 
-    document.querySelector(".hover_text  p").style.opacity="100";
-    document.querySelector(".video") .style.filter='brightness(10%)';
-    video.pause(); 
-}) 
+function handleTogglePlayPause() {
+    if (video.paused) {
+        document.querySelector(".click_to_play p").style.opacity = '0';
+        document.querySelector(".video").style.filter = 'brightness(100%)';
+        document.querySelector(".play_icon").style.opacity = '1'; // Show the play icon
+        video.play();
+
+        // Hide the play icon after 1 second
+        setTimeout(() => {
+            document.querySelector(".play_icon").style.opacity = '0';
+        }, 1500);
+    } else {
+        document.querySelector(".click_to_play p").style.opacity = "100";
+        document.querySelector(".video").style.filter = 'brightness(10%)';
+        video.pause(); 
+    }
+}
+
+if (mediaQuery769px.matches) {
+    hover_text.addEventListener("mouseenter", function (e) { 
+        document.querySelector(".hover_text p").style.opacity = '0';
+        document.querySelector(".video").style.filter = 'brightness(100%)';
+        video.play(); 
+    }); 
+
+    hover_text.addEventListener("mouseleave", function (e) { 
+        document.querySelector(".hover_text p").style.opacity = "100";
+        document.querySelector(".video").style.filter = 'brightness(10%)';
+        video.pause(); 
+    }); 
+
+} else {
+    // For devices that support both click and touch events
+    click_to_play.addEventListener(isTouchDevice ? "touchend" : "click", handleTogglePlayPause);
+}
 
 //carousels for characters using swiper
 
@@ -159,47 +187,43 @@ let swiperCards2 = new Swiper(".foes .card__content", {
 
 //shows popup
 function showPopup(title, content, imagePath) {
-  var popupTitle = document.getElementById('popup-title');
-  var contentContainer = document.getElementById('popup-content');
-  var imageElement = document.createElement('img');
-  var overlay = document.getElementById('overlay');
-  var popup = document.getElementById('popup');
+  const popupTitle = document.getElementById('popup-title');
+  const contentContainer = document.getElementById('popup-content');
+  const overlay = document.getElementById('overlay');
+  const popup = document.getElementById('popup');
+  const header = document.getElementById("header");
 
-  document.getElementById("header").style.opacity = '0';
+  header.style.opacity = '0';
 
   popupTitle.textContent = title;
 
-  contentContainer.innerHTML = '';
+  contentContainer.innerHTML = `<img src="${imagePath}" alt="Popup Image">`;
 
-  imageElement.src = imagePath;
-
-  contentContainer.appendChild(imageElement);
-
-  var textElement = document.createElement('p');
+  const textElement = document.createElement('p');
   textElement.textContent = content;
   contentContainer.appendChild(textElement);
 
   overlay.style.display = 'block';
   popup.style.display = 'block';
 
-  gsap.fromTo(overlay, { opacity: 0 }, { opacity: 1, duration: 1.2 });
-
-  gsap.fromTo(popup, { opacity: 0, scale: 0.1 }, { opacity: 1, scale: 1, duration: 1.2, ease: 'power2.inOut', delay: 0.1 });
+  gsap.fromTo(popup, { opacity: 0, scale: 0.7 }, { opacity: 1, scale: 1, duration: 1.2, ease: 'power2.inOut', delay: 0.1 });
 }
 
-//hides popup
 function closePopup() {
   const overlay = document.getElementById('overlay');
   const popup = document.getElementById('popup');
+  const header = document.getElementById('header');
+  overlay.style.display = 'none';
 
-  gsap.to([popup], { opacity: 0, scale: 0, duration: 1.2, ease: 'power2.inOut', onComplete: () => {
-    popup.style.display = 'none';
-  } });
-
-  gsap.to([overlay], { opacity: 0, duration: 1.2, ease: 'power2.inOut', onComplete: () => {
-    overlay.style.display = 'none';
-  } });
-
+  gsap.to([popup], {
+    opacity: 0,
+    duration: 1.2,
+    ease: 'power2.inOut',
+    onComplete: () => {
+      popup.style.display = 'none';
+      header.style.opacity = '1'; // Reset header opacity
+    },
+  });
 }
 
 //shows images
@@ -240,7 +264,7 @@ function hideImages() {
 }
 
 //hides images on screen size
-var mediaQuery = window.matchMedia('(max-width: 412px)');
+var mediaQuery412px = window.matchMedia('(max-width: 412px)');
 
 function handleMediaQuery(event) {
     var elementsToHide = document.querySelectorAll('.images > :nth-child(n+4):nth-child(-n+6)');
@@ -253,9 +277,9 @@ function handleMediaQuery(event) {
     });
 }
 
-handleMediaQuery(mediaQuery);
+handleMediaQuery(mediaQuery412px);
 
-mediaQuery.addEventListener('change', handleMediaQuery);
+mediaQuery412px.addEventListener('change', handleMediaQuery);
 
 //GSAP animations
 gsap.registerPlugin(ScrollTrigger)
@@ -377,9 +401,6 @@ gsap.fromTo(".p-overview2", //paragraph
   delay: 0.3}
 );
 
-//key features section animation
-
-//horizontal scrolling
 ScrollTrigger.matchMedia({
   "(min-width: 1441px)": function() {
     

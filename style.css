@@ -332,9 +332,12 @@ body{
     position: relative;
     display: block;
     margin: 0px auto;
+    padding: 0px;
     text-align: center;
-    width: 75%;
     border: solid #4DB3BD 1px;
+    width: 75%;
+    height: auto;
+    box-sizing: border-box;
     span.border_btm {
         &:after {
           display: block;
@@ -387,7 +390,9 @@ body{
 }
 
 .trailer video{
+    display: block;
     width: 100%;
+    height: inherit;
     margin: auto;
     filter: brightness(10%);
     box-shadow: 0px 0px 20px black;
@@ -406,10 +411,33 @@ body{
     justify-content: center;
 }
 
+.click_to_play{
+    display: flex;
+    top: 0%;
+    position: absolute;
+    color: white;
+    font-family: 'Monument';
+    font-size: 30px;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.play_icon {
+    font-size: 92px;
+    color: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+
 @media only screen and (max-width: 769px) and (max-width: 1025px){
     .trailer-container{
-        height: 75vh;
-        padding: 100px 0px;
         display: flex;
         align-items: center;
     }
@@ -419,9 +447,138 @@ body{
     }
 }
 
-@media only screen and (max-width: 412px) and (max-width: 769px){
+@media only screen and (min-width: 769px) {
+    .click_to_play{
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 769px) {
     .hover_text{
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 412px) and (max-width: 769px) {
+    .click_to_play{
+        font-size: 25px;
+    }
+
+    .play_icon{
+        font-size: 60px;
+    }
+
+    .trailer{
+        span.border_btm {
+            &:after {
+              width: 8px;
+              height: 8px;
+              bottom: -8px;
+              right: -8px;
+              border-bottom: 1.5px solid white;
+              border-right: 1.5px solid white;
+            }
+            &:before {
+              width: 8px;
+              height: 8px;
+              bottom: -8px;
+              left: -8px;
+              border-bottom: 1.5px solid white;
+              border-left: 1.5px solid white;
+            }
+        }
+        
+        &:before {
+            width: 8px;
+            height: 8px;
+            top: -8px;
+            left: -8px;
+            border-top: 1.5px solid white;
+            border-left: 1.5px solid white;
+        }
+        
+        &:after {
+            width: 8px;
+            height: 8px;
+            top: -8px;
+            right: -8px;
+            border-top: 1.5px solid white;
+            border-right: 1.5px solid white;
+        }
+    }
+
+}
+
+@media only screen and (max-width: 376px) and (max-width: 412px) {
+    .click_to_play{
         font-size: 20px;
+    }
+    
+    .play_icon{
+        font-size: 55px;
+    }
+
+    .trailer{
+        width: 82%;
+    }
+
+    .trailer-container{
+        padding: 92px 0px;
+    }
+}
+
+@media only screen and (max-width: 321px) and (max-width: 376px) {
+    .click_to_play{
+        font-size: 18px;
+    }
+    
+    .play_icon{
+        font-size: 48px;
+    }
+
+    .trailer{
+        width: 85%;
+        span.border_btm {
+            &:after {
+              width: 6px;
+              height: 6px;
+              bottom: -6px;
+              right: -6px;
+              border-bottom: 1px solid white;
+              border-right: 1px solid white;
+            }
+            &:before {
+              width: 6px;
+              height: 6px;
+              bottom: -6px;
+              left: -6px;
+              border-bottom: 1px solid white;
+              border-left: 1px solid white;
+            }
+        }
+        
+        &:before {
+            width: 6px;
+            height: 6px;
+            top: -6px;
+            left: -6px;
+            border-top: 1px solid white;
+            border-left: 1px solid white;
+        }
+        
+        &:after {
+            width: 6px;
+            height: 6px;
+            top: -6px;
+            right: -6px;
+            border-top: 1px solid white;
+            border-right: 1px solid white;
+        }
+    }
+
+
+    .trailer-container{
+        padding: 92px 0px;
     }
 }
 
@@ -2413,7 +2570,6 @@ body{
     width: 100%;
     height: 100%;
     background: rgba(0, 0, 0, 0.8);
-    backdrop-filter: blur(5px); 
     z-index: 2;
 }
 
