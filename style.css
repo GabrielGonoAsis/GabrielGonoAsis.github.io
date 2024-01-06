@@ -78,10 +78,9 @@ body{
     display:flex; 
     justify-content: center; 
     align-items: center;
-    background-color: #222831;
-    padding-top: 18px;
-    padding-bottom: 18px;
-    border-bottom: solid #14181D 3px;
+    background-color: #010B13;
+    padding-top: 12px;
+    padding-bottom: 12px;
     position: fixed;
     width: 100%;
     z-index: 999;
@@ -97,21 +96,47 @@ body{
     top: -60px;
 }
 
-.logo{
-    position: absolute; 
-    left: 20px;  
-    font-family: 'Spider-Man';
-    font-size: 32px;
-    letter-spacing: 2px;
-}
-
 #nav-bar > ul {
     display:flex; 
-    gap: 100px;   
+    gap: 150px;   
     list-style: none;
-    padding-left: 0px;
     font-family: "Poppins", sans-serif;  
     font-size: 16px; 
+}
+
+.hvr-underline-from-center {
+    display: inline-block;
+    vertical-align: middle;
+    -webkit-transform: perspective(1px) translateZ(0);
+    transform: perspective(1px) translateZ(0);
+    position: relative;
+    overflow: hidden;
+}
+
+.hvr-underline-from-center:before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    left: 51%;
+    right: 51%;
+    bottom: 0;
+    background: #ffffff;
+    height: 1px;
+    -webkit-transition-property: left, right;
+    transition-property: left, right;
+    -webkit-transition-duration: 0.2s;
+    transition-duration: 0.2s;
+    -webkit-transition-timing-function: ease-out;
+    transition-timing-function: ease-out;
+}
+
+.hvr-underline-from-center:hover:before, .hvr-underline-from-center:focus:before, .hvr-underline-from-center:active:before {
+    left: 0;
+    right: 0;
+}
+
+.hvr-underline-from-center:active{
+    opacity: 80%;
 }
 
 /*header media queries*/
@@ -125,10 +150,6 @@ body{
         font-size: 15px; 
         gap: 90px;
     }
-    
-    .logo{
-        font-size: 25px;
-    }
 }
 
 @media only screen and (max-width: 769px) and (max-width: 1025px){
@@ -139,11 +160,7 @@ body{
 
     #nav-bar > ul {
         font-size: 16px; 
-        gap: 40px;
-    }
-    
-    .logo{
-        font-size: 25px;
+        gap: 80px;
     }
 }
 
@@ -154,12 +171,8 @@ body{
     }  
 
     #nav-bar > ul {
-        font-size: 13px; 
-        justify-content: space-evenly;
-    }
-
-    .logo{
-        display: none;
+        font-size: 11px; 
+        gap: 40px;
     }
 }
 
@@ -173,10 +186,6 @@ body{
         font-size: 11.5px; 
         justify-content: space-evenly;
     }
-
-    .logo{
-        display: none;
-    }
 }
 
 @media only screen  and (max-width: 321px) and (max-width: 376px){
@@ -189,12 +198,7 @@ body{
         font-size: 9px; 
         justify-content: space-evenly;
     }
-
-    .logo{
-        display: none;
-    }
 }
-
 
 /*poster*/
 .poster img{
@@ -331,8 +335,6 @@ body{
     text-align: center;
     width: 75%;
     border: solid #4DB3BD 1px;
-    opacity: 0;
-    scale: 0.8;
     span.border_btm {
         &:after {
           display: block;
@@ -651,14 +653,14 @@ body{
 .top{
     margin: 0px 200px;
     position: relative;
-    top: 0px;
+    top: 10px;
 }
 
 .top h1{
     font-family: 'High-Tech 2 Bold';
-    letter-spacing: 4px;
+    font-size: 40px;
+    letter-spacing: 3px;
     word-spacing: 10px;
-    margin: 12.5px 0px;    
 }
 
 .top p{
@@ -666,7 +668,7 @@ body{
     font-size: 15px;
     text-align: justify;
     letter-spacing: 2px;
-    margin: 15px 0px 30px 0px;
+    margin: 5px 0px 30px 0px;
     width: 130vh;
     opacity: 50%;
 }
@@ -684,9 +686,10 @@ body{
 
 .bottom h1{
     font-family: 'High-Tech 2 Bold';
-    letter-spacing: 4px;
+    font-size: 40px;
+    letter-spacing: 3px;
     word-spacing: 10px;
-    margin: 30px 0px 15px 0px;    
+    margin-top: 30px; 
 }
 
 .bottom p{
@@ -694,7 +697,7 @@ body{
     font-size: 15px;
     text-align: justify;
     letter-spacing: 2px;
-    margin: 12.5px 0px;
+    margin-top: 5px;
     width: 130vh;
     opacity: 50%;
 }
@@ -765,9 +768,15 @@ body{
 }
 
 /*key features media queries*/
-@media only screen and (min-width: 1024px) {
+@media only screen and (min-width: 1440px){
     .key-features-vert{
         display: none;
+    }
+}
+
+@media only screen and (max-width: 1441px) {
+    .bottom{
+        top: 110px;
     }
 }
 
@@ -1220,6 +1229,16 @@ body{
 }
 
 /*title media queries*/
+@media only screen and (max-width: 1441px) {
+    .title h1{
+        font-size: 90px;
+    }
+
+    .title p{
+        font-size: 15px;
+    }
+}
+
 @media only screen and (max-width: 1025px) {
     .title h1{
         font-size: 80px;
@@ -1304,10 +1323,10 @@ body{
 
 .friends-title, .foes-title{
     font-family: 'Monument-Bold';
-    font-size: 85px;
+    font-size: 75px;
     text-align: center;
     margin: 0 auto;
-    margin-bottom: 50px;
+    margin-bottom: 30px;
     letter-spacing: 15px;
     padding-top: 50px;
     color: #ffffff00;
@@ -1321,7 +1340,7 @@ body{
 }
 
 .characters hr{
-    width: 90%;
+    width: 75%;
     opacity: 20%;
     margin: 135px auto;
 }
@@ -1332,17 +1351,23 @@ body{
 }
 
 .friends .slider-container{
-    width: 88%;
+    width: 80%;
     margin: 0px auto;
 }
 
 .foes .slider-container{
-    width: 88%;
+    width: 80%;
     margin: auto;
 }
 
 #friend-card-article, #foes-card-article, #friend-nav, #friend-pag, #foes-nav, #foes-pag{
     opacity: 0;
+}
+
+@media only screen and (max-width: 1441px) {
+    .char-title h1{
+        font-size: 90px;
+    }
 }
 
 @media only screen and (max-width: 1025px) {
@@ -1383,12 +1408,12 @@ body{
         margin: 80px auto;
     }
 
-    .foes .slider-container{
-        width: 100%;
-    }
-
     .foes{
         padding-bottom: 80px;
+    }
+
+    #foes-nav, #friend-nav{
+        display: none;
     }
 }
 
@@ -1508,17 +1533,17 @@ body{
 /*map*/
 .map{
     background-color: #08001A;
-    padding: 150px 0px;
+    padding: 90px 0px;
 }
 
 .side-title h1{
-    font-size: 40px;
+    font-size: 32px;
 }
 
 .side-title{
     position: absolute;
     transform: rotate(90deg);
-    right: 126px;
+    right: 245px;
     top: 45%;
     opacity: 0;
     margin: 0;
@@ -1526,10 +1551,10 @@ body{
 }
 
 .map-container .desc{
-    width: 45vw;
+    width: 36vw;
     text-align: center;
     font-family: 'Poppins', sans-serif;
-    font-size: 18px;
+    font-size: 15px;
     letter-spacing: 2px;
     margin: auto;
     margin-bottom: -30px;
@@ -1546,11 +1571,30 @@ body{
 }
 
 .map-img{
-    width: 45vw;
+    width: 36vw;
     opacity: 0;
 }
 
 /*map media queries*/
+@media only screen and (max-width: 1441px) {
+    .map{
+        padding: 58px 0px;
+    }
+
+    .map-img{
+        width: 42vw;
+    }
+
+    .map-container .desc{
+        width: 42vw;
+    }
+
+    .side-title{
+        right: 170px;
+    }
+
+}
+
 @media only screen and (max-width: 1025px) {
     .map{
         padding: 85px 0px;
@@ -1633,7 +1677,7 @@ body{
 
 @media only screen and (max-width: 376px) and (max-width: 412px){
     .map{
-        padding: 65px 0px;
+        padding: 35px 0px;
     }
 
     .map-img{
@@ -1645,6 +1689,7 @@ body{
     }
 
     .top-title{
+        opacity: 0;
         padding: 0;
         padding-bottom: 5px;
     }
@@ -1728,7 +1773,7 @@ body{
     display: inline-block;
     white-space: nowrap;
     position: absolute;
-    left: 1.5rem;
+    left: 1.2rem;
     top: 50%;
     transform: translateY(-50%);
     background-color: rgb(0, 0, 0);
@@ -1736,7 +1781,7 @@ body{
     border-radius: 3em;
     padding: 0.5em 0.6em 0.3em 0.6em;
     font-family: 'High-Tech';
-    font-size: 0.8em;
+    font-size: 0.7em;
     letter-spacing: 1px;
     word-spacing: 3px;
     cursor: default;
@@ -1744,18 +1789,17 @@ body{
 
 .astoria{
     top: 28%;
-    left: 60%;    
+    left: 58%;    
 }
 
-
 .odessa{
-    right: 38%;
+    right: 40.5%;
     bottom: 46%;
 }
 
 .brooklyn{
     bottom: 16%;
-    right: 39%;
+    right: 42%;
 }
 
 .pin2{
@@ -1774,7 +1818,7 @@ body{
     content: '';
     background: rgb(255, 255, 255);
     position: absolute;
-    left: 1850%;
+    left: 1665%;
     width: 100%;
     height: 100%;
     border-radius: 50%;
@@ -1786,7 +1830,7 @@ body{
     content: '';
     background: rgb(255, 255, 255);
     position: absolute;
-    left: 1850%;
+    left: 1665%;
     width: 100%;
     height: 100%;
     border-radius: 50%;
@@ -1804,7 +1848,7 @@ body{
     border-radius: 3em;
     padding: 0.5em 0.6em 0.3em 0.6em;
     font-family: 'High-Tech';
-    font-size: 0.8em;
+    font-size: 0.7em;
     letter-spacing: 1px;
     word-spacing: 3px;
     cursor: default;
@@ -1816,46 +1860,46 @@ body{
 
 .foundation{
     bottom: 41.3%;
-    left: 30%;
+    left: 33%;
 }
 
 .coney{
     bottom: 8%;
-    right: 46%;
+    right: 47.5%;
 }
 
 .coney::before{
-    left: 1290%;
+    left: 1165%;
 }
 
 .coney::after{
-    left: 1290%;
+    left: 1165%;
 }
 
 .queens{
     top: 39%;
-    right: 50%;   
+    right: 52%;   
 }
 
 .queens::before{
-    left: 1570%;
+    left: 1390%;
 }
 
 .queens::after{
-    left: 1570%;
+    left: 1390%;
 }
 
 .william{
     bottom: 32%;
-    right: 45%;
+    right: 48%;
 }
 
 .william::before{
-    left: 1330%;
+    left: 1180%;
 }
 
 .william::after{
-    left: 1330%;
+    left: 1180%;
 }
 
 @keyframes pulse{
@@ -1867,6 +1911,90 @@ body{
 }
 
 /*map pins media queries*/
+@media only screen and (max-width: 1441px) {
+    .pin span{
+        left: 0.9rem;
+        font-size: 0.7em;
+        word-spacing: 1px;
+        padding: 0.7em 0.7em 0.3em 0.7em;
+    }
+
+    .pin2 span{
+        font-size: 0.7em;
+        word-spacing: 1px;
+        padding-top: 5px;
+        padding-right: 5px;
+        padding-left: 7px;
+    }
+
+    .pin2::after{
+        left: 1650%;
+    }
+
+    .pin2::before{
+        left: 1650%;
+    }
+
+    .astoria{
+        top: 28%;
+        left: 59.5%;    
+    }
+    
+    .odessa{
+        right: 38.5%;
+        bottom: 46%;
+    }
+    
+    .brooklyn{
+        bottom: 16%;
+        right: 40%;
+    }
+
+    .foundation{
+        bottom: 41.3%;
+        left: 31.5%;
+    }
+    
+    .coney{
+        bottom: 8%;
+        right: 46.2%;
+    }
+    
+    .coney::before{
+        left: 1165%;
+    }
+    
+    .coney::after{
+        left: 1165%;
+    }
+    
+    .queens{
+        top: 39%;
+        right: 52%;   
+    }
+    
+    .queens::before{
+        left: 1390%;
+    }
+    
+    .queens::after{
+        left: 1390%;
+    }
+    
+    .william{
+        bottom: 32%;
+        right: 46%;
+    }
+    
+    .william::before{
+        left: 1180%;
+    }
+    
+    .william::after{
+        left: 1180%;
+    }
+}
+
 @media only screen and (max-width: 1025px) {
     .pin span{
         left: 1.2rem;
@@ -2041,6 +2169,10 @@ body{
         height: 85%;
     }
    
+    .queens span{
+        padding: 0.5em 0.6em 0.3em 0.6em;
+    }
+
     .queens{
         top: 37%;
         right: 56%;
@@ -2081,7 +2213,7 @@ body{
     }
 
     .brooklyn{
-        right: 30%;
+        right: 32%;
     }
 }
 
@@ -2413,7 +2545,6 @@ body{
 
 @media only screen and (max-width: 1025px) {
     .popup {
-        width: 40%;
         padding: 20px;
     }
 
@@ -2440,7 +2571,7 @@ body{
     }
 }
 
-@media only screen and (max-width: 769px) and (max-width: 1025px) {
+@media only screen and (max-width: 769px) and (max-width: 1025px){
     .popup {
         top: 50%;
         width: 60%;
@@ -2467,75 +2598,6 @@ body{
     .instructions{
         font-size: 12px;
         margin-top: -16px;
-    }
-}
-
-@media only screen and (max-width: 1025px) and (max-width: 769px) {
-    .popup {
-        top: 50%;
-        width: 60%;
-        padding: 20px;
-    }
-
-    .popup h2 {
-        font-size: 47px;
-        letter-spacing: 3px;
-        margin-bottom: 20px;
-    }
-
-    .popup img{
-        padding-top: 20px;
-    }
-    
-    .popup p {
-        padding-top: 15px;
-        margin-bottom: auto;
-        font-size: 20px;
-        line-height: 1.6rem;
-    }
-
-    .instructions{
-        font-size: 12px;
-        margin-top: -16px;
-    }
-
-    .popup{
-        span.border_btm {
-            &:after {
-              width: 10px;
-              height: 10px;
-              bottom: -8px;
-              right: -8px;
-              border-bottom: 1px solid white;
-              border-right: 1px solid white;
-            }
-            &:before {
-              width: 10px;
-              height: 10px;
-              bottom: -8px;
-              left: -8px;
-              border-bottom: 1px solid white;
-              border-left: 1px solid white;
-            }
-        }
-        
-        &:before {
-            width: 10px;
-            height: 10px;
-            top: -8px;
-            left: -8px;
-            border-top: 1px solid white;
-            border-left: 1px solid white;
-        }
-        
-        &:after {
-            width: 10px;
-            height: 10px;
-            top: -8px;
-            right: -8px;
-            border-top: 1px solid white;
-            border-right: 1px solid white;
-        }
     }
 }
 
@@ -2571,7 +2633,7 @@ body{
 
 @media only screen and (max-width: 376px) and (max-width: 412px) {
     .popup {
-        top: 35%;
+        top: 50%;
     }
 
     .instructions{
@@ -2583,7 +2645,6 @@ body{
 @media only screen and (max-width: 321px) and (max-width: 376px) {
     .popup {
         top: 50%;
-        left: 54%;
         width: 75%;
         padding: 20px;
     }
@@ -3049,6 +3110,15 @@ body{
 }
 
 @media only screen and (max-width: 321px) and (max-width: 376px) {
+    .old .title h1 {
+        font-size: 20px;
+        letter-spacing: 2px;
+    }
+
+    .old .title p{
+        width: 73%;
+    }
+
     .first .game-title{
         font-size: 18px;
     }
@@ -3059,10 +3129,6 @@ body{
 
     .first img, .miles img{
         margin-bottom: 10px;
-    }
-
-    .old .title p{
-        width: 73%;
     }
 
     .box-art .platform{
@@ -3530,6 +3596,10 @@ body{
     width: 48%;
 }
 
+.vision-img-left, .vision-img-right{
+    opacity: 0;
+}
+
 .visions img{
     width: 45%;
     margin: 5px;
@@ -3861,7 +3931,7 @@ body{
     }
 
     .dev{
-        padding: 55px 32px;
+        padding: 55px 34px;
     }
     
     .developers .title{
@@ -3902,7 +3972,7 @@ body{
         object-position: top;
     }
 
-    .p-1{
+    #p-1{
         margin-bottom: 30px;
     }
 
@@ -4003,13 +4073,10 @@ body{
         font-size: 12px;
     }
 
-
     .list{
         width: auto;
         margin: 0px;
-        padding: 0px;
-        padding-left: 15px;
-        padding-bottom: 15px;
+        padding: 0px 0px 12px 12px;
     }
 
     .team .list li{
@@ -4031,7 +4098,7 @@ body{
 
 @media only screen and (max-width: 376px) and (max-width: 412px) {
     .dev{
-        padding: 52px 22px;
+        padding: 52px 32px;
     }
 
     .visions .text p{
@@ -4051,7 +4118,7 @@ body{
     }
 
     .top-txt-img .txt{
-        width: 52%;
+        width: 56%;
     }
 
     .top-txt-img .img{
@@ -4059,7 +4126,7 @@ body{
     }    
 
     .top-txt-img .img img{
-        width: 150px;
+        width: 130px;
         height: 150px;
         object-fit: cover;
     }  
@@ -4133,7 +4200,7 @@ body{
 
 @media only screen and (max-width: 321px) and (max-width: 376px) {
     .dev{
-        padding: 47px 19px;
+        padding: 47px 28px;
     }
 
     .developers .title{
@@ -4162,13 +4229,13 @@ body{
     }
 
     .missions .text p{
-        font-size: 8px;
+        font-size: 7.5px;
         line-height: 13px;
         letter-spacing: 0px;
     }
 
     .top-txt-img .txt{
-        width: 58%;
+        width: 59%;
     }
 
     .top-txt-img .img{
@@ -4176,7 +4243,7 @@ body{
     }    
 
     .top-txt-img .img img{
-        width: 110px;
+        width: 100px;
         height: 140px;
         object-fit: cover;
         border-radius: 2px;
@@ -4268,14 +4335,14 @@ footer .logos{
 }
 
 .logos img{
-    width: 140px;
+    width: 100px;
 }
 
 footer hr{
     border-color: rgba(0, 0, 0, 0.5);
     opacity: 50%;
     width: 88%;
-    margin: 100px auto;
+    margin: 40px auto;
 }
 
 .links-container{
@@ -4287,13 +4354,14 @@ footer hr{
 }
 
 .links-title{
-    font-size: 20px;
+    font-size: 18px;
+    margin-bottom: 5px;
 }
 
 .links ul li{
-    font-size: 18px;
+    font-size: 16px;
     opacity: 60%;
-    line-height: 35px;
+    line-height: 32px;
     transition: 0.5s all;
 }
 
@@ -4310,7 +4378,7 @@ footer hr{
 }
 
 .socials img{
-    width: 60px;
+    width: 50px;
     margin: 0px 50px;
     transition: 0.3s all ease-in-out;
 }
@@ -4322,7 +4390,6 @@ footer hr{
 
 .copyright{
     background-color: #050505;
-
 }
 
 .copyright p{
@@ -4330,7 +4397,8 @@ footer hr{
     font-weight: 400;
     color: white;
     opacity: 75%;
-    padding: 25px 0px;
+    padding: 12px 0px;
+    font-size: 14px;
 }  
 
 /*footer media queries*/
@@ -4363,6 +4431,46 @@ footer hr{
         font-size: 12px;
         padding: 16px 0px;
     }  
+}
+
+@media only screen and (max-width: 769px) and (max-width: 1025px){
+    footer .logos{
+        padding-top: 30px;
+    }
+
+    .logos img{
+        width: 55px;
+    }
+
+    footer hr{
+        margin: 32px auto;
+    }
+    
+    .links-title{
+        font-size: 12px;
+        margin-bottom: 5px;
+    }
+
+    .links ul li{
+        font-size: 9px;
+        line-height: 17px;
+    }
+
+    .socials{
+        margin-bottom: 32px;
+    }
+
+    .socials img{
+        width: 30px;
+        margin: 0px 30px;
+    }
+    
+    .copyright p{
+        font-size: 10px;
+        padding: 13px 0px;
+    }  
+
+
 }
 
 @media only screen and (max-width: 412px) and (max-width: 769px) {

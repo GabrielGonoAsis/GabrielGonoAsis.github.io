@@ -46,14 +46,42 @@ let swiperCards = new Swiper(".friends .card__content", {
     320: {
       slidesPerView: 1.5,
       spaceBetween: 15,
+      nextEl: null,
+      prevEl: null,
     },
     375: {
       slidesPerView: 1.5,
       spaceBetween: 15,
+      nextEl: null,
+      prevEl: null,
     },
     411: {
       slidesPerView: 2,
       spaceBetween: 15,
+      nextEl: null,
+      prevEl: null,
+    },
+    768: {
+      slidesPerView: 2,
+      spaceBetween: 5,
+      nextEl: null,
+      prevEl: null,
+    },
+    1024: {
+      slidesPerView: 2.5,
+      spaceBetween: 5,
+      nextEl: null,
+      prevEl: null,
+    },
+    1440: {
+      slidesPerView: 3,
+      spaceBetween: 5,
+      nextEl: null,
+      prevEl: null,
+    },
+    1441: {
+      slidesPerView: 3.5,
+      spaceBetween: 5,
     },
   },
 });
@@ -86,14 +114,42 @@ let swiperCards2 = new Swiper(".foes .card__content", {
     320: {
       slidesPerView: 1.2,
       spaceBetween: 25,
+      nextEl: null, 
+      prevEl: null,
     },
     375: {
       slidesPerView: 1.35,
       spaceBetween: 25,
+      nextEl: null,
+      prevEl: null,
     },
     411: {
       slidesPerView: 1.5,
       spaceBetween: 20,
+      nextEl: null,
+      prevEl: null,
+    },
+    768: {
+      slidesPerView: 1.7,
+      spaceBetween: 25,
+      nextEl: null,
+      prevEl: null,
+    },
+    1024: {
+      slidesPerView: 2,
+      spaceBetween: 5,
+      nextEl: null,
+      prevEl: null,
+    },
+    1440: {
+      slidesPerView: 2.5,
+      spaceBetween: 5,
+      nextEl: null,
+      prevEl: null,
+    },
+    1441: {
+      slidesPerView: 2.5,
+      spaceBetween: 50,
     },
   },
 });
@@ -234,31 +290,19 @@ gsap.from('.slogan .word:nth-child(3)',
 );
 
 //trailer video animation
-let tl = gsap.timeline({
+gsap.from(".trailer",
+{opacity: 0, 
+  scale: 0.8,
+  duration: 1.5, 
+  ease: "power3.inOut", 
   scrollTrigger: {
     trigger: ".trailer",
-    start: "20% 80%",
-    end: "80% 50px",
-    scrub: 3,
+    start: "10% center",
+    end: "bottom center",
     markers: false,
     toggleActions: "play none none none",
   }
-});
-
-tl.to(".trailer",
-{opacity: 1, 
-  scale: 1,
-  duration: 1, 
-  ease: "power2.inOut", 
-  delay: 0
 })
-.to(".trailer",
-{opacity: 0, 
-  scale: 0.8,
-  duration: 1, 
-  ease: "power2.inOut", 
-  delay: 0
-});
 
 //overview section animation
 gsap.fromTo(".header-overview", //header
@@ -337,7 +381,105 @@ gsap.fromTo(".p-overview2", //paragraph
 
 //horizontal scrolling
 ScrollTrigger.matchMedia({
-  "(min-width: 1025px)": function() {
+  "(min-width: 1441px)": function() {
+    
+    const container = document.querySelector(".scroll_container");
+    const sections = gsap.utils.toArray(".section");
+  
+      let scrollTween = gsap.to(sections, {
+        xPercent: -144* (sections.length - 1),
+        ease: "none",
+        scrollTrigger: {
+          trigger: container,
+          pin: true,
+          scrub: 1,
+          end: "+=3000",
+          markers: false,
+        }
+      });
+      
+    function animateText(textSelector, yValue, xValue, opacityValue, durationValue, easeType, staggerValue, scaleValue) {
+      sections.forEach((section) => {
+        let text = section.querySelectorAll(textSelector);
+        
+        if (text.length === 0) return;
+        
+        gsap.from(text, {
+          y: yValue,
+          x: xValue,
+          opacity: opacityValue,
+          duration: durationValue,
+          ease: easeType,
+          stagger: staggerValue,
+          scale: scaleValue,
+          scrollTrigger: {
+            trigger: section,
+            containerAnimation: scrollTween,
+            start: "left 85%",
+            markers: false,
+          },
+        });
+      });
+    }
+  
+    animateText(".anim", -130, 0, 0, 1, "power3.inOut", 0.1, 1);
+    animateText(".anim2", 130, 0, 0, 1, "power3.inOut", 0.1, 1);
+    animateText(".anim3", 0, -200, 0, 1.2, "power2.inOut", 0), 1;
+    animateText(".anim4", 0, 200, 0, 1.2, "power2.inOut", 0, 1);
+    animateText(".anim5", 0, 0, 0, 1.2, "power2.inOut", 0.3, 0.6);
+    
+  },
+
+  "(max-width: 1441px)": function() {
+    
+    const container = document.querySelector(".scroll_container");
+    const sections = gsap.utils.toArray(".section");
+  
+      let scrollTween = gsap.to(sections, {
+        xPercent: -136 * (sections.length - 1),
+        ease: "none",
+        scrollTrigger: {
+          trigger: container,
+          pin: true,
+          scrub: 1,
+          end: "+=3000",
+          markers: false,
+        }
+      });
+      
+    function animateText(textSelector, yValue, xValue, opacityValue, durationValue, easeType, staggerValue, scaleValue) {
+      sections.forEach((section) => {
+        let text = section.querySelectorAll(textSelector);
+        
+        if (text.length === 0) return;
+        
+        gsap.from(text, {
+          y: yValue,
+          x: xValue,
+          opacity: opacityValue,
+          duration: durationValue,
+          ease: easeType,
+          stagger: staggerValue,
+          scale: scaleValue,
+          scrollTrigger: {
+            trigger: section,
+            containerAnimation: scrollTween,
+            start: "left 85%",
+            markers: false,
+          },
+        });
+      });
+    }
+  
+    animateText(".anim", -130, 0, 0, 1, "power3.inOut", 0.1, 1);
+    animateText(".anim2", 130, 0, 0, 1, "power3.inOut", 0.1, 1);
+    animateText(".anim3", 0, -200, 0, 1.2, "power2.inOut", 0), 1;
+    animateText(".anim4", 0, 200, 0, 1.2, "power2.inOut", 0, 1);
+    animateText(".anim5", 0, 0, 0, 1.2, "power2.inOut", 0.3, 0.6);
+    
+  },
+
+  "(max-width: 1025px)": function() {
     
   const container = document.querySelector(".scroll_container");
   const sections = gsap.utils.toArray(".section");
@@ -433,7 +575,631 @@ ScrollTrigger.matchMedia({
     animateText(".anim4", 0, 200, 0, 1.2, "power2.inOut", 0, 1);
     animateText(".anim5", 0, 0, 0, 1.2, "power2.inOut", 0.3, 0.6);
     
-    }
+  },
+
+  "(min-width: 769px)": function() {
+    gsap.fromTo(".standard-container", //standard edition game
+    {opacity: 0, 
+    xPercent: -15,
+    },
+    { scrollTrigger: {
+    trigger: ".standard-container",
+    start: "10% center",
+    end: "bottom center",
+    markers: false,
+    toggleActions: "play none none none",
+    },
+    opacity: 1, 
+    xPercent: 0,
+    duration: 1.5, 
+    ease: "power3.inOut", 
+    delay: 0}
+    );
+
+    gsap.fromTo(".deluxe-container", //deluxe edition game
+    {opacity: 0, 
+    xPercent: 15,
+    },
+    { scrollTrigger: {
+    trigger: ".deluxe-container",
+    start: "10% center",
+    end: "bottom center",
+    markers: false,
+    toggleActions: "play none none none",
+    },
+    opacity: 1, 
+    xPercent: 0,
+    duration: 1.5, 
+    ease: "power3.inOut", 
+    delay: 0}
+    );  
+  },
+
+  "(max-width: 769px)": function() {
+    gsap.fromTo(".standard-container", //standard edition game
+    {opacity: 0, 
+    xPercent: -40,
+    },
+    { scrollTrigger: {
+    trigger: ".standard-container",
+    start: "10% center",
+    end: "bottom center",
+    markers: false,
+    toggleActions: "play none none none",
+    },
+    opacity: 1, 
+    xPercent: 0,
+    duration: 1.5, 
+    ease: "power3.inOut", 
+    delay: 0}
+    );
+
+    gsap.fromTo(".deluxe-container", //deluxe edition game
+    {opacity: 0, 
+    xPercent: -40,
+    },
+    { scrollTrigger: {
+    trigger: ".deluxe-container",
+    start: "10% center",
+    end: "bottom center",
+    markers: false,
+    toggleActions: "play none none none",
+    },
+    opacity: 1, 
+    xPercent: 0,
+    duration: 1.5, 
+    ease: "power3.inOut", 
+    delay: 0}
+    );  
+  },
+
+  "(min-width: 412px)": function() {
+    gsap.fromTo(".old-container", //spider-man 1
+    {opacity: 0, 
+      xPercent: -9,
+    },
+    { scrollTrigger: {
+      trigger: ".games-old",
+      start: "10% center",
+      end: "bottom center",
+      markers: false,
+      toggleActions: "play none none none",
+    },
+      opacity: 1, 
+      xPercent: 0,
+      duration: 1.5, 
+      ease: "power3.inOut", 
+      delay: 0}
+    );
+
+    gsap.fromTo(".miles-container", //spider-man miles morales
+    {opacity: 0, 
+      xPercent: 9,
+    },
+    { scrollTrigger: {
+      trigger: ".games-old",
+      start: "10% center",
+      end: "bottom center",
+      markers: false,
+      toggleActions: "play none none none",
+    },
+      opacity: 1, 
+      xPercent: 0,
+      duration: 1.5, 
+      ease: "power3.inOut", 
+      delay: 0}
+    );
+    
+    //about us    
+    gsap.fromTo(".about-img-left", 
+    {opacity: 0, 
+      xPercent: -10,
+    },
+    { scrollTrigger: {
+      trigger: ".about",
+      start: "top center",
+      end: "bottom center",
+      markers: false,
+      toggleActions: "play none none none",
+    },
+      opacity: 1, 
+      xPercent: 0,
+      duration: 1.5, 
+      ease: "power3.inOut", 
+      delay: 1.8}
+    );
+
+    gsap.fromTo(".about-img-right", 
+    {opacity: 0, 
+      xPercent: 10,
+    },
+    { scrollTrigger: {
+      trigger: ".about",
+      start: "top center",
+      end: "bottom center",
+      markers: false,
+      toggleActions: "play none none none",
+    },
+      opacity: 1, 
+      xPercent: 0,
+      duration: 1.5, 
+      ease: "power3.inOut", 
+      delay: 1.8}
+    );
+
+    gsap.fromTo(".about-desc", 
+    {opacity: 0, 
+    },
+    { scrollTrigger: {
+      trigger: ".about",
+      start: "top center",
+      end: "bottom center",
+      markers: false,
+      toggleActions: "play none none none",
+    },
+      opacity: 1, 
+      duration: 1.5, 
+      ease: "power3.inOut", 
+      delay: 2}
+    );
+
+    //our vision
+    gsap.fromTo(".vision-title", 
+    {opacity: 0, 
+      xPercent: 10,
+    },
+    { scrollTrigger: {
+      trigger: ".visions",
+      start: "10% center",
+      end: "bottom center",
+      markers: false,
+      toggleActions: "play none none none",
+    },
+      opacity: 1, 
+      xPercent: 0,
+      duration: 1, 
+      ease: "power3.inOut", 
+      delay: 0}
+    );
+
+    gsap.fromTo(".vision-hr", 
+    {opacity: 0, 
+      xPercent: 10,
+    },
+    { scrollTrigger: {
+      trigger: ".visions",
+      start: "10% center",
+      end: "bottom center",
+      markers: false,
+      toggleActions: "play none none none",
+    },
+      opacity: 1, 
+      xPercent: 0,
+      duration: 1, 
+      ease: "power3.inOut", 
+      delay: 0.3}
+    );
+
+    gsap.fromTo(".vision-subhead", 
+    {opacity: 0, 
+      xPercent: 10,
+    },
+    { scrollTrigger: {
+      trigger: ".visions",
+      start: "10% center",
+      end: "bottom center",
+      markers: false,
+      toggleActions: "play none none none",
+    },
+      opacity: 1, 
+      xPercent: 0,
+      duration: 1, 
+      ease: "power3.inOut", 
+      delay: 0.5}
+    );
+
+    gsap.fromTo(".vision-desc", 
+    {opacity: 0, 
+      xPercent: 10,
+    },
+    { scrollTrigger: {
+      trigger: ".visions",
+      start: "10% center",
+      end: "bottom center",
+      markers: false,
+      toggleActions: "play none none none",
+    },
+      opacity: 1, 
+      xPercent: 0,
+      duration: 1, 
+      ease: "power3.inOut", 
+      delay: 0.7}
+    );
+
+    let vision_img = gsap.timeline({
+      scrollTrigger: {
+        trigger: ".visions",
+        start: "10% center",
+        end: "bottom center",
+        markers: false,
+        toggleActions: "play none none none",
+      }
+    });
+
+    vision_img.to(".vision-img-anim",
+    {opacity: 0, 
+      xPercent: -100,
+    });
+
+    vision_img.to(".vision-img-anim",
+    {opacity: 1, 
+      xPercent: 0,
+      stagger: 0.2,
+      duration: 1,
+    });
+  },
+
+  "(max-width: 412px)": function() {
+    gsap.fromTo(".old-container", //spider-man 1
+    {opacity: 0, 
+      xPercent: 12,
+    },
+    { scrollTrigger: {
+      trigger: ".old-container",
+      start: "10% center",
+      end: "bottom center",
+      markers: false,
+      toggleActions: "play none none none",
+    },
+      opacity: 1, 
+      xPercent: 0,
+      duration: 1.5, 
+      ease: "power3.inOut", 
+      delay: 0}
+    );
+
+    gsap.fromTo(".miles-container", //spider-man miles morales
+    {opacity: 0, 
+      xPercent: 12,
+    },
+    { scrollTrigger: {
+      trigger: ".miles-container",
+      start: "10% center",
+      end: "bottom center",
+      markers: false,
+      toggleActions: "play none none none",
+    },
+      opacity: 1, 
+      xPercent: 0,
+      duration: 1.5, 
+      ease: "power3.inOut", 
+      delay: 0}
+    );
+
+    //about us
+    gsap.fromTo(".about-txt-left", 
+    {opacity: 0, 
+      xPercent: -5,
+    },
+    { scrollTrigger: {
+      trigger: ".about",
+      start: "top center",
+      end: "bottom center",
+      markers: false,
+      toggleActions: "play none none none",
+    },
+      opacity: 1, 
+      xPercent: 0,
+      duration: 1.5, 
+      stagger: 0.3,
+      ease: "power3.inOut", 
+      delay: 2.5}
+    );
+
+    gsap.fromTo(".about-txt-right", 
+    {opacity: 0, 
+      xPercent: 5,
+    },
+    { scrollTrigger: {
+      trigger: ".about",
+      start: "top center",
+      end: "bottom center",
+      markers: false,
+      toggleActions: "play none none none",
+    },
+      opacity: 1, 
+      xPercent: 0,
+      duration: 1.5, 
+      stagger: 0.3,
+      ease: "power3.inOut", 
+      delay: 2.5}
+      );
+
+    gsap.fromTo(".about-img-left", 
+    {opacity: 0, 
+      xPercent: -5,
+    },
+    { scrollTrigger: {
+      trigger: ".about",
+      start: "top center",
+      end: "bottom center",
+      markers: false,
+      toggleActions: "play none none none",
+    },
+      opacity: 1, 
+      xPercent: 0,
+      duration: 1.5, 
+      stagger: 0.3,
+      ease: "power3.inOut", 
+      delay: 1.8}
+    );
+
+    gsap.fromTo(".about-img-right", 
+    {opacity: 0, 
+      xPercent: 5,
+    },
+    { scrollTrigger: {
+      trigger: ".about",
+      start: "top center",
+      end: "bottom center",
+      markers: false,
+      toggleActions: "play none none none",
+    },
+      opacity: 1, 
+      xPercent: 0,
+      duration: 1.5, 
+      stagger: 0.3,
+      ease: "power3.inOut", 
+      delay: 1.8}
+    );
+
+    //our vision
+    gsap.fromTo(".vision-title", 
+    {opacity: 0, 
+    },
+    { scrollTrigger: {
+      trigger: ".visions",
+      start: "10% center",
+      end: "bottom center",
+      markers: false,
+      toggleActions: "play none none none",
+    },
+      opacity: 1, 
+      duration: 1, 
+      ease: "power3.inOut", 
+      delay: 0}
+    );
+
+    gsap.fromTo(".vision-hr", 
+    {opacity: 0, 
+    },
+    { scrollTrigger: {
+      trigger: ".visions",
+      start: "10% center",
+      end: "bottom center",
+      markers: false,
+      toggleActions: "play none none none",
+    },
+      opacity: 1, 
+      duration: 1, 
+      ease: "power3.inOut", 
+      delay: 0.3}
+    );
+
+    gsap.fromTo(".vision-subhead", 
+    {opacity: 0, 
+    },
+    { scrollTrigger: {
+      trigger: ".visions",
+      start: "10% center",
+      end: "bottom center",
+      markers: false,
+      toggleActions: "play none none none",
+    },
+      opacity: 1, 
+      duration: 1, 
+      ease: "power3.inOut", 
+      delay: 0.5}
+    );
+
+    gsap.fromTo(".vision-desc", 
+    {opacity: 0, 
+    },
+    { scrollTrigger: {
+      trigger: ".visions",
+      start: "10% center",
+      end: "bottom center",
+      markers: false,
+      toggleActions: "play none none none",
+    },
+      opacity: 1, 
+      duration: 1, 
+      ease: "power3.inOut", 
+      delay: 0.7}
+    );
+
+    gsap.fromTo(".vision-img-left",
+    {opacity: 0, 
+      xPercent: -15,
+    },
+    {scrollTrigger: {
+      trigger: ".visions",
+      start: "10% center",
+      end: "bottom center",
+      markers: false,
+      toggleActions: "play none none none",
+    },
+      opacity: 1, 
+      xPercent: 0,
+      stagger: 0.4,
+      duration: 1.3,
+    });
+
+    gsap.fromTo(".vision-img-right",
+    {opacity: 0, 
+      xPercent: 15,
+    },
+    {scrollTrigger: {
+      trigger: ".visions",
+      start: "10% center",
+      end: "bottom center",
+      markers: false,
+      toggleActions: "play none none none",
+    },
+    opacity: 1, 
+      xPercent: 0,
+      stagger: 0.4,
+      duration: 1.3,
+    });
+    
+  },
+
+  "(min-width: 376px)": function() {
+    //map animation
+    gsap.to(".map-container .desc", //map image
+    {opacity: "40%", 
+    duration: 1,
+    delay: 1.4,
+    ease: "power2.inOut", 
+    scrollTrigger: {
+    trigger: ".map-container",
+    start: "20% center",
+    end: "bottom center",
+    markers: false,
+    toggleActions: "play none none none",
+    },
+    });
+
+    let map_anim = gsap.timeline({
+    scrollTrigger: {
+    trigger: ".map-container",
+    start: "20% center",
+    end: "bottom center",
+    markers: false,
+    toggleActions: "play none none none",
+    },
+    });
+
+    map_anim.to(".map-img", //map image
+    {opacity: 1, 
+    duration: 2,
+    ease: "power2.inOut", 
+    });
+
+    //map pin animations
+    map_anim.to("#pin-right",
+    {opacity: 0, 
+    xPercent: 200,
+    });
+
+    map_anim.to("#pin-left",
+    {opacity: 0, 
+    xPercent: -200,
+    });
+
+    map_anim.to("#pin-right",
+    {opacity: 1, 
+    xPercent: 0,
+    duration: 1.5,
+    stagger: 0.1,
+    ease: "power4.inOut", 
+    });
+
+    map_anim.to("#pin-left",
+    {opacity: 1, 
+    xPercent: 0,
+    duration: 1.5,
+    stagger: 0.2,
+    ease: "power4.inOut", 
+    });
+
+    //side text animation
+    map_anim.to(".side-title",
+    {opacity: 0, 
+    y: -200,
+    ease: "power4.inOut", 
+    });
+
+    map_anim.to(".side-title",
+    {opacity: 1, 
+    y: 0,
+    duration: 1.5,
+    ease: "power4.inOut", 
+    });
+  },
+
+  "(max-width: 376px)": function() {
+    gsap.to(".map-container .desc", //map image
+    {opacity: "40%", 
+    duration: 1,
+    delay: 1.4,
+    ease: "power2.inOut", 
+    scrollTrigger: {
+    trigger: ".map-container",
+    start: "20% center",
+    end: "bottom center",
+    markers: false,
+    toggleActions: "play none none none",
+    },
+    });
+
+    let map_anim = gsap.timeline({
+    scrollTrigger: {
+    trigger: ".map-container",
+    start: "20% center",
+    end: "bottom center",
+    markers: false,
+    toggleActions: "play none none none",
+    },
+    });
+
+    map_anim.to(".map-img", //map image
+    {opacity: 1, 
+    duration: 2,
+    ease: "power2.inOut", 
+    });
+
+    //map pin animations
+    map_anim.to("#pin-right",
+    {opacity: 0, 
+    xPercent: -200,
+    });
+
+    map_anim.to("#pin-left",
+    {opacity: 0, 
+    xPercent: -200,
+    });
+
+    map_anim.to("#pin-right",
+    {opacity: 1, 
+    xPercent: 0,
+    duration: 1.5,
+    stagger: 0.1,
+    ease: "power4.inOut", 
+    });
+
+    map_anim.to("#pin-left",
+    {opacity: 1, 
+    xPercent: 0,
+    duration: 1.5,
+    stagger: 0.2,
+    ease: "power4.inOut", 
+    });
+
+    //side text animation
+    map_anim.to(".top-title",
+    {opacity: 0, 
+    y: -50,
+    ease: "power4.inOut", 
+    });
+
+    map_anim.to(".top-title",
+    {opacity: 1, 
+    y: 0,
+    duration: 1.5,
+    ease: "power4.inOut", 
+    });
+  },
 });
 
 window.addEventListener('load', videoScroll);
@@ -750,154 +1516,6 @@ gsap.to("#foes-pag", //pagination animation
   },
 });
 
-//map animation
-gsap.to(".map-container .desc", //map image
-{opacity: "40%", 
-  duration: 1,
-  delay: 1.4,
-  ease: "power2.inOut", 
-  scrollTrigger: {
-    trigger: ".map-container",
-    start: "20% center",
-    end: "bottom center",
-    markers: false,
-    toggleActions: "play none none none",
-  },
-});
-
-let map_anim = gsap.timeline({
-  scrollTrigger: {
-    trigger: ".map-container",
-    start: "20% center",
-    end: "bottom center",
-    markers: false,
-    toggleActions: "play none none none",
-  },
-});
-
-map_anim.to(".map-img", //map image
-{opacity: 1, 
-  duration: 2,
-  ease: "power2.inOut", 
-});
-
-//map pin animations
-map_anim.to("#pin-right",
-{opacity: 0, 
-  xPercent: 200,
-});
-
-map_anim.to("#pin-left",
-{opacity: 0, 
-  xPercent: -200,
-});
-
-map_anim.to("#pin-right",
-{opacity: 1, 
-  xPercent: 0,
-  duration: 1.5,
-  stagger: 0.1,
-  ease: "power4.inOut", 
-});
-
-map_anim.to("#pin-left",
-{opacity: 1, 
-  xPercent: 0,
-  duration: 1.5,
-  stagger: 0.2,
-  ease: "power4.inOut", 
-});
-
-//side text animation
-map_anim.to(".side-title",
-{opacity: 0, 
-  y: -200,
-  ease: "power4.inOut", 
-});
-
-map_anim.to(".side-title",
-{opacity: 1, 
-  y: 0,
-  duration: 1.5,
-  ease: "power4.inOut", 
-});
-
-//purchase section animations 
-
-//spider-man 2
-gsap.fromTo(".standard-container", //standard edition game
-{opacity: 0, 
-  xPercent: -15,
-},
-{ scrollTrigger: {
-  trigger: ".standard-container",
-  start: "10% center",
-  end: "bottom center",
-  markers: false,
-  toggleActions: "play none none none",
-},
-  opacity: 1, 
-  xPercent: 0,
-  duration: 1.5, 
-  ease: "power3.inOut", 
-  delay: 0}
-);
-
-gsap.fromTo(".deluxe-container", //deluxe edition game
-{opacity: 0, 
-  xPercent: 15,
-},
-{ scrollTrigger: {
-  trigger: ".deluxe-container",
-  start: "10% center",
-  end: "bottom center",
-  markers: false,
-  toggleActions: "play none none none",
-},
-  opacity: 1, 
-  xPercent: 0,
-  duration: 1.5, 
-  ease: "power3.inOut", 
-  delay: 0}
-);
-
-//previous titlesmiles
-gsap.fromTo(".old-container", //spider-man 1
-{opacity: 0, 
-  xPercent: -9,
-},
-{ scrollTrigger: {
-  trigger: ".games-old",
-  start: "10% center",
-  end: "bottom center",
-  markers: false,
-  toggleActions: "play none none none",
-},
-  opacity: 1, 
-  xPercent: 0,
-  duration: 1.5, 
-  ease: "power3.inOut", 
-  delay: 0}
-);
-
-gsap.fromTo(".miles-container", //spider-man miles morales
-{opacity: 0, 
-  xPercent: 9,
-},
-{ scrollTrigger: {
-  trigger: ".games-old",
-  start: "10% center",
-  end: "bottom center",
-  markers: false,
-  toggleActions: "play none none none",
-},
-  opacity: 1, 
-  xPercent: 0,
-  duration: 1.5, 
-  ease: "power3.inOut", 
-  delay: 0}
-);
-
 //gallery animations
 let gallery_anim = gsap.timeline({
   scrollTrigger: {
@@ -926,7 +1544,7 @@ gallery_anim.to(".img-container",
 
 //developers animations
 
-//about us
+//about animations
 gsap.fromTo(".about-title", 
 {opacity: 0, 
   xPercent: -100,
@@ -984,153 +1602,6 @@ gsap.fromTo(".inso-logo",
   ease: "power3.inOut", 
   delay: 0.8}
 );
-
-gsap.fromTo(".about-img-left", 
-{opacity: 0, 
-  xPercent: -10,
-},
-{ scrollTrigger: {
-  trigger: ".about",
-  start: "top center",
-  end: "bottom center",
-  markers: false,
-  toggleActions: "play none none none",
-},
-  opacity: 1, 
-  xPercent: 0,
-  duration: 1.5, 
-  ease: "power3.inOut", 
-  delay: 1.8}
-);
-
-gsap.fromTo(".about-img-right", 
-{opacity: 0, 
-  xPercent: 10,
-},
-{ scrollTrigger: {
-  trigger: ".about",
-  start: "top center",
-  end: "bottom center",
-  markers: false,
-  toggleActions: "play none none none",
-},
-  opacity: 1, 
-  xPercent: 0,
-  duration: 1.5, 
-  ease: "power3.inOut", 
-  delay: 1.8}
-);
-
-gsap.fromTo(".about-desc", 
-{opacity: 0, 
-},
-{ scrollTrigger: {
-  trigger: ".about",
-  start: "top center",
-  end: "bottom center",
-  markers: false,
-  toggleActions: "play none none none",
-},
-  opacity: 1, 
-  duration: 1.5, 
-  ease: "power3.inOut", 
-  delay: 2}
-);
-
-//our vision
-gsap.fromTo(".vision-title", 
-{opacity: 0, 
-  xPercent: 10,
-},
-{ scrollTrigger: {
-  trigger: ".visions",
-  start: "10% center",
-  end: "bottom center",
-  markers: false,
-  toggleActions: "play none none none",
-},
-  opacity: 1, 
-  xPercent: 0,
-  duration: 1, 
-  ease: "power3.inOut", 
-  delay: 0}
-);
-
-gsap.fromTo(".vision-hr", 
-{opacity: 0, 
-  xPercent: 10,
-},
-{ scrollTrigger: {
-  trigger: ".visions",
-  start: "10% center",
-  end: "bottom center",
-  markers: false,
-  toggleActions: "play none none none",
-},
-  opacity: 1, 
-  xPercent: 0,
-  duration: 1, 
-  ease: "power3.inOut", 
-  delay: 0.3}
-);
-
-gsap.fromTo(".vision-subhead", 
-{opacity: 0, 
-  xPercent: 10,
-},
-{ scrollTrigger: {
-  trigger: ".visions",
-  start: "10% center",
-  end: "bottom center",
-  markers: false,
-  toggleActions: "play none none none",
-},
-  opacity: 1, 
-  xPercent: 0,
-  duration: 1, 
-  ease: "power3.inOut", 
-  delay: 0.5}
-);
-
-gsap.fromTo(".vision-desc", 
-{opacity: 0, 
-  xPercent: 10,
-},
-{ scrollTrigger: {
-  trigger: ".visions",
-  start: "10% center",
-  end: "bottom center",
-  markers: false,
-  toggleActions: "play none none none",
-},
-  opacity: 1, 
-  xPercent: 0,
-  duration: 1, 
-  ease: "power3.inOut", 
-  delay: 0.7}
-);
-
-let vision_img = gsap.timeline({
-  scrollTrigger: {
-    trigger: ".visions",
-    start: "10% center",
-    end: "bottom center",
-    markers: false,
-    toggleActions: "play none none none",
-  }
-});
-
-vision_img.to(".vision-img-anim",
-{opacity: 0, 
-  xPercent: -100,
-});
-
-vision_img.to(".vision-img-anim",
-{opacity: 1, 
-  xPercent: 0,
-  stagger: 0.2,
-  duration: 1,
-});
 
 //mission animations
 gsap.fromTo(".mission-title", 
@@ -1246,7 +1717,7 @@ gsap.from('.team-subhead',
 
 gsap.from('.direc-content-right',
 {opacity: 0, 
-  xPercent: 10,
+  yPercent: 50,
   duration: 2,
   stagger: 0.5,
   scrollTrigger: {
@@ -1260,7 +1731,7 @@ gsap.from('.direc-content-right',
 
 gsap.from('.direc-content-left',
 {opacity: 0, 
-  xPercent: -10,
+  yPercent: 50,
   duration: 2,
   stagger: 0.5,
   scrollTrigger: {
@@ -1270,24 +1741,6 @@ gsap.from('.direc-content-left',
   markers: false,
   toggleActions: "play none none none",
 }}
-);
-
-gsap.fromTo(".direc-hr", 
-{opacity: 0, 
-  y: -250,
-},
-{ scrollTrigger: {
-  trigger: ".directors-img",
-  start: "5% center",
-  end: "bottom center",
-  markers: false,
-  toggleActions: "play none none none",
-},
-  opacity: "50%", 
-  y: 0,
-  duration: 2, 
-  ease: "power3.inOut", 
-  delay: 0}
 );
 
 gsap.from('.list-left',
