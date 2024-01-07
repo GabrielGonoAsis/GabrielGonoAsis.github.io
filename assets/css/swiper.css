@@ -406,7 +406,7 @@
   }
 
   .card__data .card__description{
-    font-size: 0.75rem;
+    font-size: 0.7rem;
   }
 
   .foes .card__data {
@@ -484,7 +484,8 @@
   }
 
   .card__data .card__description{
-    font-size: 0.65rem;
+    font-size: 0.7rem;
+    line-height: 12px;
   }
 
   .foes .card__data {
@@ -541,6 +542,7 @@
 
   .foes .card__data .card__description{
     font-size: 0.8rem;
+    line-height: normal;
   }
 
   #friend-nav, #foes-nav{
